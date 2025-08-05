@@ -4,8 +4,8 @@ Game created for **GMTK Game Jam 2025**, where the theme was "loop." Built using
 
 ## Game Info
 
-![](EXTERNAL_RESOURCES\Images\rules.png "Rules")
-![](EXTERNAL_RESOURCES\Images\controls.png "Controls")
+![](EXTERNAL_RESOURCES/Images/rules.png "Rules")
+![](EXTERNAL_RESOURCES/Images/controls.png "Controls")
 
 ## Credits and Special Thanks
 
