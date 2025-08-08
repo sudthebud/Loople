@@ -1,6 +1,6 @@
 # Loople
 
-Game created for **GMTK Game Jam 2025**, where the theme was "loop." Built using Unity3D, and developed in *under 12 hours*.
+Game created for **GMTK Game Jam 2025**, where the theme was "loop." Built using Unity3D, and developed in **under 12 hours**. Ranked **#275 in Creativity** out of 9,655 entries.
 
 ## Game Info
 
