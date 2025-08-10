@@ -1,0 +1,70 @@
+/* Letter container */
+.letter {
+    display: table;
+    position: absolute;
+    width: 7vh;
+    height: 7vh;
+    filter: drop-shadow(-7px 2px 0px rgb(150, 150, 150));
+
+    scale: 1;
+}
+
+
+/* Letter border if end letter */
+.endLetterBorder {
+    position: absolute;
+    filter: contrast(0%) brightness(50%);
+    width: 7vh;
+    scale: 1.4;
+}
+
+
+/* Letter circle types */
+.circle {
+    position: absolute;
+    width: 7vh;
+    height: 7vh;
+}
+
+.circle.unsubmitted {
+    filter: contrast(0) brightness(200%);
+}
+
+.circle.submitted.noExist {
+    filter: contrast(0) brightness(120%);
+}
+
+.circle.submitted.inLoop {
+    filter: contrast(0) sepia(100%) hue-rotate(190deg) saturate(100000%) brightness(80%);
+}
+
+.circle.submitted.inWord {
+    filter: contrast(0) sepia(100%) hue-rotate(377deg) saturate(4000%) brightness(100%);
+}
+
+.circle.submitted.correct {
+    filter: contrast(0) sepia(100%) hue-rotate(90deg) saturate(100000%) brightness(85%);
+}
+
+.circle.submitted.incorrect {
+    filter: contrast(0) sepia(100%) hue-rotate(1deg) saturate(100000%) brightness(90%);
+}
+
+
+/* Letter text */
+.letterText {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    font-weight: bold;
+    text-align: center;
+    font-size: 2em;
+}
+
+.letterText.unsubmitted {
+    color: black;
+}
+
+.letterText.submitted {
+    color: white;
+}
