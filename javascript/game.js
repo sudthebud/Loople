@@ -7,8 +7,13 @@
 // context.fillStyle = "#ececec"
 // context.fillRect(0, 0, canvas.width, canvas.height)
 
-test = document.getElementById("test")
-test.textContent = "hi"
+// test = document.getElementById("test")
+// test.textContent = "hi"
 
-WordSetup.GetWordDatabase()
-WordSetup.GetWordLoop()
+WordSetup.GenerateWordDatabase()
+WordSetup.GenerateWordLoop()
+
+loopElem = document.createElement("div")
+document.body.appendChild(loopElem)
+loopElem.classList.add("loop")
+let loop = new Loop(loopElem)

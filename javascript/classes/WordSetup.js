@@ -18,12 +18,11 @@ class WordSetup {
         request.open("GET", `..\\..\\${assetPath}\\${datasetPath}\\${fileName}.json`, false)
         request.send(null)
         var jsonResult = JSON.parse(request.responseText)
-        console.log(jsonResult)
         return jsonResult
     }
 
     //Function to obtain word database objects
-    static GetWordDatabase() {
+    static GenerateWordDatabase() {
         this.#wordDictThreeLetter = this.#ReadFile("threeLetter")
         this.#wordDictFourLetter = this.#ReadFile("fourLetter")
         this.#wordDictFiveLetter = this.#ReadFile("fiveLetter")
@@ -34,7 +33,7 @@ class WordSetup {
     }
 
     //Function with algorithm to create word loop array
-    static GetWordLoop() {
+    static GenerateWordLoop() {
         var numWords = maxNumWords
 
         this.wordLoop = []
