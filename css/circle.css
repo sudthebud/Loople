@@ -58,7 +58,7 @@
 }
 
 .circle.submitted.noExist {
-    filter: contrast(0) brightness(120%);
+    filter: contrast(0) brightness(145%);
 }
 
 .circle.submitted.inLoop {
@@ -104,12 +104,12 @@
 }
 
 .letter.flip-out {
-    animation: 0.25s ease-out 0s flip-out;
+    animation: 0.15s ease-out 0s flip-out;
     animation-iteration-count: 1;
 }
 
 .letter.flip-in-out {
-    animation: 0.25s ease-in 0s flip-in, 0.25s ease-out 0.25s flip-out;
+    animation: 0.1s ease-in 0s flip-out, 0.1s ease-out 0.1s flip-in;
     animation-iteration-count: 1;
 }
 

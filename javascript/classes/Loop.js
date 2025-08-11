@@ -1,5 +1,8 @@
 class Letter {
 
+    word
+    wordPosition
+
     element
     #position
     #MouseEventFunction
@@ -23,6 +26,7 @@ class Letter {
         this.word = word
         this.wordPosition = wordPosition
         this.#position = position
+
         let instance = this
         this.#MouseEventFunction = function MouseEventFunction(event) {
             if (event.repeat) return;
@@ -31,7 +35,7 @@ class Letter {
         }
 
         this.#CreateElement(loop.element)
-        this.SetState(Letter.States.UNSUBMITTED)
+        this.SetState(Letter.States.UNSUBMITTED, false)
         this.AddMouseListener()
     }
     
@@ -72,7 +76,7 @@ class Letter {
     }
 
     GetText() {
-        return this.#text
+        return this.#text.toLowerCase()
     }
 
     HasText() {
@@ -83,8 +87,15 @@ class Letter {
         text = text.toUpperCase()
 
         this.#text = text
-        this.element.getElementsByClassName("letterText")[0].textContent = text
         this.SetState(Letter.States.UNSUBMITTED)
+
+        this.element.classList.toggle("flip-in-out", true)
+        setTimeout(() => {
+            this.element.getElementsByClassName("letterText")[0].textContent = text;
+        }, circle_AnimTime_FlipInOut / 2)
+        setTimeout(() => {
+            this.element.classList.toggle("flip-in-out", false);
+        }, circle_AnimTime_FlipInOut)
     }
 
     SetPosition(position) {
@@ -98,48 +109,61 @@ class Letter {
         return this.#state
     }
 
-    SetState(state) {
+    SetState(state, anim = true) {
         this.#state = state
 
 
-        this.element.getElementsByClassName("letterText")[0].classList.toggle("unsubmitted", false)
-        this.element.getElementsByClassName("letterText")[0].classList.toggle("submitted", false)
+        if (anim) { this.element.classList.toggle("flip-in-out", true) }
+        setTimeout(() => {
+            this.element.getElementsByClassName("letterText")[0].classList.toggle("unsubmitted", false);
+            this.element.getElementsByClassName("letterText")[0].classList.toggle("submitted", false);
 
-        if (state == Letter.States.UNSUBMITTED) {
-            this.element.getElementsByClassName("letterText")[0].classList.add("unsubmitted")
-        }
-        else {
-            this.element.getElementsByClassName("letterText")[0].classList.add("submitted")
-        }
+            if (state == Letter.States.UNSUBMITTED) {
+                this.element.getElementsByClassName("letterText")[0].classList.toggle("unsubmitted", true);
+            }
+            else {
+                this.element.getElementsByClassName("letterText")[0].classList.toggle("submitted", true);
+            }
 
 
-        this.element.getElementsByClassName("circle")[0].classList.toggle("unsubmitted", false)
-        this.element.getElementsByClassName("circle")[0].classList.toggle("submitted", false)
-        this.element.getElementsByClassName("circle")[0].classList.toggle("noExist", false)
-        this.element.getElementsByClassName("circle")[0].classList.toggle("inLoop", false)
-        this.element.getElementsByClassName("circle")[0].classList.toggle("inWord", false)
-        this.element.getElementsByClassName("circle")[0].classList.toggle("incorrect", false)
-        this.element.getElementsByClassName("circle")[0].classList.toggle("correct", false)
+            this.element.getElementsByClassName("circle")[0].classList.toggle("unsubmitted", false);
+            this.element.getElementsByClassName("circle")[0].classList.toggle("submitted", false);
+            this.element.getElementsByClassName("circle")[0].classList.toggle("noExist", false);
+            this.element.getElementsByClassName("circle")[0].classList.toggle("inLoop", false);
+            this.element.getElementsByClassName("circle")[0].classList.toggle("inWord", false);
+            this.element.getElementsByClassName("circle")[0].classList.toggle("incorrect", false);
+            this.element.getElementsByClassName("circle")[0].classList.toggle("correct", false);
 
-        switch (state) {
-            case Letter.States.UNSUBMITTED:
-                this.element.getElementsByClassName("circle")[0].classList.add("unsubmitted")
-                break;
-            case Letter.States.SUBMITTED_NO_EXIST:
-                this.element.getElementsByClassName("circle")[0].classList.add("submitted", "noExist")
-                break;
-            case Letter.States.SUBMITTED_IN_LOOP:
-                this.element.getElementsByClassName("circle")[0].classList.add("submitted", "inLoop")
-                break;
-            case Letter.States.SUBMITTED_IN_WORD:
-                this.element.getElementsByClassName("circle")[0].classList.add("submitted", "inWord")
-                break;
-            case Letter.States.SUBMITTED_INCORRECT:
-                this.element.getElementsByClassName("circle")[0].classList.add("submitted", "incorrect")
-                break;
-            case Letter.States.SUBMITTED_CORRECT:
-                this.element.getElementsByClassName("circle")[0].classList.add("submitted", "correct")
-                break;
+            switch (state) {
+                case Letter.States.UNSUBMITTED:
+                    this.element.getElementsByClassName("circle")[0].classList.toggle("unsubmitted", true);
+                    break;
+                case Letter.States.SUBMITTED_NO_EXIST:
+                    this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
+                    this.element.getElementsByClassName("circle")[0].classList.add("noExist", true);
+                    break;
+                case Letter.States.SUBMITTED_IN_LOOP:
+                    this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
+                    this.element.getElementsByClassName("circle")[0].classList.add("inLoop", true);
+                    break;
+                case Letter.States.SUBMITTED_IN_WORD:
+                    this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
+                    this.element.getElementsByClassName("circle")[0].classList.add("inWord", true);
+                    break;
+                case Letter.States.SUBMITTED_INCORRECT:
+                    this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
+                    this.element.getElementsByClassName("circle")[0].classList.add("incorrect", true);
+                    break;
+                case Letter.States.SUBMITTED_CORRECT:
+                    this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
+                    this.element.getElementsByClassName("circle")[0].classList.add("correct", true);
+                    break;
+            }
+        }, anim ? (circle_AnimTime_FlipInOut / 2) : 0)
+        if (anim) {
+            setTimeout(() => {
+                this.element.classList.toggle("flip-in-out", false)
+            }, circle_AnimTime_FlipInOut)
         }
     }
 
@@ -226,7 +250,7 @@ class Loop {
 
                     if (j == 0) {
                         word.unshift(Mod((i - 1), WordSetup.wordLoop.length))
-                        wordPosition.push(WordSetup.wordLoop[word[0]].length - 1)
+                        wordPosition.unshift(WordSetup.wordLoop[word[0]].length - 1)
                     }
 
                     let letter = new Letter(word, wordPosition, position, this)
@@ -260,7 +284,7 @@ class Loop {
     RotateToLetter(letter) {
         if (this.letterList.includes(letter)) {
             let indexOf = this.letterList.indexOf(letter)
-            if (Mod(indexOf - this.letterIndex, this.letterList.length) < Mod(this.letterIndex - indexOf, this.letterList.length)) {
+            if (Mod(indexOf - this.letterIndex, this.letterList.length) <= Mod(this.letterIndex - indexOf, this.letterList.length)) {
                 this.Rotate(Mod(indexOf - this.letterIndex, this.letterList.length))
             }
             else {
@@ -275,7 +299,95 @@ class Loop {
     }
 
     Submit() {
+        //Check if any spaces are blank
+        for (let i = 0; i < this.letterList.length; i++) {
+            if (!this.letterList[i].HasText()) {
+                if (!this.element.classList.contains("invalid-submit")) {
+                    this.element.classList.add("invalid-submit", true)
+                    setTimeout(() => {
+                        this.element.classList.remove("invalid-submit", false);
+                    }, 1000)
+                }
+                return
+            }
+        }
+
+        //Check if same as previous guess
+        //DO HERE
+
+        //Check if any word is invalid
+        //DO HERE
         
+        //Recreate word loop
+        let submitWordLoop = []
+        for (let i = 0; i < WordSetup.wordLoop.length; i++) {
+            submitWordLoop.push(WordSetup.wordLoop[i])
+        }
+
+        //Check if any letters are correct
+        for (let i = 0; i < this.letterList.length; i++) {
+            let letter = this.letterList[i]
+
+            for (let j = 0; j < letter.word.length; j++) {
+                let word = submitWordLoop[letter.word[j]]
+                if (word.charAt(letter.wordPosition[j]) === letter.GetText()) {
+                    letter.SetState(Letter.States.SUBMITTED_CORRECT)
+                    submitWordLoop[letter.word[j]] = `${word.substring(0, letter.wordPosition[j])}_${word.substring(letter.wordPosition[j]+1)}`
+                }
+            }
+        }
+        console.log(submitWordLoop)
+
+        //Check if any letters are present in the word
+        for (let i = 0; i < this.letterList.length; i++) {
+            let letter = this.letterList[i]
+            if (letter.GetState() == Letter.States.SUBMITTED_CORRECT) continue
+
+            for (let j = 0; j < letter.word.length; j++) {
+                let word = submitWordLoop[letter.word[j]]
+                if (word.includes(letter.GetText())) {
+                    letter.SetState(Letter.States.SUBMITTED_IN_WORD)
+                    let indexOf = word.indexOf(letter.GetText())
+                    submitWordLoop[letter.word[j]] = `${word.substring(0, indexOf)}_${word.substring(indexOf+1)}`
+                    break
+                }
+            }
+        }
+        console.log(submitWordLoop)
+
+        //Check if any letters are present in the loop
+        for (let i = 0; i < this.letterList.length; i++) {
+            let letter = this.letterList[i]
+            if (letter.GetState() == Letter.States.SUBMITTED_CORRECT
+                || letter.GetState() == Letter.States.SUBMITTED_IN_WORD) continue
+
+            for (let j = 0; j < submitWordLoop.length; j++) {
+                if (letter.word.includes(j)) continue
+
+                let word = submitWordLoop[j]
+                if (word.includes(letter.GetText())) {
+                    letter.SetState(Letter.States.SUBMITTED_IN_LOOP)
+                    let indexOf = word.indexOf(letter.GetText())
+                    submitWordLoop[j] = `${word.substring(0, indexOf)}_${word.substring(indexOf+1)}`
+                    break
+                }
+            }
+        }
+        console.log(submitWordLoop)
+
+        //Mark any other letters
+        for (let i = 0; i < this.letterList.length; i++) {
+            let letter = this.letterList[i]
+            if (letter.GetState() == Letter.States.SUBMITTED_CORRECT
+                || letter.GetState() == Letter.States.SUBMITTED_IN_WORD
+                || letter.GetState() == Letter.States.SUBMITTED_IN_LOOP) continue
+
+            letter.SetState(Letter.States.SUBMITTED_NO_EXIST)
+        }
+
+        //Create word loop history
+
+        this.RotateToLetter(this.letterList[0])
     }
 
 }

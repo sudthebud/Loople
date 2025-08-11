@@ -26,3 +26,29 @@ body {
         rotate: 0deg;
     }
 } */
+
+.loop.invalid-submit {
+    animation: 1s ease-out 0s loop-invalid-submit;
+    animation-iteration-count: 1;
+}
+
+@keyframes loop-invalid-submit {
+    0% {
+        translate: 0vh;
+    }
+    20% {
+        translate: 2vh;
+    }
+    40% {
+        translate: -2vh;
+    }
+    60% {
+        translate: 2vh;
+    }
+    80% {
+        translate: -2vh;
+    }
+    100% {
+        translate: 0vh;
+    }
+}

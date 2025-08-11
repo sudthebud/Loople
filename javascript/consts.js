@@ -19,6 +19,10 @@ const circleWaitUntilAppear = 0
 const clickAudioFile = "click.mp3"
 const clickAudio = new Audio(`..\\${assetPath}\\${soundPath}\\${clickAudioFile}`)
 
+const circle_AnimTime_FlipIn = 150
+const circle_AnimTime_FlipOut = 150
+const circle_AnimTime_FlipInOut = 200
+
 //Helper functions
 function RandomInt(max, min = 0) {
     return Math.floor(Math.random() * (max - min) + min)
