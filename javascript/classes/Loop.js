@@ -22,21 +22,30 @@ class Letter {
 
 
 
-    constructor(word, wordPosition, position, loop) {
-        this.word = word
-        this.wordPosition = wordPosition
-        this.#position = position
+    constructor(word, wordPosition, position, loop, historical = false, letter = null) {
+        if (!historical) {
+            this.word = word
+            this.wordPosition = wordPosition
+            this.#position = position
 
-        let instance = this
-        this.#MouseEventFunction = function MouseEventFunction(event) {
-            if (event.repeat) return;
+            let instance = this
+            this.#MouseEventFunction = function MouseEventFunction(event) {
+                if (event.repeat) return;
 
-            loop.RotateToLetter(instance);
+                loop.RotateToLetter(instance);
+            }
+
+            this.#CreateElement(loop.element)
+            this.SetState(Letter.States.UNSUBMITTED, false)
+            this.AddMouseListener()
         }
+        else {
+            this.word = word
+            this.wordPosition = wordPosition
+            this.#position = position
 
-        this.#CreateElement(loop.element)
-        this.SetState(Letter.States.UNSUBMITTED, false)
-        this.AddMouseListener()
+            this.#InstantiateHistoricalLetter(loop, letter)
+        }
     }
     
 
@@ -69,6 +78,20 @@ class Letter {
 
         this.element = parent
         this.SetPosition(this.#position)
+    }
+
+    #InstantiateHistoricalLetter(loop, letter) {
+        this.element = letter.element.cloneNode(true)
+        this.element.classList.add("historical")
+        loop.element.appendChild(this.element)
+
+        this.TurnOffAllCurrentAnims()
+        this.SetState(letter.GetState(), false)
+        this.#text = letter.GetText()
+    }
+
+    CreateHistoricalLetter(loop) {
+        return new Letter(this.word, this.wordPosition, this.#position, loop, true, this)
     }
 
     IsBorderLetter() {
@@ -169,7 +192,7 @@ class Letter {
 
     AnimateFlipIn() {
         this.element.classList.toggle("flip-in", true)
-        this.element.style.visibility = "visible"
+        // this.element.style.visibility = "visible"
         // clickAudio.play() 
         //Disabled for now because browsers block autoplay
         setTimeout(() => {
@@ -181,7 +204,7 @@ class Letter {
         this.element.classList.toggle("flip-out", true)
         // clickAudio.play()
         setTimeout(() => {
-            this.element.style.visibility = "hidden"
+            // this.element.style.visibility = "hidden"
             this.element.classList.toggle("flip-out", false);
         }, circle_AnimTime_FlipOut)
     }
@@ -212,6 +235,16 @@ class Letter {
         }, letter_AnimTime_Invalid + circle_AnimTime_FlipInOut / 2)
     }
 
+    TurnOffAllCurrentAnims() {
+        this.element.classList.toggle("flip-in", false)
+        this.element.classList.toggle("flip-out", false)
+        this.element.classList.toggle("flip-in-out", false)
+
+        this.element.getElementsByClassName("circle")[0].classList.toggle("invalid", false)
+
+        this.element.getElementsByClassName("letterText")[0].classList.toggle("invalid", false)
+    }
+
     AddMouseListener() {
         this.element.addEventListener("click", this.#MouseEventFunction)
     }
@@ -233,10 +266,21 @@ class Loop {
     letterList = []
     letterIndex = 0
 
-    constructor(element) {
-        this.element = element
+    #historical = false
 
-        this.#CreateLoop()
+    constructor(element, historical = false, letterList = [], rotate = 0) {
+        if (!historical) {
+            this.element = element
+
+            this.#CreateLoop()
+        }
+        else {
+            this.element = element.cloneNode()
+            element.parentNode.appendChild(this.element)
+            this.#historical = historical
+
+            this.#InstantiateHistoricalLoop(letterList, rotate)
+        }
     }
 
     #CreateLoop() {
@@ -273,7 +317,8 @@ class Loop {
 
                     let letter = new Letter(word, wordPosition, position, this)
                     letter.element.style.scale = scale
-                    letter.element.style.visibility = "hidden"
+                    // letter.element.style.visibility = "hidden"
+                    letter.element.classList.add("create")
                     this.letterList.push(letter)
                 }
             }
@@ -283,9 +328,25 @@ class Loop {
             this.letterList[i].AddMouseListener()
             
             setTimeout(() => {
+                this.letterList[i].element.classList.remove("create")
                 this.letterList[i].AnimateFlipIn();
             }, circleWaitUntilAppear + 35 * i)
         }
+    }
+
+    #InstantiateHistoricalLoop(letterList, rotate) {
+        this.element.classList.add("historical")
+        this.element.style.visibility = "hidden"
+
+        for (let i = 0; i < letterList.length; i++) {
+            this.letterList.push(letterList[i].CreateHistoricalLetter(this))
+        }
+
+        this.#rotate = rotate
+    }
+
+    CreateHistoricaLoop() {
+        return new Loop(this.element, true, this.letterList, this.#rotate)
     }
 
     GetTypedWords() {
@@ -328,6 +389,12 @@ class Loop {
         for (let i = 0; i < this.letterList.length; i++) {
             this.letterList[i].element.style.rotate = `${-this.#rotate}rad`
         }
+
+        if (!this.#historical && loopHistory.length > 0) {
+            for (let i = 0; i < loopHistory.length; i++) {
+                loopHistory[i].Rotate(numRotations)
+            }
+        }
     }
 
     RotateToLetter(letter) {
@@ -361,34 +428,53 @@ class Loop {
             }
         }
 
-        //Check if same as previous guess
-        //DO HERE
-
-        //Check if any word is invalid
         let submitWordList = this.GetTypedWords()
-        let invalidWords = false
-        for (let i = 0; i < submitWordList[0].length; i++) {
-            if (!WordSetup.wordList.has(submitWordList[0][i])){
-                invalidWords = true
+        //Check if same as previous guess
+        if (loopHistory.length > 0) {
+            let previousWordList = loopHistory[loopHistory.length - 1].GetTypedWords()[0]
 
+            let sameAsPreviousHistory = true
+            for (let i = 0; i < previousWordList.length; i++) {
+                if (submitWordList[0][i] !== previousWordList[i]) {
+                    sameAsPreviousHistory = false
+                }
+            }
+
+            if (sameAsPreviousHistory) {
                 if (!this.element.classList.contains("invalid-submit")) {
                     this.element.classList.add("invalid-submit", true)
                     setTimeout(() => {
                         this.element.classList.remove("invalid-submit", false);
                     }, 1000)
                 }
-
-                let wordIndex = submitWordList[1][i]
-                for (let j = 0; j < wordIndex.length; j++) {
-                    let wordIndexOf = wordIndex[j]
-                    if (!this.letterList[wordIndexOf].element.classList.contains("invalid")
-                        && !this.letterList[wordIndexOf].element.getElementsByClassName("circle")[0].classList.contains("invalid")) {
-                        this.letterList[wordIndexOf].AnimateInvalid()
-                    }
-                }
+                return
             }
         }
-        if (invalidWords) return
+
+        //Check if any word is invalid
+        // let invalidWords = false
+        // for (let i = 0; i < submitWordList[0].length; i++) {
+        //     if (!WordSetup.wordList.has(submitWordList[0][i])){
+        //         invalidWords = true
+
+        //         if (!this.element.classList.contains("invalid-submit")) {
+        //             this.element.classList.add("invalid-submit", true)
+        //             setTimeout(() => {
+        //                 this.element.classList.remove("invalid-submit", false);
+        //             }, 1000)
+        //         }
+
+        //         let wordIndex = submitWordList[1][i]
+        //         for (let j = 0; j < wordIndex.length; j++) {
+        //             let wordIndexOf = wordIndex[j]
+        //             if (!this.letterList[wordIndexOf].element.classList.contains("invalid")
+        //                 && !this.letterList[wordIndexOf].element.getElementsByClassName("circle")[0].classList.contains("invalid")) {
+        //                 this.letterList[wordIndexOf].AnimateInvalid()
+        //             }
+        //         }
+        //     }
+        // }
+        // if (invalidWords) return
         
         //Recreate word loop
         let submitWordLoop = []
@@ -458,8 +544,29 @@ class Loop {
         }
 
         //Create word loop history
+        loopHistory.push(this.CreateHistoricaLoop())
 
         this.RotateToLetter(this.letterList[0])
+    }
+
+    Show() {
+        if (this.element.style.visibility !== "visible") {
+            this.element.style.visibility = "visible"
+            for (let i = 0; i < this.letterList.length; i++) {
+                this.letterList[i].AnimateFlipIn()
+            }
+        }
+    }
+
+    Hide() {
+        if (this.element.style.visibility !== "hidden") {
+            for (let i = 0; i < this.letterList.length; i++) {
+                this.letterList[i].AnimateFlipOut()
+            }
+            setTimeout(() => {
+                this.element.style.visibility = "hidden";
+            }, circle_AnimTime_FlipOut * 0.95)
+        }
     }
 
 }

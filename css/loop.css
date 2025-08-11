@@ -1,9 +1,3 @@
-body {
-    overflow: hidden;
-    background-color: #ececec;
-    font-family: 'Helvetica', 'Tahoma', 'Arial', sans-serif;
-}
-
 .loop {
     position: absolute;
     top: 50%;
@@ -24,6 +18,11 @@ body {
 .loop.invalid-submit {
     animation: 1s ease-out 0s loop-invalid-submit;
     animation-iteration-count: 1;
+}
+
+.loop.historical {
+    scale: 0.7;
+    pointer-events: none;
 }
 
 @keyframes loop-invalid-submit {

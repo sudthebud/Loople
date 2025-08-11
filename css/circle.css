@@ -37,6 +37,14 @@
     animation-iteration-count: 1;
 } */
 
+.letter.historical {
+    filter: contrast(75%);
+}
+
+.letter.create {
+    visibility: hidden;
+}
+
 .letter.hoverable:hover {
     scale: 1.1 !important;
     cursor: pointer;
@@ -131,6 +139,7 @@
 }
 
 .letter.flip-out {
+    transform: rotateY(90deg);
     animation: 0.15s ease-out 0s flip-out;
     animation-iteration-count: 1;
 }
