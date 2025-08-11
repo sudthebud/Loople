@@ -168,30 +168,48 @@ class Letter {
     }
 
     AnimateFlipIn() {
-        this.element.classList.add("flip-in")
+        this.element.classList.toggle("flip-in", true)
         this.element.style.visibility = "visible"
         // clickAudio.play() 
         //Disabled for now because browsers block autoplay
         setTimeout(() => {
-            this.element.classList.remove("flip-in");
-        }, 250)
+            this.element.classList.toggle("flip-in", false);
+        }, circle_AnimTime_FlipIn)
     }
 
     AnimateFlipOut() {
-        this.element.classList.add("flip-out")
+        this.element.classList.toggle("flip-out", true)
         // clickAudio.play()
         setTimeout(() => {
             this.element.style.visibility = "hidden"
-            this.element.classList.remove("flip-out");
-        }, 250)
+            this.element.classList.toggle("flip-out", false);
+        }, circle_AnimTime_FlipOut)
     }
 
     AnimateFlipInOut() {
-        this.element.classList.add("flip-in-out")
+        this.element.classList.toggle("flip-in-out", true)
         // clickAudio.play()
         setTimeout(() => {
-            this.element.classList.remove("flip-in-out");
-        }, 500)
+            this.element.classList.toggle("flip-in-out", false);
+        }, circle_AnimTime_FlipInOut)
+    }
+
+    AnimateInvalid() {
+        this.element.classList.toggle("invalid", true)
+        this.AnimateFlipInOut()
+
+        setTimeout(() => {
+            this.element.getElementsByClassName("circle")[0].classList.toggle("invalid", true);
+            this.element.getElementsByClassName("letterText")[0].classList.toggle("invalid", true);
+        }, circle_AnimTime_FlipInOut / 2)
+        setTimeout(() => {
+            this.element.classList.toggle("invalid", false);
+            this.AnimateFlipInOut()
+        }, letter_AnimTime_Invalid)
+        setTimeout(() => {
+            this.element.getElementsByClassName("circle")[0].classList.toggle("invalid", false);
+            this.element.getElementsByClassName("letterText")[0].classList.toggle("invalid", false);
+        }, letter_AnimTime_Invalid + circle_AnimTime_FlipInOut / 2)
     }
 
     AddMouseListener() {
@@ -270,6 +288,37 @@ class Loop {
         }
     }
 
+    GetTypedWords() {
+        let typedWordList = []
+        let typedWordIndexList = []
+
+        let typedWord = ""
+        let typedWordIndex = []
+        for (let i = 1; i < this.letterList.length; i++) {
+            let letter = this.letterList[i]
+
+            if (letter.IsBorderLetter()) {
+                typedWord += letter.GetText()
+                typedWordList.push(typedWord)
+                typedWord = ""
+
+                typedWordIndex.push(i)
+                typedWordIndexList.push(typedWordIndex)
+                typedWordIndex = []
+            }
+
+            typedWord += letter.GetText()
+
+            typedWordIndex.push(i)
+        }
+        typedWord += this.letterList[0].GetText()
+        typedWordIndex.push(0)
+        typedWordList.push(typedWord)
+        typedWordIndexList.push(typedWordIndex)
+
+        return [typedWordList, typedWordIndexList]
+    }
+
     Rotate(numRotations) {
         this.letterIndex = Mod(this.letterIndex + numRotations, this.letterList.length)
         this.#rotate = ((1 / this.letterList.length) * 2 * Math.PI * numRotations) + this.#rotate
@@ -316,7 +365,30 @@ class Loop {
         //DO HERE
 
         //Check if any word is invalid
-        //DO HERE
+        let submitWordList = this.GetTypedWords()
+        let invalidWords = false
+        for (let i = 0; i < submitWordList[0].length; i++) {
+            if (!WordSetup.wordList.has(submitWordList[0][i])){
+                invalidWords = true
+
+                if (!this.element.classList.contains("invalid-submit")) {
+                    this.element.classList.add("invalid-submit", true)
+                    setTimeout(() => {
+                        this.element.classList.remove("invalid-submit", false);
+                    }, 1000)
+                }
+
+                let wordIndex = submitWordList[1][i]
+                for (let j = 0; j < wordIndex.length; j++) {
+                    let wordIndexOf = wordIndex[j]
+                    if (!this.letterList[wordIndexOf].element.classList.contains("invalid")
+                        && !this.letterList[wordIndexOf].element.getElementsByClassName("circle")[0].classList.contains("invalid")) {
+                        this.letterList[wordIndexOf].AnimateInvalid()
+                    }
+                }
+            }
+        }
+        if (invalidWords) return
         
         //Recreate word loop
         let submitWordLoop = []

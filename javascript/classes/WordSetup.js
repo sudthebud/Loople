@@ -6,9 +6,9 @@ class WordSetup {
     static #wordDictSixLetter
     static #wordDictSevenLetter
 
-    static wordList
+    static wordList = new Set()
 
-    static wordLoop
+    static wordLoop = []
 
 
     //Function to read JSON files
@@ -28,15 +28,31 @@ class WordSetup {
         this.#wordDictFiveLetter = this.#ReadFile("fiveLetter")
         this.#wordDictSixLetter = this.#ReadFile("sixLetter")
         this.#wordDictSevenLetter = this.#ReadFile("sevenLetter")
-        
-        return Object.keys(this.#wordDictThreeLetter).length
+
+        let wordDictList = [
+            this.#wordDictThreeLetter,
+            this.#wordDictFourLetter,
+            this.#wordDictFiveLetter,
+            this.#wordDictSixLetter,
+            this.#wordDictSevenLetter
+        ]
+        for (let i = 0; i < wordDictList.length; i++) {
+            let wordDict = wordDictList[i]
+            let keys = Object.keys(wordDict)
+
+            for (let j = 0; j < keys.length; j++) {
+                let words = wordDict[keys[j]]
+
+                for (let k = 0; k < words.length; k++) {
+                    this.wordList.add(words[k])
+                }
+            }
+        }
     }
 
     //Function with algorithm to create word loop array
     static GenerateWordLoop() {
         var numWords = maxNumWords
-
-        this.wordLoop = []
 
         var wordDictList = [
             this.#wordDictThreeLetter,

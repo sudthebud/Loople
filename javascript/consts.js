@@ -23,6 +23,8 @@ const circle_AnimTime_FlipIn = 150
 const circle_AnimTime_FlipOut = 150
 const circle_AnimTime_FlipInOut = 200
 
+const letter_AnimTime_Invalid = 2500
+
 //Helper functions
 function RandomInt(max, min = 0) {
     return Math.floor(Math.random() * (max - min) + min)

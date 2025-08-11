@@ -30,6 +30,10 @@
     scale: 1;
 }
 
+.letter.invalid {
+    scale: 1.1 !important;
+}
+
 .letter.hoverable:hover {
     scale: 1.1 !important;
     cursor: pointer;
@@ -77,6 +81,16 @@
     filter: contrast(0) sepia(100%) hue-rotate(1deg) saturate(100000%) brightness(90%);
 }
 
+.circle.invalid {
+    filter: contrast(0) sepia(0%) hue-rotate(1deg) saturate(100000%) brightness(0%);
+    animation-name: invalid-letter, invalid-letter, invalid-letter, invalid-letter;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-duration: 0.25s;
+    animation-delay: 1s, 1.25s, 1.5s, 1.75s;
+    animation-direction: normal, reverse, normal, reverse;
+}
+
 
 /* Letter text */
 .letterText {
@@ -91,6 +105,10 @@
 }
 
 .letterText.submitted {
+    color: white;
+}
+
+.letterText.invalid {
     color: white;
 }
 
@@ -135,6 +153,12 @@
     }
     100% {
         transform: rotateY(90deg);
+    }
+}
+
+@keyframes invalid-letter {
+    to { 
+        filter: contrast(0) sepia(100%) hue-rotate(1deg) saturate(100000%) brightness(90%);
     }
 }
 
