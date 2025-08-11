@@ -2,7 +2,7 @@ class Letter {
 
     element
     #position
-    #rotation
+    #MouseEventFunction
 
     #text= ""
     #state
@@ -19,13 +19,20 @@ class Letter {
 
 
 
-    constructor(word, wordPosition, position, loopElement) {
+    constructor(word, wordPosition, position, loop) {
         this.word = word
         this.wordPosition = wordPosition
         this.#position = position
+        let instance = this
+        this.#MouseEventFunction = function MouseEventFunction(event) {
+            if (event.repeat) return;
 
-        this.#CreateElement(loopElement)
+            loop.RotateToLetter(instance);
+        }
+
+        this.#CreateElement(loop.element)
         this.SetState(Letter.States.UNSUBMITTED)
+        this.AddMouseListener()
     }
     
 
@@ -37,6 +44,7 @@ class Letter {
     #CreateElement(loopElement) {
         var parent = document.createElement("div")
         parent.classList.add("letter")
+        parent.classList.add("hoverable")
         loopElement.appendChild(parent)
 
         if (this.IsBorderLetter()) {
@@ -158,6 +166,14 @@ class Letter {
         }, 500)
     }
 
+    AddMouseListener() {
+        this.element.addEventListener("click", this.#MouseEventFunction)
+    }
+
+    RemoveMouseListener() {
+        this.element.removeEventListener("click", this.#MouseEventFunction)
+    }
+
 }
 
 
@@ -202,14 +218,14 @@ class Loop {
                     let wordPosition = [j]
 
                     let angle = (this.letterList.length / wordLoopLength* 360 - 180) * Math.PI / 180
-                    let position = [-50 * Math.cos(angle), 50 * Math.sin(angle)]
+                    let position = [-50 * Math.cos(angle), -50 * Math.sin(angle)]
 
                     if (j == 0) {
                         word.unshift(Mod((i - 1), WordSetup.wordLoop.length))
                         wordPosition.push(WordSetup.wordLoop[word[0]].length - 1)
                     }
 
-                    let letter = new Letter(word, wordPosition, position, this.element)
+                    let letter = new Letter(word, wordPosition, position, this)
                     letter.element.style.scale = scale
                     letter.element.style.visibility = "hidden"
                     this.letterList.push(letter)
@@ -218,6 +234,8 @@ class Loop {
         }
 
         for (let i = 0; i < this.letterList.length; i++) {
+            this.letterList[i].AddMouseListener()
+            
             setTimeout(() => {
                 this.letterList[i].SetText("A");
                 this.letterList[i].AnimateFlipIn();
@@ -233,6 +251,18 @@ class Loop {
 
         for (let i = 0; i < this.letterList.length; i++) {
             this.letterList[i].element.style.rotate = `${-this.#rotate}rad`
+        }
+    }
+
+    RotateToLetter(letter) {
+        if (this.letterList.includes(letter)) {
+            let indexOf = this.letterList.indexOf(letter)
+            if (Mod(indexOf - this.letterIndex, this.letterList.length) < Mod(this.letterIndex - indexOf, this.letterList.length)) {
+                this.Rotate(Mod(indexOf - this.letterIndex, this.letterList.length))
+            }
+            else {
+                this.Rotate(-Mod(this.letterIndex - indexOf, this.letterList.length))
+            }
         }
     }
 
