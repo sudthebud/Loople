@@ -53,6 +53,7 @@ class WordSetup {
     //Function with algorithm to create word loop array
     static GenerateWordLoop() {
         var numWords = maxNumWords
+        // var numWords = minNumWords
 
         var wordDictList = [
             this.#wordDictThreeLetter,

@@ -14,17 +14,11 @@ body {
     height: 70vh;
     rotate: 0deg;
     transition: rotate 0.3s ease-out;
-    /* animation: 3s ease-out 0s loop-create;
-    animation-iteration-count: 1; */
 }
 
-/* @keyframes loop-create {
-    0% {
-        rotate: 180deg;
-    }
-    100% {
-        rotate: 0deg;
-    }
+/* .loop.on-create {
+    animation: 3s ease-out 0s loop-create;
+    animation-iteration-count: 1;
 } */
 
 .loop.invalid-submit {
@@ -52,3 +46,12 @@ body {
         translate: 0vh;
     }
 }
+
+/* @keyframes loop-create {
+    0% {
+        rotate: 180deg;
+    }
+    100% {
+        rotate: 0deg;
+    }
+} */

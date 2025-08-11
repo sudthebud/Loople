@@ -294,10 +294,10 @@ class Loop {
 
         let typedWord = ""
         let typedWordIndex = []
-        for (let i = 1; i < this.letterList.length; i++) {
+        for (let i = 0; i < this.letterList.length; i++) {
             let letter = this.letterList[i]
 
-            if (letter.IsBorderLetter()) {
+            if (letter.IsBorderLetter() && i != 0) {
                 typedWord += letter.GetText()
                 typedWordList.push(typedWord)
                 typedWord = ""
