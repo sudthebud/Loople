@@ -75,6 +75,10 @@ class Letter {
         return this.#text
     }
 
+    HasText() {
+        return (this.#text !== "")
+    }
+
     SetText(text) {
         text = text.toUpperCase()
 
@@ -237,7 +241,6 @@ class Loop {
             this.letterList[i].AddMouseListener()
             
             setTimeout(() => {
-                this.letterList[i].SetText("A");
                 this.letterList[i].AnimateFlipIn();
             }, circleWaitUntilAppear + 35 * i)
         }
@@ -264,6 +267,15 @@ class Loop {
                 this.Rotate(-Mod(this.letterIndex - indexOf, this.letterList.length))
             }
         }
+    }
+
+    TypeLetter(letter) {
+        this.letterList[this.letterIndex].SetText(letter)
+        this.Rotate(1)
+    }
+
+    Submit() {
+        
     }
 
 }

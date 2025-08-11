@@ -20,7 +20,7 @@ body {
 
 /* @keyframes loop-create {
     0% {
-        rotate: -180deg;
+        rotate: 180deg;
     }
     100% {
         rotate: 0deg;

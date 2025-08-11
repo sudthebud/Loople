@@ -25,4 +25,7 @@ document.addEventListener('keydown', (event) => {
     else if (event.key === 'ArrowRight' && !event.repeat) {
         loop.Rotate(1);
     }
+    else if (event.code === `Key${event.key.toUpperCase()}` && !event.repeat) { //Thanks to internetdrew on Medium for this
+        loop.TypeLetter(event.key)
+    }
 })
