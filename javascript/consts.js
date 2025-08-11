@@ -2,6 +2,7 @@
 const assetPath = "assets"
 const datasetPath = "datasets"
 const imagePath = "images"
+const soundPath = "sounds"
 
 //Game consts
 const minNumWords = 3
@@ -10,10 +11,13 @@ const maxNumWords = 5
 const minLetters = 3 * minNumWords - 1 * minNumWords
 const maxLetters = 7 * maxNumWords - 1 * maxNumWords
 
-//Visual consts
+//Visual and audio consts
 const circleScaleMin = 0.6
 const circleImage = "circle.svg"
 const circleWaitUntilAppear = 0
+
+const clickAudioFile = "click.mp3"
+const clickAudio = new Audio(`..\\${assetPath}\\${soundPath}\\${clickAudioFile}`)
 
 //Helper functions
 function RandomInt(max, min = 0) {

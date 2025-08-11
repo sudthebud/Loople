@@ -1,4 +1,5 @@
 body {
+    overflow: hidden;
     background-color: #ececec;
     font-family: 'Helvetica', 'Tahoma', 'Arial', sans-serif;
 }
@@ -11,4 +12,17 @@ body {
     margin-left: -35vh;
     width: 70vh;
     height: 70vh;
+    rotate: 0deg;
+    transition: rotate 0.3s ease-out;
+    /* animation: 3s ease-out 0s loop-create;
+    animation-iteration-count: 1; */
 }
+
+/* @keyframes loop-create {
+    0% {
+        rotate: -180deg;
+    }
+    100% {
+        rotate: 0deg
+    }
+} */

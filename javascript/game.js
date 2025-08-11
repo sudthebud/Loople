@@ -17,3 +17,12 @@ loopElem = document.createElement("div")
 document.body.appendChild(loopElem)
 loopElem.classList.add("loop")
 let loop = new Loop(loopElem)
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft' && !event.repeat) {
+        loop.Rotate(-1);
+    }
+    else if (event.key === 'ArrowRight' && !event.repeat) {
+        loop.Rotate(1);
+    }
+})

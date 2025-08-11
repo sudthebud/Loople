@@ -2,6 +2,7 @@ class Letter {
 
     element
     #position
+    #rotation
 
     #text= ""
     #state
@@ -36,7 +37,6 @@ class Letter {
     #CreateElement(loopElement) {
         var parent = document.createElement("div")
         parent.classList.add("letter")
-        parent.style.visibility = "hidden"
         loopElement.appendChild(parent)
 
         if (this.IsBorderLetter()) {
@@ -56,13 +56,7 @@ class Letter {
         parent.appendChild(text)
 
         this.element = parent
-
-        setTimeout(() => {
-            parent.style.visibility = "visible"
-            // parent.style.top = `${this.#position[0]}%`;
-            // parent.style.left = `${this.#position[1]}%`;
-            this.SetPosition(this.#position)
-        }, circleWaitUntilAppear)
+        this.SetPosition(this.#position)
     }
 
     IsBorderLetter() {
@@ -140,6 +134,8 @@ class Letter {
     AnimateFlipIn() {
         this.element.classList.add("flip-in")
         this.element.style.visibility = "visible"
+        // clickAudio.play() 
+        //Disabled for now because browsers block autoplay
         setTimeout(() => {
             this.element.classList.remove("flip-in");
         }, 250)
@@ -147,6 +143,7 @@ class Letter {
 
     AnimateFlipOut() {
         this.element.classList.add("flip-out")
+        // clickAudio.play()
         setTimeout(() => {
             this.element.style.visibility = "hidden"
             this.element.classList.remove("flip-out");
@@ -155,6 +152,7 @@ class Letter {
 
     AnimateFlipInOut() {
         this.element.classList.add("flip-in-out")
+        // clickAudio.play()
         setTimeout(() => {
             this.element.classList.remove("flip-in-out");
         }, 500)
@@ -167,7 +165,11 @@ class Letter {
 
 class Loop {
 
+    element
+    #rotate = 0
+
     letterList = []
+    letterIndex = 0
 
     constructor(element) {
         this.element = element
@@ -209,6 +211,7 @@ class Loop {
 
                     let letter = new Letter(word, wordPosition, position, this.element)
                     letter.element.style.scale = scale
+                    letter.element.style.visibility = "hidden"
                     this.letterList.push(letter)
                 }
             }
@@ -216,8 +219,20 @@ class Loop {
 
         for (let i = 0; i < this.letterList.length; i++) {
             setTimeout(() => {
+                this.letterList[i].SetText("A");
                 this.letterList[i].AnimateFlipIn();
-            }, circleWaitUntilAppear)
+            }, circleWaitUntilAppear + 35 * i)
+        }
+    }
+
+    Rotate(numRotations) {
+        this.letterIndex = Mod(this.letterIndex + numRotations, this.letterList.length)
+        this.#rotate = ((1 / this.letterList.length) * 2 * Math.PI * numRotations) + this.#rotate
+
+        this.element.style.rotate = `${this.#rotate}rad`
+
+        for (let i = 0; i < this.letterList.length; i++) {
+            this.letterList[i].element.style.rotate = `${-this.#rotate}rad`
         }
     }
 
