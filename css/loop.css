@@ -29,17 +29,32 @@
     0% {
         translate: 0vh;
     }
+    10% {
+        translate: 1vh;
+    }
     20% {
-        translate: 2vh;
+        translate: -1vh;
+    }
+    30% {
+        translate: 1vh;
     }
     40% {
-        translate: -2vh;
+        translate: -1vh;
+    }
+    50% {
+        translate: 1vh;
     }
     60% {
-        translate: 2vh;
+        translate: -1vh;
+    }
+    70% {
+        translate: 1vh;
     }
     80% {
-        translate: -2vh;
+        translate: -1vh;
+    }
+    90% {
+        translate: 1vh;
     }
     100% {
         translate: 0vh;

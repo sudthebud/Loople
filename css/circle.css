@@ -21,7 +21,7 @@
     margin-left: calc((var(--circle-width) / 2 * -1));
     rotate: 0deg;
     transition: scale 0.07s ease-out, filter 0.07s ease-out, rotate 1s ease-out; /* If browser doesn't support the below transition */
-    transition: scale 0.07s ease-out, rotate 1s linear(
+    transition: scale 0.07s ease-out, filter 0.07s ease-out, rotate 1s linear(
         0, 0.8, 1, 1.3, 1.3227, 1.3, 1.2, 0.88, 0.8688, 0.88, 1, 1.03, 1.0463, 1.03, 1, 0.99, 0.9836, 1, 1.04, 1.05, 1.058, 1.04, 1, 0.9999, 0.998, 0.999, 1
     );
     pointer-events: none;
@@ -31,6 +31,7 @@
 
 .letter.invalid {
     scale: 1.1 !important;
+    filter: drop-shadow(-1.1vh 0.7vh 0.3vh rgb(175, 175, 175));
 }
 
 /* .letter.on-create {

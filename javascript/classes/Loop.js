@@ -132,62 +132,64 @@ class Letter {
         return this.#state
     }
 
-    SetState(state, anim = true) {
+    SetState(state, anim = true, animDelay = 0) {
         this.#state = state
 
 
-        if (anim) { this.element.classList.toggle("flip-in-out", true) }
         setTimeout(() => {
-            this.element.getElementsByClassName("letterText")[0].classList.toggle("unsubmitted", false);
-            this.element.getElementsByClassName("letterText")[0].classList.toggle("submitted", false);
-
-            if (state == Letter.States.UNSUBMITTED) {
-                this.element.getElementsByClassName("letterText")[0].classList.toggle("unsubmitted", true);
-            }
-            else {
-                this.element.getElementsByClassName("letterText")[0].classList.toggle("submitted", true);
-            }
-
-
-            this.element.getElementsByClassName("circle")[0].classList.toggle("unsubmitted", false);
-            this.element.getElementsByClassName("circle")[0].classList.toggle("submitted", false);
-            this.element.getElementsByClassName("circle")[0].classList.toggle("noExist", false);
-            this.element.getElementsByClassName("circle")[0].classList.toggle("inLoop", false);
-            this.element.getElementsByClassName("circle")[0].classList.toggle("inWord", false);
-            this.element.getElementsByClassName("circle")[0].classList.toggle("incorrect", false);
-            this.element.getElementsByClassName("circle")[0].classList.toggle("correct", false);
-
-            switch (state) {
-                case Letter.States.UNSUBMITTED:
-                    this.element.getElementsByClassName("circle")[0].classList.toggle("unsubmitted", true);
-                    break;
-                case Letter.States.SUBMITTED_NO_EXIST:
-                    this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
-                    this.element.getElementsByClassName("circle")[0].classList.add("noExist", true);
-                    break;
-                case Letter.States.SUBMITTED_IN_LOOP:
-                    this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
-                    this.element.getElementsByClassName("circle")[0].classList.add("inLoop", true);
-                    break;
-                case Letter.States.SUBMITTED_IN_WORD:
-                    this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
-                    this.element.getElementsByClassName("circle")[0].classList.add("inWord", true);
-                    break;
-                case Letter.States.SUBMITTED_INCORRECT:
-                    this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
-                    this.element.getElementsByClassName("circle")[0].classList.add("incorrect", true);
-                    break;
-                case Letter.States.SUBMITTED_CORRECT:
-                    this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
-                    this.element.getElementsByClassName("circle")[0].classList.add("correct", true);
-                    break;
-            }
-        }, anim ? (circle_AnimTime_FlipInOut / 2) : 0)
-        if (anim) {
+            if (anim) { this.element.classList.toggle("flip-in-out", true); }
             setTimeout(() => {
-                this.element.classList.toggle("flip-in-out", false)
-            }, circle_AnimTime_FlipInOut)
-        }
+                this.element.getElementsByClassName("letterText")[0].classList.toggle("unsubmitted", false);
+                this.element.getElementsByClassName("letterText")[0].classList.toggle("submitted", false);
+
+                if (state == Letter.States.UNSUBMITTED) {
+                    this.element.getElementsByClassName("letterText")[0].classList.toggle("unsubmitted", true);
+                }
+                else {
+                    this.element.getElementsByClassName("letterText")[0].classList.toggle("submitted", true);
+                }
+
+
+                this.element.getElementsByClassName("circle")[0].classList.toggle("unsubmitted", false);
+                this.element.getElementsByClassName("circle")[0].classList.toggle("submitted", false);
+                this.element.getElementsByClassName("circle")[0].classList.toggle("noExist", false);
+                this.element.getElementsByClassName("circle")[0].classList.toggle("inLoop", false);
+                this.element.getElementsByClassName("circle")[0].classList.toggle("inWord", false);
+                this.element.getElementsByClassName("circle")[0].classList.toggle("incorrect", false);
+                this.element.getElementsByClassName("circle")[0].classList.toggle("correct", false);
+
+                switch (state) {
+                    case Letter.States.UNSUBMITTED:
+                        this.element.getElementsByClassName("circle")[0].classList.toggle("unsubmitted", true);
+                        break;
+                    case Letter.States.SUBMITTED_NO_EXIST:
+                        this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
+                        this.element.getElementsByClassName("circle")[0].classList.add("noExist", true);
+                        break;
+                    case Letter.States.SUBMITTED_IN_LOOP:
+                        this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
+                        this.element.getElementsByClassName("circle")[0].classList.add("inLoop", true);
+                        break;
+                    case Letter.States.SUBMITTED_IN_WORD:
+                        this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
+                        this.element.getElementsByClassName("circle")[0].classList.add("inWord", true);
+                        break;
+                    case Letter.States.SUBMITTED_INCORRECT:
+                        this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
+                        this.element.getElementsByClassName("circle")[0].classList.add("incorrect", true);
+                        break;
+                    case Letter.States.SUBMITTED_CORRECT:
+                        this.element.getElementsByClassName("circle")[0].classList.add("submitted", true);
+                        this.element.getElementsByClassName("circle")[0].classList.add("correct", true);
+                        break;
+                }
+            }, anim ? (circle_AnimTime_FlipInOut / 2) : 0);
+            if (anim) {
+                setTimeout(() => {
+                    this.element.classList.toggle("flip-in-out", false);
+                }, circle_AnimTime_FlipInOut);
+            }
+        }, animDelay)
     }
 
     AnimateFlipIn() {
@@ -350,7 +352,7 @@ class Loop {
         }
         setTimeout(() => {
             this.HighlightCurrentLetter()
-        }, circle_AnimTime_DelayBtwShowOrHide * this.letterList.length)
+        }, circle_AnimTime_DelayBtwStartOrEndFlip * this.letterList.length)
     }
 
     #InstantiateHistoricalLoop(letterList, rotate) {
@@ -399,8 +401,16 @@ class Loop {
         return [typedWordList, typedWordIndexList]
     }
 
-    Rotate(numRotations, highlight = true) {
-        if (!highlight || (numRotations > 0 || numRotations < 0)) { this.UnhighlightCurrentLetter() }
+    Rotate(numRotations, highlight = true, highlightDelay = 0) {
+        if (!highlight 
+            || (numRotations > 0 || numRotations < 0) 
+            || (numRotations == 0 && highlightDelay > 0)) { 
+                this.UnhighlightCurrentLetter() 
+                //Don't really like doing this but I've experienced a glitch so just to be sure
+                setTimeout(() => {
+                    this.UnhighlightCurrentLetter()
+                }, loop_AnimTime_Rotate - 1)
+            }
 
         this.letterIndex = Mod(this.letterIndex + numRotations, this.letterList.length)
         this.#rotate = ((1 / this.letterList.length) * 2 * Math.PI * numRotations) + this.#rotate
@@ -417,21 +427,22 @@ class Loop {
             }
         }
 
-        if (highlight && (numRotations > 0 || numRotations < 0)) {
+        if (highlight 
+            && ((numRotations > 0 || numRotations < 0) || (numRotations == 0 && highlightDelay > 0))) {
             setTimeout(() => {
                 this.HighlightCurrentLetter()
-            }, loop_AnimTime_Rotate)
+            }, Math.max(loop_AnimTime_Rotate, highlightDelay))
         }
     }
 
-    RotateToLetter(letter, highlight = true) {
+    RotateToLetter(letter, highlight = true, highlightDelay = 0) {
         if (this.letterList.includes(letter)) {
             let indexOf = this.letterList.indexOf(letter)
             if (Mod(indexOf - this.letterIndex, this.letterList.length) <= Mod(this.letterIndex - indexOf, this.letterList.length)) {
-                this.Rotate(Mod(indexOf - this.letterIndex, this.letterList.length), highlight)
+                this.Rotate(Mod(indexOf - this.letterIndex, this.letterList.length), highlight, highlightDelay)
             }
             else {
-                this.Rotate(-Mod(this.letterIndex - indexOf, this.letterList.length), highlight)
+                this.Rotate(-Mod(this.letterIndex - indexOf, this.letterList.length), highlight, highlightDelay)
             }
         }
     }
@@ -517,7 +528,7 @@ class Loop {
             for (let j = 0; j < letter.word.length; j++) {
                 let word = submitWordLoop[letter.word[j]]
                 if (word.charAt(letter.wordPosition[j]) === letter.GetText()) {
-                    letter.SetState(Letter.States.SUBMITTED_CORRECT)
+                    letter.SetState(Letter.States.SUBMITTED_CORRECT, true, circle_AnimTime_DelayBtwSubmitFlip * i)
                     submitWordLoop[letter.word[j]] = `${word.substring(0, letter.wordPosition[j])}_${word.substring(letter.wordPosition[j]+1)}`
                 }
                 else {
@@ -535,7 +546,7 @@ class Loop {
                 for (let j = 0; j < letter.word.length; j++) {
                     let word = submitWordLoop[letter.word[j]]
                     if (word.includes(letter.GetText())) {
-                        letter.SetState(Letter.States.SUBMITTED_IN_WORD)
+                        letter.SetState(Letter.States.SUBMITTED_IN_WORD, true, circle_AnimTime_DelayBtwSubmitFlip * i)
                         let indexOf = word.indexOf(letter.GetText())
                         submitWordLoop[letter.word[j]] = `${word.substring(0, indexOf)}_${word.substring(indexOf+1)}`
                         break
@@ -554,7 +565,7 @@ class Loop {
 
                     let word = submitWordLoop[j]
                     if (word.includes(letter.GetText())) {
-                        letter.SetState(Letter.States.SUBMITTED_IN_LOOP)
+                        letter.SetState(Letter.States.SUBMITTED_IN_LOOP, true, circle_AnimTime_DelayBtwSubmitFlip * i)
                         let indexOf = word.indexOf(letter.GetText())
                         submitWordLoop[j] = `${word.substring(0, indexOf)}_${word.substring(indexOf+1)}`
                         break
@@ -569,17 +580,19 @@ class Loop {
                     || letter.GetState() == Letter.States.SUBMITTED_IN_WORD
                     || letter.GetState() == Letter.States.SUBMITTED_IN_LOOP) continue
 
-                letter.SetState(Letter.States.SUBMITTED_NO_EXIST)
+                letter.SetState(Letter.States.SUBMITTED_NO_EXIST, true, circle_AnimTime_DelayBtwSubmitFlip * i)
             }
         }
 
         //Create word loop history
-        loopHistory.push(this.CreateHistoricaLoop())
-        if (loopHistoryIndex == loopHistory.length - 2) {
-            loopHistoryMove(1)
-        }
+        setTimeout(() => {
+            loopHistory.push(this.CreateHistoricaLoop());
+            if (loopHistoryIndex == loopHistory.length - 2) {
+                loopHistoryMove(1);
+            }
+        }, circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length)
 
-        this.RotateToLetter(this.letterList[0], !win)
+        this.RotateToLetter(this.letterList[0], !win, circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length)
 
         if (win){
             this.Win()
@@ -598,7 +611,7 @@ class Loop {
                     setTimeout(() => {
                         this.letterList[i].AnimateFlipIn()
                         this.letterList[i].element.classList.toggle("showOrHide", false)
-                    }, circle_AnimTime_DelayBtwShowOrHide * i)
+                    }, circle_AnimTime_DelayBtwStartOrEndFlip * i)
                 }
             }
         }
@@ -616,15 +629,15 @@ class Loop {
                 else {
                     setTimeout(() => {
                         this.letterList[i].AnimateFlipOut()
-                    }, circle_AnimTime_DelayBtwShowOrHide * i)
+                    }, circle_AnimTime_DelayBtwStartOrEndFlip * i)
                     setTimeout(() => {
                         this.letterList[i].element.classList.toggle("showOrHide", true)
-                    }, circle_AnimTime_FlipOut * 0.95 + circle_AnimTime_DelayBtwShowOrHide * i)
+                    }, circle_AnimTime_FlipOut * 0.95 + circle_AnimTime_DelayBtwStartOrEndFlip * i)
                 }
             }
             setTimeout(() => {
                 this.element.style.visibility = "hidden";
-            }, delay ? (circle_AnimTime_FlipOut * 0.95 + circle_AnimTime_DelayBtwShowOrHide * this.letterList.length) : (circle_AnimTime_FlipOut * 0.95))
+            }, delay ? (circle_AnimTime_FlipOut * 0.95 + circle_AnimTime_DelayBtwStartOrEndFlip * this.letterList.length) : (circle_AnimTime_FlipOut * 0.95))
         }
     }
 
@@ -644,7 +657,7 @@ class Loop {
             setTimeout(() => {
                 this.Hide(true);
             }, circle_AnimTime_DelayBtwWin * (this.letterList.length + 1) + 2000)
-        }, 2000)
+        }, circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length + 2000)
     }
 
     HighlightCurrentLetter() {
