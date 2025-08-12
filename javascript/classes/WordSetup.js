@@ -10,6 +10,8 @@ class WordSetup {
 
     static wordLoop = []
 
+    static turns = 15
+
 
     //Function to read JSON files
     //(NEEDS TO BE CONVERTED TO REMOVE DEPRECATED OBJECT)

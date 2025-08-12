@@ -2,6 +2,7 @@ WordSetup.GenerateWordDatabase()
 
 function StartGame() {
     WordSetup.GenerateWordLoop()
+    currentTurns = 0
     console.log(WordSetup.wordLoop)
 
     let loopElem = document.createElement("div")

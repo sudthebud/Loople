@@ -29,6 +29,8 @@ const circle_AnimTime_FlipInOut = 200
 const circle_AnimTime_Win = 700
 const circle_AnimTime_DelayBtwWin = 150
 
+const circle_AnimTime_DelayBtwLose = 750
+
 const letter_AnimTime_Invalid = 2500
 
 const loop_AnimTime_Rotate = 300
@@ -40,6 +42,8 @@ var loop
 
 var loopHistory
 var loopHistoryIndex
+
+var currentTurns
 
 
 
