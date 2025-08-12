@@ -307,7 +307,9 @@ class Loop {
             }
         }
 
-        let lose = (WordSetup.turns == currentTurns || win) ? false : true
+        currentTurns++
+
+        let lose = (WordSetup.turns - currentTurns > 0 || win) ? false : true
 
         //Create word loop history
         setTimeout(() => {
@@ -385,6 +387,10 @@ class Loop {
             setTimeout(() => {
                 this.Hide(true);
             }, circle_AnimTime_DelayBtwWin * (this.letterList.length + 1) + 2000)
+
+            setTimeout(() => {
+                this.DestroyLoop()
+            }, circle_AnimTime_DelayBtwWin * (this.letterList.length + 1) + 2000 + (circle_AnimTime_FlipOut * 0.95 + circle_AnimTime_DelayBtwStartOrEndFlip * this.letterList.length))
         }, Math.max(loop_AnimTime_Rotate, circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length) + 2000)
     }
 
@@ -404,6 +410,10 @@ class Loop {
             setTimeout(() => {
                 this.Hide(true)
             }, Math.max(loop_AnimTime_Rotate, circle_AnimTime_DelayBtwLose * this.letterList.length) + 4000)
+
+            setTimeout(() => {
+                this.DestroyLoop()
+            }, Math.max(loop_AnimTime_Rotate, circle_AnimTime_DelayBtwLose * this.letterList.length) + 4000 + (circle_AnimTime_FlipOut * 0.95 + circle_AnimTime_DelayBtwStartOrEndFlip * this.letterList.length))
         }, Math.max(loop_AnimTime_Rotate, circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length) + 2000)
     }
 
@@ -419,6 +429,15 @@ class Loop {
             this.letterList[this.letterIndex].element.classList.toggle("currentIndex", false)
             this.letterList[this.letterIndex].element.classList.toggle("hoverable", true)
         }
+    }
+
+    DestroyLoop() {
+        for (let i = 0; i < this.letterList.length; i++) {
+            this.letterList[i].DestroyLetter()
+        }
+
+        this.element.remove()
+        loop = null
     }
 
 }

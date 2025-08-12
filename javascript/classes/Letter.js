@@ -270,4 +270,8 @@ class Letter {
         this.element.removeEventListener("click", this.#MouseEventFunction)
     }
 
+    DestroyLetter() {
+        this.element.remove()
+    }
+
 }
