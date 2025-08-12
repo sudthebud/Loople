@@ -5,7 +5,7 @@ class Letter {
 
     element
     #position
-    #MouseEventFunction
+    #MouseListener
 
     #text= ""
     #state
@@ -27,13 +27,6 @@ class Letter {
             this.word = word
             this.wordPosition = wordPosition
             this.#position = position
-
-            let instance = this
-            this.#MouseEventFunction = function MouseEventFunction(event) {
-                if (event.repeat) return;
-
-                loop.RotateToLetter(instance);
-            }
 
             this.#CreateElement(loop.element)
             this.SetState(Letter.States.UNSUBMITTED, false)
@@ -263,11 +256,26 @@ class Letter {
     }
 
     AddMouseListener() {
-        this.element.addEventListener("click", this.#MouseEventFunction)
+        let instance = this
+        let mouseEventFunc = function MouseEventFunction(event) {
+                if (event.repeat) return;
+
+                loop.RotateToLetter(instance);
+            }
+
+        this.#MouseListener = addGameEventListener(this.element, "click", mouseEventFunc)
     }
 
     RemoveMouseListener() {
-        this.element.removeEventListener("click", this.#MouseEventFunction)
+        removeGameEventListener(this.#MouseListener)
+    }
+
+    ToggleHoverable(on) {
+        this.element.classList.toggle("hoverable", on)
+    }
+
+    ToggleCurrentIndex(on) {
+        this.element.classList.toggle("currentIndex", on)
     }
 
     DestroyLetter() {

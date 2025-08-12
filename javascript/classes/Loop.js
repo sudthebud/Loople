@@ -8,6 +8,8 @@ class Loop {
 
     #historical = false
 
+    #submit = false //Needed to guard against inputs and animations that occur after pressing submit
+
     constructor(element, historical = false, letterList = [], rotate = 0) {
         if (!historical) {
             this.element = element
@@ -73,8 +75,11 @@ class Loop {
             //     this.letterList[i].AnimateFlipIn();
             // }, circleWaitUntilAppear + 35 * i)
         }
+
+        toggleGameEventListeners(false, 0, circle_AnimTime_DelayBtwStartOrEndFlip * this.letterList.length)
+        this.ToggleHoverableLetters(false, 0, circle_AnimTime_DelayBtwStartOrEndFlip * this.letterList.length)
         setTimeout(() => {
-            this.HighlightCurrentLetter()
+            this.ToggleHighlightCurrentLetter(true)
         }, circle_AnimTime_DelayBtwStartOrEndFlip * this.letterList.length)
     }
 
@@ -124,58 +129,78 @@ class Loop {
         return [typedWordList, typedWordIndexList]
     }
 
-    Rotate(numRotations, highlight = true, highlightDelay = 0) {
-        if (!highlight 
-            || (numRotations > 0 || numRotations < 0) 
-            || (numRotations == 0 && highlightDelay > 0)) { 
-                this.UnhighlightCurrentLetter() 
-                //Don't really like doing this but I've experienced a glitch so just to be sure
+    Rotate(numRotations, submit = false, highlight = true, highlightDelay = 0) {
+        if (!this.#submit || (this.#submit && submit)) {
+            if (!highlight 
+                || (numRotations > 0 || numRotations < 0) 
+                || (numRotations == 0 && highlightDelay > 0)) { 
+                    this.ToggleHighlightCurrentLetter(false)
+                    //Don't really like doing this but I've experienced a glitch so just to be sure
+                    setTimeout(() => {
+                        this.ToggleHighlightCurrentLetter(false);
+                    }, loop_AnimTime_Rotate - 1)
+                }
+
+            this.letterIndex = Mod(this.letterIndex + numRotations, this.letterList.length)
+            this.#rotate = ((1 / this.letterList.length) * 2 * Math.PI * numRotations) + this.#rotate
+
+            this.element.style.rotate = `${this.#rotate}rad`
+
+            for (let i = 0; i < this.letterList.length; i++) {
+                this.letterList[i].element.style.rotate = `${-this.#rotate}rad`
+            }
+
+            if (!this.#historical && loopHistory.length > 0) {
+                for (let i = 0; i < loopHistory.length; i++) {
+                    loopHistory[i].Rotate(numRotations)
+                }
+            }
+
+            if (highlight 
+                && ((numRotations > 0 || numRotations < 0) || (numRotations == 0 && highlightDelay > 0))) {
                 setTimeout(() => {
-                    this.UnhighlightCurrentLetter()
-                }, loop_AnimTime_Rotate - 1)
+                    //Errors occur if you click and then immediately submit, very rare but not sure why it's happening...
+                    //Also if you type letters way too fast and press submit, letters can be highlighted but not clicked on, the method in the Letter class is getting run for some reason between submitting and this part
+                    if (!this.#submit || (this.#submit && submit)) {
+                        this.ToggleHighlightCurrentLetter(true);
+                        toggleGameEventListeners(true, 0.1);
+                        this.ToggleHoverableLetters(true, 0.1, 0, submit);
+                        this.#submit = false
+                    }
+                }, Math.max(loop_AnimTime_Rotate, highlightDelay))
             }
-
-        this.letterIndex = Mod(this.letterIndex + numRotations, this.letterList.length)
-        this.#rotate = ((1 / this.letterList.length) * 2 * Math.PI * numRotations) + this.#rotate
-
-        this.element.style.rotate = `${this.#rotate}rad`
-
-        for (let i = 0; i < this.letterList.length; i++) {
-            this.letterList[i].element.style.rotate = `${-this.#rotate}rad`
-        }
-
-        if (!this.#historical && loopHistory.length > 0) {
-            for (let i = 0; i < loopHistory.length; i++) {
-                loopHistory[i].Rotate(numRotations)
-            }
-        }
-
-        if (highlight 
-            && ((numRotations > 0 || numRotations < 0) || (numRotations == 0 && highlightDelay > 0))) {
-            setTimeout(() => {
-                this.HighlightCurrentLetter()
-            }, Math.max(loop_AnimTime_Rotate, highlightDelay))
         }
     }
 
-    RotateToLetter(letter, highlight = true, highlightDelay = 0) {
-        if (this.letterList.includes(letter)) {
+    RotateToLetter(letter, submit = false, highlight = true, highlightDelay = 0) {
+        if ((!this.#submit || submit) && this.letterList.includes(letter)) {
+            toggleGameEventListeners(false)
+            this.ToggleHoverableLetters(false, 0, 0, submit)
+
             let indexOf = this.letterList.indexOf(letter)
             if (Mod(indexOf - this.letterIndex, this.letterList.length) <= Mod(this.letterIndex - indexOf, this.letterList.length)) {
-                this.Rotate(Mod(indexOf - this.letterIndex, this.letterList.length), highlight, highlightDelay)
+                this.Rotate(Mod(indexOf - this.letterIndex, this.letterList.length), submit, highlight, highlightDelay)
             }
             else {
-                this.Rotate(-Mod(this.letterIndex - indexOf, this.letterList.length), highlight, highlightDelay)
+                this.Rotate(-Mod(this.letterIndex - indexOf, this.letterList.length), submit, highlight, highlightDelay)
             }
         }
     }
 
     TypeLetter(letter) {
-        this.letterList[this.letterIndex].SetText(letter)
-        this.Rotate(1)
+        if (!this.#submit) {
+            this.letterList[this.letterIndex].SetText(letter)
+            this.Rotate(1)
+        }
     }
 
     Submit() {
+        if (this.#submit) return
+
+        this.#submit = true
+        toggleGameEventListeners(false)
+        this.ToggleHoverableLetters(false, 0, 0, true)
+
         //Check if any spaces are blank
         for (let i = 0; i < this.letterList.length; i++) {
             if (!this.letterList[i].HasText()) {
@@ -183,6 +208,9 @@ class Loop {
                     this.element.classList.add("invalid-submit", true)
                     setTimeout(() => {
                         this.element.classList.remove("invalid-submit", false);
+                        toggleGameEventListeners(true, 0.1);
+                        this.ToggleHoverableLetters(true, 0.1, 0, true);
+                        this.#submit = false;
                     }, 1000)
                 }
                 return
@@ -206,6 +234,9 @@ class Loop {
                     this.element.classList.add("invalid-submit", true)
                     setTimeout(() => {
                         this.element.classList.remove("invalid-submit", false);
+                        toggleGameEventListeners(true, 0.1);
+                        this.ToggleHoverableLetters(true, 0.1, 0, true);
+                        this.#submit = false;
                     }, 1000)
                 }
                 return
@@ -235,7 +266,14 @@ class Loop {
         //         }
         //     }
         // }
-        // if (invalidWords) return
+        // if (invalidWords) {
+        //     toggleGameEventListeners(true, letter_AnimTime_Invalid + circle_AnimTime_FlipInOut)
+        //     this.ToggleHoverableLetters(true, letter_AnimTime_Invalid + circle_AnimTime_FlipInOut, 0, true)
+        //     setTimeout(() => {
+        //         this.#submit = false;
+        //     }, letter_AnimTime_Invalid + circle_AnimTime_FlipInOut)
+        //     return
+        // }
         
         //Recreate word loop
         let submitWordLoop = []
@@ -319,7 +357,7 @@ class Loop {
             }
         }, circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length)
 
-        this.RotateToLetter(this.letterList[0], (!win && !lose), circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length)
+        this.RotateToLetter(this.letterList[0], true, (!win && !lose), circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length)
 
         if (lose) {
             this.Lose()
@@ -372,6 +410,8 @@ class Loop {
     }
 
     Win() {
+        toggleGameEventListeners(false)
+        this.ToggleHoverableLetters(false, 0, 0, true)
         loopHistoryHide()
 
         setTimeout(() => {
@@ -395,6 +435,8 @@ class Loop {
     }
 
     Lose() {
+        toggleGameEventListeners(false)
+        this.ToggleHoverableLetters(false, 0, 0, true)
         loopHistoryHide()
 
         setTimeout(() => {
@@ -417,17 +459,34 @@ class Loop {
         }, Math.max(loop_AnimTime_Rotate, circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length) + 2000)
     }
 
-    HighlightCurrentLetter() {
+    ToggleHighlightCurrentLetter(on) {
         if (!this.#historical) {
-            this.letterList[this.letterIndex].element.classList.toggle("currentIndex", true)
-            this.letterList[this.letterIndex].element.classList.toggle("hoverable", false)
+            this.letterList[this.letterIndex].ToggleCurrentIndex(on)
         }
     }
 
-    UnhighlightCurrentLetter() {
-        if (!this.#historical) {
-            this.letterList[this.letterIndex].element.classList.toggle("currentIndex", false)
-            this.letterList[this.letterIndex].element.classList.toggle("hoverable", true)
+    ToggleHoverableLetters(on, delay = 0, resetTime = 0, submit = false) {
+        for (let i = 0; i < this.letterList.length; i++) {
+            if (!this.#submit || (this.#submit && submit)) {
+                if (delay > 0) {
+                    setTimeout(() => {
+                        if (!this.#submit || (this.#submit && submit)) {
+                            this.letterList[i].ToggleHoverable(on);
+                        }
+                    }, on ? (delay + controls_Time_DelayBeforeReactivation) : delay)
+                }
+                else {
+                    this.letterList[i].ToggleHoverable(on)
+                }
+
+                if (resetTime > 0) {
+                    setTimeout(() => {
+                        if (!this.#submit || (this.#submit && submit)) {
+                            this.letterList[i].ToggleHoverable(!on)
+                        }
+                    }, !on ? (delay + resetTime + controls_Time_DelayBeforeReactivation) : (delay + resetTime))
+                }
+            }
         }
     }
 
@@ -438,6 +497,8 @@ class Loop {
 
         this.element.remove()
         loop = null
+
+        EndGame()
     }
 
 }

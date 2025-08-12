@@ -47,10 +47,13 @@
     visibility: hidden;
 }
 
-.letter.currentIndex {
+.letter.currentIndex,
+.letter.currentIndex.hoverable {
     scale: 1.1 !important;
     filter: drop-shadow(-1.1vh 0.7vh 0.3vh rgb(175, 175, 175));
     z-index: 2;
+    pointer-events: none !important;
+    cursor: none;
 }
 
 .letter.win {

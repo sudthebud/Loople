@@ -1,23 +1,25 @@
-//File path consts
+//----------File path consts----------
 const assetPath = "assets"
 const datasetPath = "datasets"
 const imagePath = "images"
-const soundPath = "sounds"
+// const soundPath = "sounds"
 
-//Game consts
+//----------Game consts----------
 const minNumWords = 3
 const maxNumWords = 5
 
 const minLetters = 3 * minNumWords - 1 * minNumWords
 const maxLetters = 7 * maxNumWords - 1 * maxNumWords
 
-//Visual and audio consts
+const controls_Time_DelayBeforeReactivation = 10
+
+//----------Visual and audio consts----------
 const circleScaleMin = 0.6
 const circleImage = "circle.svg"
 const circleWaitUntilAppear = 0
 
-const clickAudioFile = "click.mp3"
-const clickAudio = new Audio(`..\\${assetPath}\\${soundPath}\\${clickAudioFile}`)
+// const clickAudioFile = "click.mp3"
+// const clickAudio = new Audio(`..\\${assetPath}\\${soundPath}\\${clickAudioFile}`)
 
 const circle_AnimTime_DelayBtwStartOrEndFlip = 35
 const circle_AnimTime_DelayBtwSubmitFlip = 150
@@ -37,7 +39,7 @@ const loop_AnimTime_Rotate = 300
 
 
 
-//Vars
+//----------Vars----------
 var loop
 
 var loopHistory
@@ -48,7 +50,7 @@ var currentTurns
 
 
 
-//Helper functions
+//----------Helper functions----------
 function RandomInt(max, min = 0) {
     return Math.floor(Math.random() * (max - min) + min)
 }

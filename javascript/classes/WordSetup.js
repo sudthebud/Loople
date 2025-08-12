@@ -65,6 +65,7 @@ class WordSetup {
             this.#wordDictSevenLetter
         ]
 
+        this.wordLoop = []
         while (this.wordLoop.length < numWords) {
             var randomWordDict = wordDictList[RandomInt(wordDictList.length)]
 
