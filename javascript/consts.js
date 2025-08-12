@@ -30,6 +30,19 @@ const circle_AnimTime_DelayBtwWin = 150
 
 const letter_AnimTime_Invalid = 2500
 
+const loop_AnimTime_Rotate = 300
+
+
+
+//Vars
+var loop
+
+var loopHistory
+var loopHistoryIndex
+
+
+
+
 //Helper functions
 function RandomInt(max, min = 0) {
     return Math.floor(Math.random() * (max - min) + min)

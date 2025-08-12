@@ -251,6 +251,9 @@ class Letter {
         this.element.classList.toggle("flip-in", false)
         this.element.classList.toggle("flip-out", false)
         this.element.classList.toggle("flip-in-out", false)
+        this.element.classList.toggle("currentIndex", false)
+        this.element.classList.toggle("win", false)
+        this.element.classList.toggle("hoverable", false)
 
         this.element.getElementsByClassName("circle")[0].classList.toggle("invalid", false)
 
@@ -330,20 +333,24 @@ class Loop {
                     let letter = new Letter(word, wordPosition, position, this)
                     letter.element.style.scale = scale
                     // letter.element.style.visibility = "hidden"
-                    letter.element.classList.add("startOrEndHide")
+                    letter.element.classList.toggle("showOrHide", true)
                     this.letterList.push(letter)
                 }
             }
         }
 
+        this.Show(true)
         for (let i = 0; i < this.letterList.length; i++) {
             this.letterList[i].AddMouseListener()
             
-            setTimeout(() => {
-                this.letterList[i].element.classList.remove("startOrEndHide")
-                this.letterList[i].AnimateFlipIn();
-            }, circleWaitUntilAppear + 35 * i)
+            // setTimeout(() => {
+            //     this.letterList[i].element.classList.toggle("showOrHide", false)
+            //     this.letterList[i].AnimateFlipIn();
+            // }, circleWaitUntilAppear + 35 * i)
         }
+        setTimeout(() => {
+            this.HighlightCurrentLetter()
+        }, circle_AnimTime_DelayBtwShowOrHide * this.letterList.length)
     }
 
     #InstantiateHistoricalLoop(letterList, rotate) {
@@ -392,7 +399,9 @@ class Loop {
         return [typedWordList, typedWordIndexList]
     }
 
-    Rotate(numRotations) {
+    Rotate(numRotations, highlight = true) {
+        if (!highlight || (numRotations > 0 || numRotations < 0)) { this.UnhighlightCurrentLetter() }
+
         this.letterIndex = Mod(this.letterIndex + numRotations, this.letterList.length)
         this.#rotate = ((1 / this.letterList.length) * 2 * Math.PI * numRotations) + this.#rotate
 
@@ -407,16 +416,22 @@ class Loop {
                 loopHistory[i].Rotate(numRotations)
             }
         }
+
+        if (highlight && (numRotations > 0 || numRotations < 0)) {
+            setTimeout(() => {
+                this.HighlightCurrentLetter()
+            }, loop_AnimTime_Rotate)
+        }
     }
 
-    RotateToLetter(letter) {
+    RotateToLetter(letter, highlight = true) {
         if (this.letterList.includes(letter)) {
             let indexOf = this.letterList.indexOf(letter)
             if (Mod(indexOf - this.letterIndex, this.letterList.length) <= Mod(this.letterIndex - indexOf, this.letterList.length)) {
-                this.Rotate(Mod(indexOf - this.letterIndex, this.letterList.length))
+                this.Rotate(Mod(indexOf - this.letterIndex, this.letterList.length), highlight)
             }
             else {
-                this.Rotate(-Mod(this.letterIndex - indexOf, this.letterList.length))
+                this.Rotate(-Mod(this.letterIndex - indexOf, this.letterList.length), highlight)
             }
         }
     }
@@ -510,7 +525,6 @@ class Loop {
                 }
             }
         }
-        console.log(submitWordLoop)
 
         if (!win) {
             //Check if any letters are present in the word
@@ -528,7 +542,6 @@ class Loop {
                     }
                 }
             }
-            console.log(submitWordLoop)
 
             //Check if any letters are present in the loop
             for (let i = 0; i < this.letterList.length; i++) {
@@ -548,7 +561,6 @@ class Loop {
                     }
                 }
             }
-            console.log(submitWordLoop)
 
             //Mark any other letters
             for (let i = 0; i < this.letterList.length; i++) {
@@ -563,20 +575,31 @@ class Loop {
 
         //Create word loop history
         loopHistory.push(this.CreateHistoricaLoop())
+        if (loopHistoryIndex == loopHistory.length - 2) {
+            loopHistoryMove(1)
+        }
 
-        this.RotateToLetter(this.letterList[0])
+        this.RotateToLetter(this.letterList[0], !win)
 
         if (win){
             this.Win()
         }
     }
 
-    Show() {
+    Show(delay = false) {
         if (this.element.style.visibility !== "visible") {
             this.element.style.visibility = "visible"
             for (let i = 0; i < this.letterList.length; i++) {
-                this.letterList[i].AnimateFlipIn()
-                this.letterList[i].classList.toggle("startOrEndHide", false)
+                if (!delay) {
+                    this.letterList[i].AnimateFlipIn()
+                    this.letterList[i].element.classList.toggle("showOrHide", false)
+                }
+                else {
+                    setTimeout(() => {
+                        this.letterList[i].AnimateFlipIn()
+                        this.letterList[i].element.classList.toggle("showOrHide", false)
+                    }, circle_AnimTime_DelayBtwShowOrHide * i)
+                }
             }
         }
     }
@@ -586,13 +609,16 @@ class Loop {
             for (let i = 0; i < this.letterList.length; i++) {
                 if (!delay) {
                     this.letterList[i].AnimateFlipOut()
+                    setTimeout(() => {
+                        this.letterList[i].element.classList.toggle("showOrHide", true)
+                    }, circle_AnimTime_FlipOut * 0.95)
                 }
                 else {
                     setTimeout(() => {
                         this.letterList[i].AnimateFlipOut()
                     }, circle_AnimTime_DelayBtwShowOrHide * i)
                     setTimeout(() => {
-                        this.letterList[i].element.classList.toggle("startOrEndHide", true)
+                        this.letterList[i].element.classList.toggle("showOrHide", true)
                     }, circle_AnimTime_FlipOut * 0.95 + circle_AnimTime_DelayBtwShowOrHide * i)
                 }
             }
@@ -603,6 +629,8 @@ class Loop {
     }
 
     Win() {
+        loopHistoryHide()
+
         setTimeout(() => {
             for (let i = 0; i < this.letterList.length; i++) {
                 setTimeout(() => {
@@ -617,6 +645,20 @@ class Loop {
                 this.Hide(true);
             }, circle_AnimTime_DelayBtwWin * (this.letterList.length + 1) + 2000)
         }, 2000)
+    }
+
+    HighlightCurrentLetter() {
+        if (!this.#historical) {
+            this.letterList[this.letterIndex].element.classList.toggle("currentIndex", true)
+            this.letterList[this.letterIndex].element.classList.toggle("hoverable", false)
+        }
+    }
+
+    UnhighlightCurrentLetter() {
+        if (!this.#historical) {
+            this.letterList[this.letterIndex].element.classList.toggle("currentIndex", false)
+            this.letterList[this.letterIndex].element.classList.toggle("hoverable", true)
+        }
     }
 
 }
