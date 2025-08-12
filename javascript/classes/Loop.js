@@ -235,6 +235,18 @@ class Letter {
         }, letter_AnimTime_Invalid + circle_AnimTime_FlipInOut / 2)
     }
 
+    AnimateWin() {
+        this.element.classList.toggle("win_Anim", true)
+        this.element.classList.toggle("win", true)
+
+        setTimeout(() => {
+            this.element.classList.toggle("win", false)
+        }, circle_AnimTime_Win)
+        setTimeout(() => {
+            this.element.classList.toggle("win_Anim", false)
+        }, circle_AnimTime_Win)
+    }
+
     TurnOffAllCurrentAnims() {
         this.element.classList.toggle("flip-in", false)
         this.element.classList.toggle("flip-out", false)
@@ -318,7 +330,7 @@ class Loop {
                     let letter = new Letter(word, wordPosition, position, this)
                     letter.element.style.scale = scale
                     // letter.element.style.visibility = "hidden"
-                    letter.element.classList.add("create")
+                    letter.element.classList.add("startOrEndHide")
                     this.letterList.push(letter)
                 }
             }
@@ -328,7 +340,7 @@ class Loop {
             this.letterList[i].AddMouseListener()
             
             setTimeout(() => {
-                this.letterList[i].element.classList.remove("create")
+                this.letterList[i].element.classList.remove("startOrEndHide")
                 this.letterList[i].AnimateFlipIn();
             }, circleWaitUntilAppear + 35 * i)
         }
@@ -483,6 +495,7 @@ class Loop {
         }
 
         //Check if any letters are correct
+        let win = true
         for (let i = 0; i < this.letterList.length; i++) {
             let letter = this.letterList[i]
 
@@ -492,61 +505,70 @@ class Loop {
                     letter.SetState(Letter.States.SUBMITTED_CORRECT)
                     submitWordLoop[letter.word[j]] = `${word.substring(0, letter.wordPosition[j])}_${word.substring(letter.wordPosition[j]+1)}`
                 }
-            }
-        }
-        console.log(submitWordLoop)
-
-        //Check if any letters are present in the word
-        for (let i = 0; i < this.letterList.length; i++) {
-            let letter = this.letterList[i]
-            if (letter.GetState() == Letter.States.SUBMITTED_CORRECT) continue
-
-            for (let j = 0; j < letter.word.length; j++) {
-                let word = submitWordLoop[letter.word[j]]
-                if (word.includes(letter.GetText())) {
-                    letter.SetState(Letter.States.SUBMITTED_IN_WORD)
-                    let indexOf = word.indexOf(letter.GetText())
-                    submitWordLoop[letter.word[j]] = `${word.substring(0, indexOf)}_${word.substring(indexOf+1)}`
-                    break
+                else {
+                    win = false
                 }
             }
         }
         console.log(submitWordLoop)
 
-        //Check if any letters are present in the loop
-        for (let i = 0; i < this.letterList.length; i++) {
-            let letter = this.letterList[i]
-            if (letter.GetState() == Letter.States.SUBMITTED_CORRECT
-                || letter.GetState() == Letter.States.SUBMITTED_IN_WORD) continue
+        if (!win) {
+            //Check if any letters are present in the word
+            for (let i = 0; i < this.letterList.length; i++) {
+                let letter = this.letterList[i]
+                if (letter.GetState() == Letter.States.SUBMITTED_CORRECT) continue
 
-            for (let j = 0; j < submitWordLoop.length; j++) {
-                if (letter.word.includes(j)) continue
-
-                let word = submitWordLoop[j]
-                if (word.includes(letter.GetText())) {
-                    letter.SetState(Letter.States.SUBMITTED_IN_LOOP)
-                    let indexOf = word.indexOf(letter.GetText())
-                    submitWordLoop[j] = `${word.substring(0, indexOf)}_${word.substring(indexOf+1)}`
-                    break
+                for (let j = 0; j < letter.word.length; j++) {
+                    let word = submitWordLoop[letter.word[j]]
+                    if (word.includes(letter.GetText())) {
+                        letter.SetState(Letter.States.SUBMITTED_IN_WORD)
+                        let indexOf = word.indexOf(letter.GetText())
+                        submitWordLoop[letter.word[j]] = `${word.substring(0, indexOf)}_${word.substring(indexOf+1)}`
+                        break
+                    }
                 }
             }
-        }
-        console.log(submitWordLoop)
+            console.log(submitWordLoop)
 
-        //Mark any other letters
-        for (let i = 0; i < this.letterList.length; i++) {
-            let letter = this.letterList[i]
-            if (letter.GetState() == Letter.States.SUBMITTED_CORRECT
-                || letter.GetState() == Letter.States.SUBMITTED_IN_WORD
-                || letter.GetState() == Letter.States.SUBMITTED_IN_LOOP) continue
+            //Check if any letters are present in the loop
+            for (let i = 0; i < this.letterList.length; i++) {
+                let letter = this.letterList[i]
+                if (letter.GetState() == Letter.States.SUBMITTED_CORRECT
+                    || letter.GetState() == Letter.States.SUBMITTED_IN_WORD) continue
 
-            letter.SetState(Letter.States.SUBMITTED_NO_EXIST)
+                for (let j = 0; j < submitWordLoop.length; j++) {
+                    if (letter.word.includes(j)) continue
+
+                    let word = submitWordLoop[j]
+                    if (word.includes(letter.GetText())) {
+                        letter.SetState(Letter.States.SUBMITTED_IN_LOOP)
+                        let indexOf = word.indexOf(letter.GetText())
+                        submitWordLoop[j] = `${word.substring(0, indexOf)}_${word.substring(indexOf+1)}`
+                        break
+                    }
+                }
+            }
+            console.log(submitWordLoop)
+
+            //Mark any other letters
+            for (let i = 0; i < this.letterList.length; i++) {
+                let letter = this.letterList[i]
+                if (letter.GetState() == Letter.States.SUBMITTED_CORRECT
+                    || letter.GetState() == Letter.States.SUBMITTED_IN_WORD
+                    || letter.GetState() == Letter.States.SUBMITTED_IN_LOOP) continue
+
+                letter.SetState(Letter.States.SUBMITTED_NO_EXIST)
+            }
         }
 
         //Create word loop history
         loopHistory.push(this.CreateHistoricaLoop())
 
         this.RotateToLetter(this.letterList[0])
+
+        if (win){
+            this.Win()
+        }
     }
 
     Show() {
@@ -554,19 +576,47 @@ class Loop {
             this.element.style.visibility = "visible"
             for (let i = 0; i < this.letterList.length; i++) {
                 this.letterList[i].AnimateFlipIn()
+                this.letterList[i].classList.toggle("startOrEndHide", false)
             }
         }
     }
 
-    Hide() {
+    Hide(delay = false) {
         if (this.element.style.visibility !== "hidden") {
             for (let i = 0; i < this.letterList.length; i++) {
-                this.letterList[i].AnimateFlipOut()
+                if (!delay) {
+                    this.letterList[i].AnimateFlipOut()
+                }
+                else {
+                    setTimeout(() => {
+                        this.letterList[i].AnimateFlipOut()
+                    }, circle_AnimTime_DelayBtwShowOrHide * i)
+                    setTimeout(() => {
+                        this.letterList[i].element.classList.toggle("startOrEndHide", true)
+                    }, circle_AnimTime_FlipOut * 0.95 + circle_AnimTime_DelayBtwShowOrHide * i)
+                }
             }
             setTimeout(() => {
                 this.element.style.visibility = "hidden";
-            }, circle_AnimTime_FlipOut * 0.95)
+            }, delay ? (circle_AnimTime_FlipOut * 0.95 + circle_AnimTime_DelayBtwShowOrHide * this.letterList.length) : (circle_AnimTime_FlipOut * 0.95))
         }
+    }
+
+    Win() {
+        setTimeout(() => {
+            for (let i = 0; i < this.letterList.length; i++) {
+                setTimeout(() => {
+                    this.letterList[i].AnimateWin();
+                }, circle_AnimTime_DelayBtwWin * i)
+            }
+            setTimeout(() => {
+                this.letterList[0].AnimateWin();
+            }, circle_AnimTime_DelayBtwWin * this.letterList.length)
+
+            setTimeout(() => {
+                this.Hide(true);
+            }, circle_AnimTime_DelayBtwWin * (this.letterList.length + 1) + 2000)
+        }, 2000)
     }
 
 }

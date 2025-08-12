@@ -19,9 +19,14 @@ const circleWaitUntilAppear = 0
 const clickAudioFile = "click.mp3"
 const clickAudio = new Audio(`..\\${assetPath}\\${soundPath}\\${clickAudioFile}`)
 
+const circle_AnimTime_DelayBtwShowOrHide = 35
+
 const circle_AnimTime_FlipIn = 150
 const circle_AnimTime_FlipOut = 150
 const circle_AnimTime_FlipInOut = 200
+
+const circle_AnimTime_Win = 700
+const circle_AnimTime_DelayBtwWin = 150
 
 const letter_AnimTime_Invalid = 2500
 
