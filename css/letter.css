@@ -23,7 +23,7 @@
 
 .letter.invalid {
     scale: 1.1 !important;
-    filter: drop-shadow(-1.1vh 0.7vh 0.3vh rgb(175, 175, 175));
+    filter: drop-shadow(-1.1vh 0.7vh 0.7vh rgb(175, 175, 175));
 }
 
 /* .letter.on-create {
@@ -42,7 +42,7 @@
 .letter.currentIndex,
 .letter.currentIndex.hoverable {
     scale: 1.1 !important;
-    filter: drop-shadow(-1.1vh 0.7vh 0.3vh rgb(175, 175, 175));
+    filter: drop-shadow(-1.1vh 0.7vh 0.7vh rgb(175, 175, 175));
     z-index: 2;
     pointer-events: none !important;
     cursor: none;
@@ -50,7 +50,7 @@
 
 .letter.win {
     scale: 1.1 !important;
-    filter: drop-shadow(-1.1vh 0.7vh 0.3vh rgb(175, 175, 175));
+    filter: drop-shadow(-1.1vh 0.7vh 0.7vh rgb(175, 175, 175));
     z-index: 1;
 }
 
@@ -60,7 +60,7 @@
 
 .letter.hoverable:hover {
     scale: 1.1 !important;
-    filter: drop-shadow(-1.1vh 0.7vh 0.3vh rgb(175, 175, 175));
+    filter: drop-shadow(-1.1vh 0.7vh 0.7vh rgb(175, 175, 175));
     cursor: pointer;
     z-index: 1;
 }
@@ -168,7 +168,7 @@
     animation-duration: 15s;
     animation-delay: 0s;
     animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: ease;
 }
 
 .letter.win_Anim {

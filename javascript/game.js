@@ -5,7 +5,7 @@ function StartGame() {
 
     WordSetup.GenerateWordLoop()
     currentTurns = 0
-    console.log(WordSetup.wordLoop)
+    // console.log(WordSetup.wordLoop)
 
     clearGameEventListeners()
     addGameEventListener(document, "keydown", gameKeyboardControlsFunc)
@@ -14,6 +14,8 @@ function StartGame() {
     document.body.appendChild(loopElem)
     loopElem.classList.add("loop")
     loop = new Loop(loopElem)
+
+    counterSetText();
 }
 
 function EndGame() {

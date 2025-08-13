@@ -242,36 +242,36 @@ class Loop {
         }
 
         //Check if any word is invalid
-        // let invalidWords = false
-        // for (let i = 0; i < submitWordList[0].length; i++) {
-        //     if (!WordSetup.wordList.has(submitWordList[0][i])){
-        //         invalidWords = true
+        let invalidWords = false
+        for (let i = 0; i < submitWordList[0].length; i++) {
+            if (!WordSetup.wordList.has(submitWordList[0][i])){
+                invalidWords = true
 
-        //         if (!this.element.classList.contains("invalid-submit")) {
-        //             this.element.classList.add("invalid-submit", true)
-        //             setTimeout(() => {
-        //                 this.element.classList.remove("invalid-submit", false);
-        //             }, 1000)
-        //         }
+                if (!this.element.classList.contains("invalid-submit")) {
+                    this.element.classList.add("invalid-submit", true)
+                    setTimeout(() => {
+                        this.element.classList.remove("invalid-submit", false);
+                    }, 1000)
+                }
 
-        //         let wordIndex = submitWordList[1][i]
-        //         for (let j = 0; j < wordIndex.length; j++) {
-        //             let wordIndexOf = wordIndex[j]
-        //             if (!this.letterList[wordIndexOf].element.classList.contains("invalid")
-        //                 && !this.letterList[wordIndexOf].element.getElementsByClassName("circle")[0].classList.contains("invalid")) {
-        //                 this.letterList[wordIndexOf].AnimateInvalid()
-        //             }
-        //         }
-        //     }
-        // }
-        // if (invalidWords) {
-        //     toggleGameEventListeners(true, letter_AnimTime_Invalid + circle_AnimTime_FlipInOut)
-        //     this.ToggleHoverableLetters(true, letter_AnimTime_Invalid + circle_AnimTime_FlipInOut, 0, true)
-        //     setTimeout(() => {
-        //         this.#submit = false;
-        //     }, letter_AnimTime_Invalid + circle_AnimTime_FlipInOut)
-        //     return
-        // }
+                let wordIndex = submitWordList[1][i]
+                for (let j = 0; j < wordIndex.length; j++) {
+                    let wordIndexOf = wordIndex[j]
+                    if (!this.letterList[wordIndexOf].element.classList.contains("invalid")
+                        && !this.letterList[wordIndexOf].element.getElementsByClassName("circle")[0].classList.contains("invalid")) {
+                        this.letterList[wordIndexOf].AnimateInvalid()
+                    }
+                }
+            }
+        }
+        if (invalidWords) {
+            toggleGameEventListeners(true, letter_AnimTime_Invalid + circle_AnimTime_FlipInOut)
+            this.ToggleHoverableLetters(true, letter_AnimTime_Invalid + circle_AnimTime_FlipInOut, 0, true)
+            setTimeout(() => {
+                this.#submit = false;
+            }, letter_AnimTime_Invalid + circle_AnimTime_FlipInOut)
+            return
+        }
         
         //Recreate word loop
         let submitWordLoop = []
@@ -347,9 +347,10 @@ class Loop {
 
         let lose = (WordSetup.turns - currentTurns > 0 || win) ? false : true
 
-        //Create word loop history
+        //Create word loop history and do UI stuff
         setTimeout(() => {
             loopHistoryAdd(this.CreateHistoricaLoop());
+            counterSetText();
         }, circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length)
 
         this.RotateToLetter(this.letterList[0], true, (!win && !lose), circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length)
@@ -409,12 +410,14 @@ class Loop {
         this.ToggleHoverableLetters(false, 0, 0, true)
         toggleEnabledLeftHistoryButton(false)
         toggleEnabledRightHistoryButton(false)
+        historyTurnPillSetText(true)
         loopHistoryHide()
 
         //In case of button spam
         setTimeout(() => {
             toggleEnabledLeftHistoryButton(false);
             toggleEnabledRightHistoryButton(false);
+            historyTurnPillSetText(true);
             loopHistoryHide();
         }, Math.max(loop_AnimTime_Rotate, circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length))
 
@@ -443,12 +446,14 @@ class Loop {
         this.ToggleHoverableLetters(false, 0, 0, true)
         toggleEnabledLeftHistoryButton(false)
         toggleEnabledRightHistoryButton(false)
+        historyTurnPillSetText(true)
         loopHistoryHide()
 
         //In case of button spam
         setTimeout(() => {
             toggleEnabledLeftHistoryButton(false);
             toggleEnabledRightHistoryButton(false);
+            historyTurnPillSetText(true);
             loopHistoryHide();
         }, Math.max(loop_AnimTime_Rotate, circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length))
 

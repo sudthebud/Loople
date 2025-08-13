@@ -42,6 +42,9 @@ const ui_historyTurn_AnimTime_FlipPart2 = 500
 const ui_historyTurn_AnimTime_FlipAppear = 400
 const ui_historyTurn_AnimTime_FlipDisappear = 500
 
+const ui_counter_AnimTime_FlipPart1 = 200
+const ui_counter_AnimTime_FlipPart2 = 1000
+
 
 
 //----------Vars----------

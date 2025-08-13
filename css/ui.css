@@ -10,7 +10,7 @@ body {
 
 #counterCircle {
     background-color: var(--base-color);
-    /* background-color: white; */
+    /* background-color: #f8f8f8; */
     width: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     height: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     border-radius: 50%;
@@ -21,13 +21,62 @@ body {
     margin-left: calc((-0.5 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset))));
 }
 
+/* Counter */
+
+#counterCircle > #counter {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgb(38, 38, 38);
+    width: 50%;
+    height: 50%;
+    margin-top: -25%;
+    margin-left: -25%;
+    top: 27.5%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-size: 375%;
+    font-family: monospace;
+    filter: drop-shadow(-0.1em 0.1em 1vh rgb(100,100,100));
+}
+
+#counterCircle > #turnsLeftStaticText {
+    position: absolute;
+    background-color: rgb(38, 38, 38);
+    color: white;
+    border-radius: 12vh;
+    width: 40%;
+    height: 12.5%;
+    margin-top: -6.25%;
+    margin-left: -20%;
+    top: 62.5%;
+    left: 50%;
+    content: "Test";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 85%;
+    filter: drop-shadow(-0.2em 0.2em 1vh rgb(100,100,100));
+}
+
+#counterCircle > #counter.flipAnim {
+    animation: ui-flip-part-1, ui-flip-part-2;
+    animation-duration: 0.2s, 1s;
+    animation-delay: 0s, 0.2s;
+    animation-iteration-count: 1;
+}
+
 /* Forward and back history buttons */
 
 #counterCircle > #historyForwardButton, #historyBackwardButton {
     position: absolute;
     width: calc(4 / 34 * 100%);
     height: calc(4 / 34 * 100%);
-    top: 75%;
+    top: 85%;
     margin-top: calc(-2 / 34 * 100% - 2%);
     margin-left: calc(-2 / 34 * 100% - 2%);
     transition: filter 0.25s ease-out;
@@ -36,7 +85,7 @@ body {
     z-index: 1;
     padding: 2%;
 
-    img {
+    & img {
         width: 100%;
         height: 100%;
         transition: scale 0.5s ease-out; /* If the browser doesn't support the below transition */
@@ -62,7 +111,7 @@ body {
 }
 
 #counterCircle > #historyForwardButton:active, #historyBackwardButton:active {
-    img {
+    & img {
         scale: 0.8;
     }
 }
@@ -83,10 +132,10 @@ body {
     background-color: rgb(100, 100, 100);
     width: calc(10 / 34 * 100%);
     height: calc(4 / 34 * 100%);
-    top: 75%;
+    top: 85%;
     left: 50%;
     margin-top: calc(-2 / 34 * 100%);
-    margin-left: calc(-19 / 136 * 100%);
+    margin-left: calc(-5 / 34 * 100%);
     border-radius: 12vh;
     color: white;
     text-align: center;
@@ -95,18 +144,18 @@ body {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: calc(75%);
+    font-size: 75%;
     transition-property: width, margin-left, font-size, left;
     transition-duration: 0.07s;
     transition-timing-function: ease-out;
-    filter: drop-shadow(-0.4ch 0.175vh 0vh rgb(150,150,150));
+    filter: drop-shadow(0ch 0ch 1vh rgb(150,150,150));
     transform: rotateX(0);
 }
 
 #counterCircle > #historyForwardButton:hover:active ~ #historyTurn, #historyBackwardButton:hover:active ~ #historyTurn {
     width: calc(6 / 34 * 100%);
     margin-left: calc(-3 / 34 * 100%);
-    font-size: calc(30%);
+    font-size: 30%;
 }
 
 #counterCircle > #historyForwardButton:hover:active ~ #historyTurn {
@@ -117,17 +166,22 @@ body {
     left: 40%;
 }
 
-#counterCircle > #historyTurn.disabled {
+#counterCircle > #historyTurn.disabled { /* Replace with ::disabled selector? */
     visibility: hidden;
 }
 
 #counterCircle > #historyTurn.flip_Anim {
-    animation: historyTurn-flip-part-1, historyTurn-flip-part-2;
+    animation: ui-flip-part-1, ui-flip-part-2;
     animation-duration: 0.1s, 0.5s;
     animation-delay: 0s, 0.1s;
 }
 
-@keyframes historyTurn-flip-part-1 {
+
+
+
+/* Animations */
+
+@keyframes ui-flip-part-1 {
     0% {
         transform: rotateX(0deg);
     }
@@ -136,7 +190,7 @@ body {
     }
 }
 
-@keyframes historyTurn-flip-part-2 {
+@keyframes ui-flip-part-2 {
     0% {
         transform: rotateX(-90deg);
     }

@@ -3,6 +3,7 @@ var counterCircle = document.getElementById("counterCircle")
 var leftHistoryButton = document.getElementById("historyBackwardButton")
 var rightHistoryButton = document.getElementById("historyForwardButton")
 var historyTurnPill = document.getElementById("historyTurn")
+var counter = document.getElementById("counter")
 
 leftHistoryButton.addEventListener("click", (event) => leftHistoryButtonOnClick())
 rightHistoryButton.addEventListener("click", (event) => {
@@ -72,13 +73,27 @@ function historyTurnPillSetText(disabled = false) {
     historyTurnPill.classList.toggle("flip_Anim", true);
 
     setTimeout(() => {
-        historyTurnPill.classList.toggle("disabled", disabled);
+        if ((!loopHistoryVisible && disabled) || (loopHistoryVisible && !disabled)) historyTurnPill.classList.toggle("disabled", disabled);
         historyTurnPill.textContent = turnText;
     }, ui_historyTurn_AnimTime_FlipPart1);
 
     setTimeout(() => {
         historyTurnPill.classList.toggle("flip_Anim", false);
     }, ui_historyTurn_AnimTime_FlipPart1 + ui_historyTurn_AnimTime_FlipPart2);
+}
+
+
+function counterSetText() {
+    let counterText = `${WordSetup.turns - currentTurns}`
+    counter.classList.toggle("flipAnim", true)
+
+    setTimeout(() => {
+        counter.textContent = counterText;
+    }, ui_counter_AnimTime_FlipPart1)
+
+    setTimeout(() => {
+        counter.classList.toggle("flipAnim", false);
+    }, ui_counter_AnimTime_FlipPart1 + ui_counter_AnimTime_FlipPart2)
 }
 
 
@@ -122,15 +137,15 @@ function loopHistoryRotate(numRotations) {
 
 function loopHistoryShow() {
     if (loopHistory.length > 0 && !loopHistoryVisible) {
-        loopHistory[loopHistoryIndex].Show()
         loopHistoryVisible = true
+        loopHistory[loopHistoryIndex].Show()
     }
 }
 
 function loopHistoryHide() {
     if (loopHistory.length > 0 && loopHistoryVisible) {
-        loopHistory[loopHistoryIndex].Hide()
         loopHistoryVisible = false
+        loopHistory[loopHistoryIndex].Hide()
     }
 }
 
