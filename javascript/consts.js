@@ -19,7 +19,7 @@ const circleImage = "circle.svg"
 const circleWaitUntilAppear = 0
 
 // const clickAudioFile = "click.mp3"
-// const clickAudio = new Audio(`..\\${assetPath}\\${soundPath}\\${clickAudioFile}`)
+// const clickAudio = new Audio(`${assetPath}/${soundPath}/${clickAudioFile}`)
 
 const circle_AnimTime_DelayBtwStartOrEndFlip = 35
 const circle_AnimTime_DelayBtwSubmitFlip = 150

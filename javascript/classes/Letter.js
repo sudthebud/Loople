@@ -44,7 +44,7 @@ class Letter {
 
     //Temp method until we start doing custom images
     static GetCircleImage() {
-        return `${assetPath}\\${imagePath}\\${circleImage}`
+        return `${assetPath}/${imagePath}/${circleImage}`
     }
 
     #CreateElement(loopElement) {

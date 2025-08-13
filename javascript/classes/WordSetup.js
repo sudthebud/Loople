@@ -15,7 +15,7 @@ class WordSetup {
 
     //Function to read JSON files
     static async #ReadFile(fileName) {
-        return await fetch(`..\\..\\${assetPath}\\${datasetPath}\\${fileName}.json`)
+        return await fetch(`${assetPath}/${datasetPath}/${fileName}.json`)
             .then((r) => r.json())
             .then((j) => { return j })
     }
