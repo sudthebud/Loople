@@ -102,7 +102,6 @@ function clearGameEventListeners() {
 
 
 var gameKeyboardControlsFunc = function GameKeyboardControls(event) {
-    console.log(event.key)
     if (!event.repeat) {
         //Move between the loop
         if (event.key === 'ArrowLeft' || event.key === '1') {
@@ -113,10 +112,10 @@ var gameKeyboardControlsFunc = function GameKeyboardControls(event) {
         }
 
         //Move between historical loops (shortcut)
-        else if (event.key === ',' || event.key === '3') {
+        else if ((event.key === ',' || event.key === '3') && !leftHistoryButton.classList.contains("disabled")) {
             leftHistoryButtonOnClick()
         }
-        else if (event.key === '.' || event.key === '4') {
+        else if (event.key === '.' || event.key === '4' && !rightHistoryButton.classList.contains("disabled")) {
             rightHustoryButtonOnClick()
         }
 

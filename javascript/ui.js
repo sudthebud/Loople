@@ -46,6 +46,13 @@ function rightHustoryButtonOnClick() {
 var loopHistoryVisible = false
 
 function loopHistoryReset() {
+    if (typeof loopHistory !== 'undefined' && loopHistory !== null) {
+        loopHistoryHide()
+        for (let i = 0; i < loopHistory.length; i++) {
+            loopHistory[i].DestroyLoop()
+        }
+    }
+
     loopHistory = []
     loopHistoryIndex = -1
 
@@ -59,7 +66,7 @@ function loopHistoryAdd(newLoopHistory) {
         loopHistoryMove(1);
     }
 
-    if (loopHistory.length == 1) {
+    if (loopHistory.length - 1 == loopHistoryIndex) {
         toggleEnabledLeftHistoryButton(true)
     }
 }
@@ -71,14 +78,14 @@ function loopHistoryRotate(numRotations) {
 }
 
 function loopHistoryShow() {
-    if (loopHistory.length > 0) {
+    if (loopHistory.length > 0 && !loopHistoryVisible) {
         loopHistory[loopHistoryIndex].Show()
         loopHistoryVisible = true
     }
 }
 
 function loopHistoryHide() {
-    if (loopHistory.length > 0) {
+    if (loopHistory.length > 0 && loopHistoryVisible) {
         loopHistory[loopHistoryIndex].Hide()
         loopHistoryVisible = false
     }

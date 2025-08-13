@@ -407,7 +407,16 @@ class Loop {
     Win() {
         toggleGameEventListeners(false)
         this.ToggleHoverableLetters(false, 0, 0, true)
+        toggleEnabledLeftHistoryButton(false)
+        toggleEnabledRightHistoryButton(false)
         loopHistoryHide()
+
+        //In case of button spam
+        setTimeout(() => {
+            toggleEnabledLeftHistoryButton(false);
+            toggleEnabledRightHistoryButton(false);
+            loopHistoryHide();
+        }, Math.max(loop_AnimTime_Rotate, circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length))
 
         setTimeout(() => {
             for (let i = 0; i < this.letterList.length; i++) {
@@ -432,7 +441,16 @@ class Loop {
     Lose() {
         toggleGameEventListeners(false)
         this.ToggleHoverableLetters(false, 0, 0, true)
+        toggleEnabledLeftHistoryButton(false)
+        toggleEnabledRightHistoryButton(false)
         loopHistoryHide()
+
+        //In case of button spam
+        setTimeout(() => {
+            toggleEnabledLeftHistoryButton(false);
+            toggleEnabledRightHistoryButton(false);
+            loopHistoryHide();
+        }, Math.max(loop_AnimTime_Rotate, circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length))
 
         setTimeout(() => {
             for (let i = 0; i < this.letterList.length; i++) {
@@ -493,7 +511,9 @@ class Loop {
         this.element.remove()
         loop = null
 
-        EndGame()
+        if (!this.#historical) {
+            EndGame()
+        }
     }
 
 }
