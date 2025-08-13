@@ -14,22 +14,19 @@ class WordSetup {
 
 
     //Function to read JSON files
-    //(NEEDS TO BE CONVERTED TO REMOVE DEPRECATED OBJECT)
-    static #ReadFile(fileName) {
-        var request = new XMLHttpRequest()
-        request.open("GET", `..\\..\\${assetPath}\\${datasetPath}\\${fileName}.json`, false)
-        request.send(null)
-        var jsonResult = JSON.parse(request.responseText)
-        return jsonResult
+    static async #ReadFile(fileName) {
+        return await fetch(`..\\..\\${assetPath}\\${datasetPath}\\${fileName}.json`)
+            .then((r) => r.json())
+            .then((j) => { return j })
     }
 
     //Function to obtain word database objects
-    static GenerateWordDatabase() {
-        this.#wordDictThreeLetter = this.#ReadFile("threeLetter")
-        this.#wordDictFourLetter = this.#ReadFile("fourLetter")
-        this.#wordDictFiveLetter = this.#ReadFile("fiveLetter")
-        this.#wordDictSixLetter = this.#ReadFile("sixLetter")
-        this.#wordDictSevenLetter = this.#ReadFile("sevenLetter")
+    static async GenerateWordDatabase() {
+        this.#wordDictThreeLetter = await this.#ReadFile("threeLetter")
+        this.#wordDictFourLetter = await this.#ReadFile("fourLetter")
+        this.#wordDictFiveLetter = await this.#ReadFile("fiveLetter")
+        this.#wordDictSixLetter = await this.#ReadFile("sixLetter")
+        this.#wordDictSevenLetter = await this.#ReadFile("sevenLetter")
 
         let wordDictList = [
             this.#wordDictThreeLetter,

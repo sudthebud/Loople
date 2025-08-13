@@ -1,11 +1,15 @@
-WordSetup.GenerateWordDatabase()
+async function SetupGame() {
+    await WordSetup.GenerateWordDatabase()
+
+    StartGame()
+}
 
 function StartGame() {
     loopHistoryReset()
 
     WordSetup.GenerateWordLoop()
     currentTurns = 0
-    // console.log(WordSetup.wordLoop)
+    //console.log(WordSetup.wordLoop)
 
     clearGameEventListeners()
     addGameEventListener(document, "keydown", gameKeyboardControlsFunc)
@@ -22,4 +26,4 @@ function EndGame() {
     StartGame()
 }
 
-StartGame()
+SetupGame()
