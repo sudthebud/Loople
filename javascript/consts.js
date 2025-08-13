@@ -37,6 +37,11 @@ const letter_AnimTime_Invalid = 2500
 
 const loop_AnimTime_Rotate = 300
 
+const ui_historyTurn_AnimTime_FlipPart1 = 100
+const ui_historyTurn_AnimTime_FlipPart2 = 500
+const ui_historyTurn_AnimTime_FlipAppear = 400
+const ui_historyTurn_AnimTime_FlipDisappear = 500
+
 
 
 //----------Vars----------

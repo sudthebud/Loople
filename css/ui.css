@@ -9,8 +9,8 @@ body {
 /* Counter circle */
 
 #counterCircle {
-    /* background-color: var(--base-color); */
-    background-color: white;
+    background-color: var(--base-color);
+    /* background-color: white; */
     width: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     height: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     border-radius: 50%;
@@ -25,20 +25,33 @@ body {
 
 #counterCircle > #historyForwardButton, #historyBackwardButton {
     position: absolute;
-    width: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 4 / 34 ));
-    height: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 4 / 34 ));
-    top: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 0.75));
-    margin-top: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * -2 / 34));
-    margin-left: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * -2 / 34));
-    transition: filter 0.25s ease-out, scale 0.5s ease-out; /* If the browser doesn't support the below transition */
-    transition: filter 0.25s ease-out, scale 0.8s linear(
-        0, 1.2, 0.8, 1.1, 0.9, 1, 1, 1);
+    width: calc(4 / 34 * 100%);
+    height: calc(4 / 34 * 100%);
+    top: 75%;
+    margin-top: calc(-2 / 34 * 100% - 2%);
+    margin-left: calc(-2 / 34 * 100% - 2%);
+    transition: filter 0.25s ease-out;
+    transition: filter 0.25s ease-out; 
     filter: var(--unfocused-color-filter);
     z-index: 1;
+    padding: 2%;
+
+    img {
+        width: 100%;
+        height: 100%;
+        transition: scale 0.5s ease-out; /* If the browser doesn't support the below transition */
+        transition: scale 0.8s linear(0, 1.2, 0.8, 1.1, 0.9, 1, 1, 1);
+        pointer-events: none;
+    }
 }
 
 #counterCircle > #historyForwardButton.disabled, #historyBackwardButton.disabled {
     filter: var(--disabled-color-filter) !important;
+    pointer-events: none !important;
+    cursor: none !important;
+}
+
+#counterCircle > #historyForwardButton.cooldown, #historyBackwardButton.cooldown {
     pointer-events: none !important;
     cursor: none !important;
 }
@@ -48,15 +61,98 @@ body {
     cursor: pointer;
 }
 
-#counterCircle > #historyForwardButton:hover:active, #historyBackwardButton:hover:active {
-    scale: 0.8;
+#counterCircle > #historyForwardButton:active, #historyBackwardButton:active {
+    img {
+        scale: 0.8;
+    }
 }
 
 #counterCircle > #historyForwardButton {
-    left: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * (0.5 + 0.25)));
+    left: 75%
 }
 
 #counterCircle > #historyBackwardButton {
-    left: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * (0.5 - 0.25)));
+    left: 25%;
     rotate: 180deg;
+}
+
+/* History turn counter */
+
+#counterCircle > #historyTurn {
+    position: absolute;
+    background-color: rgb(100, 100, 100);
+    width: calc(10 / 34 * 100%);
+    height: calc(4 / 34 * 100%);
+    top: 75%;
+    left: 50%;
+    margin-top: calc(-2 / 34 * 100%);
+    margin-left: calc(-19 / 136 * 100%);
+    border-radius: 12vh;
+    color: white;
+    text-align: center;
+    line-height: calc(4 / 34 * 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: calc(75%);
+    transition-property: width, margin-left, font-size, left;
+    transition-duration: 0.07s;
+    transition-timing-function: ease-out;
+    filter: drop-shadow(-0.4ch 0.175vh 0vh rgb(150,150,150));
+    transform: rotateX(0);
+}
+
+#counterCircle > #historyForwardButton:hover:active ~ #historyTurn, #historyBackwardButton:hover:active ~ #historyTurn {
+    width: calc(6 / 34 * 100%);
+    margin-left: calc(-3 / 34 * 100%);
+    font-size: calc(30%);
+}
+
+#counterCircle > #historyForwardButton:hover:active ~ #historyTurn {
+    left: 60%;
+}
+
+#counterCircle > #historyBackwardButton:hover:active ~ #historyTurn {
+    left: 40%;
+}
+
+#counterCircle > #historyTurn.disabled {
+    visibility: hidden;
+}
+
+#counterCircle > #historyTurn.flip_Anim {
+    animation: historyTurn-flip-part-1, historyTurn-flip-part-2;
+    animation-duration: 0.1s, 0.5s;
+    animation-delay: 0s, 0.1s;
+}
+
+@keyframes historyTurn-flip-part-1 {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(90deg);
+    }
+}
+
+@keyframes historyTurn-flip-part-2 {
+    0% {
+        transform: rotateX(-90deg);
+    }
+    20% {
+        transform: rotateX(0deg);
+    }
+    40% {
+        transform: rotateX(60deg);
+    }
+    60% {
+        transform: rotateX(-40deg);
+    }
+    80% {
+        transform: rotateX(25deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
 }

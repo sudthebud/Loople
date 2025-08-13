@@ -112,11 +112,11 @@ var gameKeyboardControlsFunc = function GameKeyboardControls(event) {
         }
 
         //Move between historical loops (shortcut)
-        else if ((event.key === ',' || event.key === '3') && !leftHistoryButton.classList.contains("disabled")) {
+        else if ((event.key === ',' || event.key === '3') && !(leftHistoryButton.classList.contains("disabled") || leftHistoryButton.classList.contains("cooldown"))) {
             leftHistoryButtonOnClick()
         }
-        else if (event.key === '.' || event.key === '4' && !rightHistoryButton.classList.contains("disabled")) {
-            rightHustoryButtonOnClick()
+        else if (event.key === '.' || event.key === '4' && !(rightHistoryButton.classList.contains("disabled") || rightHistoryButton.classList.contains("cooldown"))) {
+            rightHistoryButtonOnClick()
         }
 
         else if (event.key === 'Enter') {

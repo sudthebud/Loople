@@ -2,8 +2,15 @@
 var counterCircle = document.getElementById("counterCircle")
 var leftHistoryButton = document.getElementById("historyBackwardButton")
 var rightHistoryButton = document.getElementById("historyForwardButton")
+var historyTurnPill = document.getElementById("historyTurn")
+
 leftHistoryButton.addEventListener("click", (event) => leftHistoryButtonOnClick())
-rightHistoryButton.addEventListener("click", (event) => rightHustoryButtonOnClick())
+rightHistoryButton.addEventListener("click", (event) => {
+    rightHistoryButtonOnClick()
+})
+historyTurnPill.classList.toggle("disabled", true)
+
+
 
 function toggleEnabledLeftHistoryButton(on) {
     leftHistoryButton.classList.toggle("disabled", !on)
@@ -14,29 +21,64 @@ function toggleEnabledRightHistoryButton(on) {
 }
 
 function leftHistoryButtonOnClick() {
+    leftHistoryButton.classList.toggle("cooldown", true); //In case of button spam
+
     if (!loopHistoryVisible) {
         loopHistoryShow();
         toggleEnabledRightHistoryButton(true);
+        historyTurnPillSetText(true);
     }
     else {
         loopHistoryMove(-1);
+        historyTurnPillSetText(false);
     }
 
     if (loopHistoryIndex == 0) {
         toggleEnabledLeftHistoryButton(false);
     }
+
+    historyTurnPillSetText();
+
+    leftHistoryButton.classList.toggle("cooldown", false);
 }
 
-function rightHustoryButtonOnClick() {
+function rightHistoryButtonOnClick() {
+    rightHistoryButton.classList.toggle("cooldown", true); //In case of button spam
+
     toggleEnabledLeftHistoryButton(true);
 
     if (loopHistoryIndex == loopHistory.length - 1) {
         loopHistoryHide();
         toggleEnabledRightHistoryButton(false);
+        historyTurnPillSetText(true);
     }
     else if (loopHistoryVisible) {
         loopHistoryMove(1);
+        historyTurnPillSetText(false);
     }
+
+    rightHistoryButton.classList.toggle("cooldown", false);
+}
+
+
+function historyTurnPillSetText(disabled = false) {
+    let turnText = `${loopHistoryIndex + 1}`;
+    if (loopHistoryIndex + 1 == 1) turnText += "st";
+    else if (loopHistoryIndex + 1 == 2) turnText += "nd";
+    else if (loopHistoryIndex + 1 == 3) turnText += "rd";
+    else turnText += "th";
+    turnText += " Turn";
+
+    historyTurnPill.classList.toggle("flip_Anim", true);
+
+    setTimeout(() => {
+        historyTurnPill.classList.toggle("disabled", disabled);
+        historyTurnPill.textContent = turnText;
+    }, ui_historyTurn_AnimTime_FlipPart1);
+
+    setTimeout(() => {
+        historyTurnPill.classList.toggle("flip_Anim", false);
+    }, ui_historyTurn_AnimTime_FlipPart1 + ui_historyTurn_AnimTime_FlipPart2);
 }
 
 
@@ -68,6 +110,7 @@ function loopHistoryAdd(newLoopHistory) {
 
     if (loopHistory.length - 1 == loopHistoryIndex) {
         toggleEnabledLeftHistoryButton(true)
+        historyTurnPillSetText(!loopHistoryVisible)
     }
 }
 
