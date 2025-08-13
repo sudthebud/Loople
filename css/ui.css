@@ -1,5 +1,62 @@
 body {
     overflow: hidden;
-    background-color: #ececec;
+    background-color: var(--base-color);
     font-family: 'Helvetica', 'Tahoma', 'Arial', sans-serif;
+}
+
+
+
+/* Counter circle */
+
+#counterCircle {
+    /* background-color: var(--base-color); */
+    background-color: white;
+    width: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
+    height: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: calc((-0.5 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset))));
+    margin-left: calc((-0.5 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset))));
+}
+
+/* Forward and back history buttons */
+
+#counterCircle > #historyForwardButton, #historyBackwardButton {
+    position: absolute;
+    width: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 4 / 34 ));
+    height: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 4 / 34 ));
+    top: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 0.75));
+    margin-top: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * -2 / 34));
+    margin-left: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * -2 / 34));
+    transition: filter 0.25s ease-out, scale 0.5s ease-out; /* If the browser doesn't support the below transition */
+    transition: filter 0.25s ease-out, scale 0.8s linear(
+        0, 1.2, 0.8, 1.1, 0.9, 1, 1, 1);
+    filter: var(--unfocused-color-filter);
+    z-index: 1;
+}
+
+#counterCircle > #historyForwardButton.disabled, #historyBackwardButton.disabled {
+    filter: var(--disabled-color-filter) !important;
+    pointer-events: none !important;
+    cursor: none !important;
+}
+
+#counterCircle > #historyForwardButton:hover, #historyBackwardButton:hover {
+    filter: var(--focused-color-filter);
+    cursor: pointer;
+}
+
+#counterCircle > #historyForwardButton:hover:active, #historyBackwardButton:hover:active {
+    scale: 0.8;
+}
+
+#counterCircle > #historyForwardButton {
+    left: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * (0.5 + 0.25)));
+}
+
+#counterCircle > #historyBackwardButton {
+    left: calc(((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * (0.5 - 0.25)));
+    rotate: 180deg;
 }

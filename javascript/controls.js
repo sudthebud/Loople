@@ -102,32 +102,31 @@ function clearGameEventListeners() {
 
 
 var gameKeyboardControlsFunc = function GameKeyboardControls(event) {
+    console.log(event.key)
     if (!event.repeat) {
-        if (event.key === 'ArrowLeft') {
+        //Move between the loop
+        if (event.key === 'ArrowLeft' || event.key === '1') {
             loop.Rotate(-1);
         }
-        else if (event.key === 'ArrowRight') {
+        else if (event.key === 'ArrowRight' || event.key === '2') {
             loop.Rotate(1);
         }
+
+        //Move between historical loops (shortcut)
+        else if (event.key === ',' || event.key === '3') {
+            leftHistoryButtonOnClick()
+        }
+        else if (event.key === '.' || event.key === '4') {
+            rightHustoryButtonOnClick()
+        }
+
         else if (event.key === 'Enter') {
             loop.Submit();
         }
+
+        //Enter letters
         else if (event.code === `Key${event.key.toUpperCase()}`) { //Thanks to internetdrew on Medium for this
             loop.TypeLetter(event.key);
-        }
-
-        //TEMP (include these as shortcut keys maybe?)
-        else if (event.key === '1') {
-            loopHistoryShow()
-        }
-        else if (event.key === '2') {
-            loopHistoryHide()
-        }
-        else if (event.key === '4') {
-            loopHistoryMove(1)
-        }
-        else if (event.key === '3') {
-            loopHistoryMove(-1)
         }
     }
 }

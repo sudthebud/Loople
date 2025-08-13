@@ -2,10 +2,10 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -35vh;
-    margin-left: -35vh;
-    width: 70vh;
-    height: 70vh;
+    margin-top: calc((var(--loop-width) / 2 * -1));
+    margin-left: calc((var(--loop-width) / 2 * -1));
+    width: var(--loop-width);
+    height: var(--loop-width);
     rotate: 0deg;
     transition: rotate 0.3s ease-out;
 }
@@ -21,7 +21,7 @@
 }
 
 .loop.historical {
-    scale: 0.7;
+    scale: var(--loop-historical-scale);
     pointer-events: none;
 }
 

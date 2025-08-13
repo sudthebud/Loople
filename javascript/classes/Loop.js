@@ -151,9 +151,7 @@ class Loop {
             }
 
             if (!this.#historical && loopHistory.length > 0) {
-                for (let i = 0; i < loopHistory.length; i++) {
-                    loopHistory[i].Rotate(numRotations)
-                }
+                loopHistoryRotate(numRotations)
             }
 
             if (highlight 
@@ -351,10 +349,7 @@ class Loop {
 
         //Create word loop history
         setTimeout(() => {
-            loopHistory.push(this.CreateHistoricaLoop());
-            if (loopHistoryIndex == loopHistory.length - 2) {
-                loopHistoryMove(1);
-            }
+            loopHistoryAdd(this.CreateHistoricaLoop());
         }, circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length)
 
         this.RotateToLetter(this.letterList[0], true, (!win && !lose), circle_AnimTime_DelayBtwSubmitFlip * this.letterList.length)
