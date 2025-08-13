@@ -27,10 +27,10 @@ body {
     position: absolute;
     border-radius: 50%;
     background-color: rgb(38, 38, 38);
-    width: 50%;
-    height: 50%;
-    margin-top: -25%;
-    margin-left: -25%;
+    width: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 0.5);
+    height: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 0.5);
+    margin-top: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * -0.25);
+    margin-left: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * -0.25);
     top: 27.5%;
     left: 50%;
     display: flex;
@@ -38,7 +38,7 @@ body {
     align-items: center;
     font-weight: bold;
     color: white;
-    font-size: 375%;
+    font-size: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 0.23);
     font-family: monospace;
     filter: drop-shadow(-0.1em 0.1em 1vh rgb(100,100,100));
 }
@@ -48,10 +48,10 @@ body {
     background-color: rgb(38, 38, 38);
     color: white;
     border-radius: 12vh;
-    width: 40%;
-    height: 12.5%;
-    margin-top: -6.25%;
-    margin-left: -20%;
+    width: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 0.4);
+    height: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 0.125);
+    margin-top: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * -0.0625);
+    margin-left: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * -0.2);
     top: 62.5%;
     left: 50%;
     content: "Test";
@@ -59,7 +59,7 @@ body {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 85%;
+    font-size: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 0.055);
     filter: drop-shadow(-0.2em 0.2em 1vh rgb(100,100,100));
 }
 
@@ -74,21 +74,22 @@ body {
 
 #counterCircle > #historyForwardButton, #historyBackwardButton {
     position: absolute;
-    width: calc(4 / 34 * 100%);
-    height: calc(4 / 34 * 100%);
+    display: flex;
+    width: calc(4 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
+    height: calc(4 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     top: 85%;
-    margin-top: calc(-2 / 34 * 100% - 2%);
-    margin-left: calc(-2 / 34 * 100% - 2%);
+    margin-top: calc(-2 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) - (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 0.02);
+    margin-left: calc(-2 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) - (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 0.02);
     transition: filter 0.25s ease-out;
     transition: filter 0.25s ease-out; 
     filter: var(--unfocused-color-filter);
     z-index: 1;
-    padding: 2%;
+    padding: calc(4 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 0.02);
 
     & img {
         width: 100%;
         height: 100%;
-        transition: scale 0.5s ease-out; /* If the browser doesn't support the below transition */
+        transition: scale 0.8s ease-out; /* If the browser doesn't support the below transition */
         transition: scale 0.8s linear(0, 1.2, 0.8, 1.1, 0.9, 1, 1, 1);
         pointer-events: none;
     }
@@ -130,21 +131,21 @@ body {
 #counterCircle > #historyTurn {
     position: absolute;
     background-color: rgb(100, 100, 100);
-    width: calc(10 / 34 * 100%);
-    height: calc(4 / 34 * 100%);
+    width: calc(10 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
+    height: calc(4 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     top: 85%;
     left: 50%;
-    margin-top: calc(-2 / 34 * 100%);
-    margin-left: calc(-5 / 34 * 100%);
+    margin-top:  calc(-2 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));;
+    margin-left:  calc(-5 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     border-radius: 12vh;
     color: white;
     text-align: center;
-    line-height: calc(4 / 34 * 100%);
+    line-height:  calc(4 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 75%;
+    font-size:  calc(0.048 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     transition-property: width, margin-left, font-size, left;
     transition-duration: 0.07s;
     transition-timing-function: ease-out;
@@ -153,9 +154,9 @@ body {
 }
 
 #counterCircle > #historyForwardButton:hover:active ~ #historyTurn, #historyBackwardButton:hover:active ~ #historyTurn {
-    width: calc(6 / 34 * 100%);
-    margin-left: calc(-3 / 34 * 100%);
-    font-size: 30%;
+    width:  calc(6 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
+    margin-left:  calc(-3 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
+    font-size:  calc(0.025 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));;
 }
 
 #counterCircle > #historyForwardButton:hover:active ~ #historyTurn {

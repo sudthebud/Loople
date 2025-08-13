@@ -64,9 +64,9 @@ function rightHistoryButtonOnClick() {
 
 function historyTurnPillSetText(disabled = false) {
     let turnText = `${loopHistoryIndex + 1}`;
-    if (loopHistoryIndex + 1 == 1) turnText += "st";
-    else if (loopHistoryIndex + 1 == 2) turnText += "nd";
-    else if (loopHistoryIndex + 1 == 3) turnText += "rd";
+    if (turnText.endsWith(1) && turnText !== "11") turnText += "st";
+    else if (turnText.endsWith(2) && turnText !== "12") turnText += "nd";
+    else if (turnText.endsWith(3) && turnText !== "13") turnText += "rd";
     else turnText += "th";
     turnText += " Turn";
 
