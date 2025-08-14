@@ -124,7 +124,7 @@ var gameKeyboardControlsFunc = function GameKeyboardControls(event) {
         }
 
         //Enter letters
-        else if (event.code === `Key${event.key.toUpperCase()}`) { //Thanks to internetdrew on Medium for this
+        else if (event.code === `Key${event.key.toUpperCase()}`) { //Thanks to @internetdrew on Medium for this (https://internetdrew.medium.com/how-to-detect-a-letter-key-on-key-events-with-javascript-c749820dcd27)
             loop.TypeLetter(event.key);
         }
     }
