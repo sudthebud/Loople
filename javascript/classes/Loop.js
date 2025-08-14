@@ -80,6 +80,7 @@ class Loop {
         this.ToggleHoverableLetters(false, 0, circle_AnimTime_DelayBtwStartOrEndFlip * this.letterList.length)
         setTimeout(() => {
             this.ToggleHighlightCurrentLetter(true)
+            toggleCounterCircleVisibility(true)
         }, circle_AnimTime_DelayBtwStartOrEndFlip * this.letterList.length)
     }
 
@@ -432,6 +433,7 @@ class Loop {
             }, circle_AnimTime_DelayBtwWin * this.letterList.length)
 
             setTimeout(() => {
+                toggleCounterCircleVisibility(false)
                 this.Hide(true);
             }, circle_AnimTime_DelayBtwWin * (this.letterList.length + 1) + 2000)
 
@@ -468,6 +470,7 @@ class Loop {
             }
 
             setTimeout(() => {
+                toggleCounterCircleVisibility(false)
                 this.Hide(true)
             }, Math.max(loop_AnimTime_Rotate, circle_AnimTime_DelayBtwLose * this.letterList.length) + 4000)
 
