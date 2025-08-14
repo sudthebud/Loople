@@ -97,6 +97,11 @@ function counterSetText() {
 }
 
 
+function toggleCounterCircleVisibility(on) {
+    counterCircle.classList.toggle("visible", on)
+}
+
+
 
 
 //Loop submission history

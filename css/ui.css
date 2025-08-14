@@ -9,8 +9,11 @@ body {
 /* Counter circle */
 
 #counterCircle {
+    transition: transform 0.15s ease-out;
+    transform: rotateY(90deg);
+    /* backface-visibility: hidden; */
+    /* background-color: #363636; */
     background-color: var(--base-color);
-    /* background-color: #f8f8f8; */
     width: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     height: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     border-radius: 50%;
@@ -19,6 +22,10 @@ body {
     left: 50%;
     margin-top: calc((-0.5 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset))));
     margin-left: calc((-0.5 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset))));
+}
+
+#counterCircle.visible {
+    transform: none;
 }
 
 /* Counter */
