@@ -164,10 +164,11 @@
 }
 
 :is(.letter.currentIndex) {
-    animation: currentIndex-bounce;
-    animation-duration: 15s;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
+    will-change: transform; /* Suddently when I changed the animation, the text became jittery, so had to include this to inform computer not to cache the transform state of this */
+    animation: currentIndex-bounce-startup, currentIndex-bounce;
+    animation-duration: 3.25s, 15s;
+    animation-delay: 0s, 3.25s;
+    animation-iteration-count: 1, infinite;
     animation-timing-function: ease;
 }
 
@@ -212,16 +213,19 @@
 
 @keyframes currentIndex-bounce {
     0% {
-        transform: translateY(0vh);
-    }
-    25% {
         transform: translateY(-0.75vh);
     }
-    75% {
+    50% {
         transform: translateY(0.75vh);
     }
     100% {
-        transform: translateY(0vh);
+        transform: translateY(-0.75vh);
+    }
+}
+
+@keyframes currentIndex-bounce-startup {
+    to {
+        transform: translateY(-0.75vh);
     }
 }
 

@@ -13,7 +13,7 @@ body {
     transform: rotateY(90deg);
     /* backface-visibility: hidden; */
     /* background-color: #363636; */
-    background-color: var(--base-color);
+    /* background-color: var(--base-color); */
     width: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     height: calc((var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     border-radius: 50%;
