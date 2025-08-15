@@ -211,6 +211,7 @@ class Loop {
                         this.ToggleHoverableLetters(true, 0.1, 0, true);
                         this.#submit = false;
                     }, 1000)
+                    createToast(ui_toast_text_invalidSubmit_blankSpaces)
                 }
                 return
             }
@@ -237,6 +238,7 @@ class Loop {
                         this.ToggleHoverableLetters(true, 0.1, 0, true);
                         this.#submit = false;
                     }, 1000)
+                    createToast(ui_toast_text_invalidSubmit_previousSubmission)
                 }
                 return
             }
@@ -271,6 +273,7 @@ class Loop {
             setTimeout(() => {
                 this.#submit = false;
             }, letter_AnimTime_Invalid + circle_AnimTime_FlipInOut)
+            createToast(ui_toast_text_invalidSubmit_invalidWords)
             return
         }
         

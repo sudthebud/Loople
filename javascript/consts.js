@@ -45,6 +45,10 @@ const ui_historyTurn_AnimTime_FlipDisappear = 500
 const ui_counter_AnimTime_FlipPart1 = 200
 const ui_counter_AnimTime_FlipPart2 = 1000
 
+const ui_toast_text_invalidSubmit_blankSpaces = "Cannot leave blank spaces"
+const ui_toast_text_invalidSubmit_invalidWords = "Not in list of valid words"
+const ui_toast_text_invalidSubmit_previousSubmission = "Cannot submit the same guess"
+
 
 
 //----------Vars----------

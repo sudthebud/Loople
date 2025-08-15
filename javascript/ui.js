@@ -174,3 +174,21 @@ function loopHistoryMove(numMoves) {
         }
     }
 }
+
+
+
+
+//Toast
+var toast = document.getElementById("toastTemplate").content.querySelector("div")
+
+function createToast(text) {
+    let existingToast = document.getElementById("toast")
+
+    if (!!existingToast) {
+        existingToast.remove()
+    }
+
+    existingToast = toast.cloneNode()
+    existingToast.textContent = text
+    document.body.appendChild(existingToast)
+}
