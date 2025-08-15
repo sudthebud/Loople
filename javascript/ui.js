@@ -188,7 +188,7 @@ function createToast(text) {
         existingToast.remove()
     }
 
-    existingToast = toast.cloneNode()
-    existingToast.textContent = text
+    existingToast = toast.cloneNode(true)
+    existingToast.firstElementChild.firstElementChild.textContent = text
     document.body.appendChild(existingToast)
 }

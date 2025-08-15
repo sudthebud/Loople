@@ -193,19 +193,31 @@ body {
     animation-fill-mode: forwards;
     display: flex;
     position: absolute;
-    height: 2.5vh;
+    height: 3.75vh;
+    line-height: 3.75vh;
     width: 20vh;
     top: 95%;
     left: 50%;
     margin-top: -1.25vh;
     margin-left: -10vh;
-    font-family: monospace;
-    font-size: 2.5vh;
+    font-size: 2vh;
     align-items: center;
     justify-content: center;
+    text-align: justify;
     font-weight: bold;
     white-space: nowrap;
-    /* filter: drop-shadow(-0.11vh 0.11vh 0vh rgb(150, 150, 150)); */
+
+    #toastPill {
+        height: 100%;
+        width: fit-content;
+        padding-left: 7.5%;
+        padding-right: 7.5%;
+        border-radius: 12vh;
+        color: white;
+        background-color: rgb(221, 24, 24);
+        /* filter: drop-shadow(-0.5vh 0.5vh 0vh rgb(255, 136, 136)); */
+        filter: drop-shadow(-0.5vh 0.5vh 0.5vh rgb(255, 136, 136));
+    }
 }
 
 
