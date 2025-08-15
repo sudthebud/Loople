@@ -85,8 +85,8 @@ body {
     width: calc(4 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     height: calc(4 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     top: 85%;
-    margin-top: calc(-2 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) - (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 0.02);
-    margin-left: calc(-2 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) - (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)) * 0.02);
+    margin-top: calc(-2 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
+    margin-left: calc(-2 / 34 * (var(--loop-width) * var(--loop-historical-scale) - var(--counterCircle-offset)));
     transition: filter 0.25s ease-out;
     transition: filter 0.25s ease-out; 
     filter: var(--unfocused-color-filter);
