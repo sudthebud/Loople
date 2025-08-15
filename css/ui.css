@@ -223,6 +223,80 @@ body {
 
 
 
+/* General buttons and modals */
+
+.textButtonList {
+    display: inline-flex;
+    position: fixed;
+    
+    button {
+        height: 3vh;
+        width: fit-content;
+        /* border: none; */
+        outline: none;
+        color: var(--unfocused-color);
+        transition: color 0.25s ease;
+        font-size: 2vh;
+        background-color: rgba(0, 0, 0, 0);
+        display: block;
+        padding: 0;
+    }
+
+    button:hover {
+        color: var(--focused-color);
+        filter: drop-shadow(0vh 0vh 0vh 0.25vh var(--focused-color));
+        cursor: pointer;
+    }
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+/* Informational buttons and dialogs */
+
+#rulesAndInfoButtons.textButtonList {
+    justify-content: flex-end;
+    top: 1.5vh;
+    right: 1.25vh;
+    left: auto;
+    bottom: auto;
+
+    button {
+        padding-left: 1.25vh;
+        padding-right: 1.25vh;
+        border-width: 0 0 0 0 ;
+    }
+
+    :not(:last-child) {
+        border-width: 0vh 0.3vh 0vh 0vh;
+        border-color: var(--disabled-color);
+        border-style: inset;
+    }
+}
+
+dialog#howToPlayDialog {
+    z-index: 50;
+    display: block;
+    position: absolute;
+    width: 90%;
+    max-width: 90vh;
+    height: 50vh;
+    max-height: 90%;
+    border: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    overflow-y: auto;
+    border-radius: 2vh;
+    /* background-color: var(--base-color); */
+}
+
+
+
+
 /* Animations */
 
 @keyframes ui-flip-part-1 {
