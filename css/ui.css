@@ -249,6 +249,25 @@ body {
     }
 }
 
+dialog {
+    z-index: 50;
+    /* display: block; */
+    position: absolute;
+    max-width: 90vw;
+    max-height: 90%;
+    border: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    overflow-y: auto;
+    border-radius: 2vh;
+    color: var(--focused-color);
+    text-align: justify;
+    /* background-color: var(--base-color); */
+}
+
 dialog::backdrop {
     background-color: rgba(0, 0, 0, 1);
 }
@@ -276,22 +295,72 @@ dialog::backdrop {
 }
 
 dialog#howToPlayDialog {
-    z-index: 50;
-    display: block;
-    position: absolute;
-    width: 90%;
-    max-width: 90vh;
+    width: 90vh;
     height: 50vh;
-    max-height: 90%;
-    border: none;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    overflow-y: auto;
-    border-radius: 2vh;
-    /* background-color: var(--base-color); */
+
+    div#howToPlayDialog_content {
+
+        scale: 0.9;
+        height: 100%;
+        margin-left: 2vh;
+        margin-right: 2vh;
+
+        div#howToPlayDialog_basicInstructions {
+            display: inline-flex;
+            width: 100%;
+            height: fit-content;
+            min-height: 50%;
+            margin-bottom: 7.5%;
+
+            p {
+                margin-top: auto;
+                margin-bottom: auto;
+                margin-left: 2vh;
+                line-height: 1.6;
+                font-size: 2.5vh;
+                width: 70%;
+            }
+
+            img {
+                width: 30%;
+                margin-right: 2vh;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+        }
+
+        div#howToPlayDialog_key {
+            display: inline-flex;
+            width: 100%;
+            height: fit-content;
+            min-height: 40%;
+
+            div {
+                visibility: visible;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                height: fit-content;
+                
+
+                .letter {
+                    display: flex;
+                    top: 0;
+                    left: 0;
+                    scale: 0.9;
+                    margin-top: 15%;
+                }
+
+                p {
+                    position: absolute;
+                    font-size: 1.9vh;
+                    font-weight: bold;
+                    text-align: center;
+                    margin-top: 45%;
+                }
+            }
+        }
+    }
 }
 
 

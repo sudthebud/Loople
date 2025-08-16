@@ -20,7 +20,60 @@
 
         <!--UI Dialog Boxes-->
         <dialog id="howToPlayDialog" open>
-
+            <div id="howToPlayDialog_content">
+                <div id="howToPlayDialog_basicInstructions">
+                    <img src="assets/images/instructions_blankLoople.png"></img>
+                    <p>In <b>Loople</b>, a set of random words are connected in a loop, 
+                    where the last letter of one word is the first letter of another. You 
+                    only have a certain number of tries to guess all the words in the loop!
+                    Can you solve the loop, or will you be thrown for one?</p>
+                </div>
+                <div id="howToPlayDialog_key">
+                    <div>
+                        <div class="letter">
+                            <img class="endLetterBorder" src="assets/images/circle.svg">
+                            <img class="circle unsubmitted" src="assets/images/circle.svg">
+                            <div class="letterText unsubmitted">L</div>
+                        </div>
+                        <p>First & Last Letter of Word</p>
+                    </div>
+                    <div>
+                        <div class="letter">
+                            <img class="circle submitted noExist" src="assets/images/circle.svg">
+                            <div class="letterText submitted">O</div>
+                        </div>
+                        <p>Letter Not in Loop</p>
+                    </div>
+                    <div>
+                        <div class="letter">
+                            <img class="circle submitted inWord" src="assets/images/circle.svg">
+                            <div class="letterText submitted">O</div>
+                        </div>
+                        <p>Letter in This Word</p>
+                    </div>
+                    <div>
+                        <div class="letter">
+                            <img class="circle submitted inLoop" src="assets/images/circle.svg">
+                            <div class="letterText submitted">P</div>
+                        </div>
+                        <p>Letter in Another Word in Loop</p>
+                    </div>
+                    <div>
+                        <div class="letter">
+                            <img class="circle submitted incorrect" src="assets/images/circle.svg">
+                            <div class="letterText submitted">L</div>
+                        </div>
+                        <p>Incorrect Letter</p>
+                    </div>
+                    <div>
+                        <div class="letter">
+                            <img class="circle submitted correct" src="assets/images/circle.svg">
+                            <div class="letterText submitted">E</div>
+                        </div>
+                        <p>Correct Letter</p>
+                    </div>
+                </div>
+            </div>
         </dialog>
 
         <!--Game Elements-->
