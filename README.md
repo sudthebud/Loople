@@ -25,3 +25,5 @@ Mainly used this project as an opportunity to learn web development and JavaScri
         - English Short Word List
     - Florida State University
         - Basic English 2000 (word list)
+- Assets
+    - The GitHub logo is the property of GitHub, Inc.

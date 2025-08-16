@@ -242,7 +242,7 @@ body {
         padding: 0;
     }
 
-    button:hover {
+    button:hover, button:focus {
         color: var(--focused-color);
         filter: drop-shadow(0vh 0vh 0vh 0.25vh var(--focused-color));
         cursor: pointer;
@@ -528,19 +528,77 @@ dialog#controlsDialog {
                 margin-left: 10%;
                 width: 30%;
             }
-
-            p {
-                
-            }
         }
 
     }
 }
 
 dialog#infoDialog {
-    height: 60vh;
-    width: 40vh;
+    height: fit-content;
+    max-height: 60vh;
+    width: 60vh;
     max-width: 85vw;
+
+    div#infoDialog_content {
+        height: 100%;
+        width: 100%;
+        white-space: normal;
+        overflow: auto;
+        font-size: 2vh;
+        margin-top: 1.5vh;
+        margin-bottom: 1.5vh;
+
+        p {
+            margin-left: 1.5vh;
+            margin-right: 1.5vh;
+        }
+
+        ul {
+            padding-inline-start: 3vh;
+            margin-block-start: 0.2em;
+        }
+    }
+
+    div.button.circularButton#repoButton {
+        top: -1%;
+        right: 11.5%;
+
+        div {
+            background-color: black;
+            filter: drop-shadow(-0.5vh 0.25vh 0vh #909090);
+
+            img {
+                position: absolute;
+                width: 75%;
+                height: 75%;
+                filter: none;
+                transition: opacity ease-out 0.4s;
+            }
+
+            img#repoButton_logo {
+                opacity: 1;
+            }
+
+            img#repoButton_logo_onHover {
+                opacity: 0;
+            }
+        }
+    }
+
+    div.button.circularButton#repoButton:hover {
+        div {
+            background-color: white;
+            filter: drop-shadow(-0.5vh 0.25vh 0vh #464646);
+
+            img#repoButton_logo {
+                opacity: 0;
+            }
+
+            img#repoButton_logo_onHover {
+                opacity: 1;
+            }
+        }
+    }
 }
 
 

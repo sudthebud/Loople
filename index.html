@@ -104,6 +104,43 @@
         </dialog>
 
         <dialog id="infoDialog">
+            <div id="infoDialog_content">
+                <p><b>Loople</b> was originally created for the <b>GMTK Game Jam 2025</b>, 
+                where it achieved a rank of <b>#275 in Creativity out of nearly 10,000 
+                participants.</b> This is a web based recreation of that game, intended
+                to be a learning opportunity for web development.</p>
+                <p><b>Credits:</b></p>
+                <ul>
+                    <li>Inspired by <i>Wordle</i> by Josh Wardle</li>
+                    <li>Datasets
+                        <ul>
+                            <li>Electronic Frontier Foundation
+                                <ul>
+                                    <li>English Long Word List</li>
+                                    <li>English General Short Word List</li>
+                                    <li>English Short Word List</li>
+                                </ul>
+                            </li>
+                            <li>Florida State University
+                                <ul>
+                                    <li>Basic English 2000 (word list)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Assets
+                        <ul>
+                            <li>The GitHub logo is the property of GitHub, Inc.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div title="GitHub Repository" id="repoButton" class="button circularButton" onclick="window.open('https:\/\/github.com\/sudthebud\/Loople', 'mywindow')">
+                <div>
+                    <img id="repoButton_logo" src="assets/images/github-mark-white.svg">
+                    <img id="repoButton_logo_onHover" src="assets/images/github-mark.svg">
+                </div>
+            </div>
             <div class="button circularButton exitButton" onclick="document.getElementById('infoDialog').close()">
                 <div>✖</div>
             </div>
