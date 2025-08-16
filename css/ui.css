@@ -269,6 +269,7 @@ dialog {
     background-color: var(--base-color);
     justify-content: center;
     align-items: center;
+    filter: drop-shadow(-1vh 1vh 1vh rgb(50, 50, 50));
 }
 
 dialog::backdrop {
@@ -423,7 +424,7 @@ dialog#howToPlayDialog {
 
                 p {
                     position: absolute;
-                    font-size: 1.9vh;
+                    font-size: 2.1vh;
                     font-weight: bold;
                     text-align: center;
                     margin-top: 45%;
@@ -431,8 +432,115 @@ dialog#howToPlayDialog {
             }
         }
     }
+}
 
+dialog#controlsDialog {
+    height: 60vh;
+    width: 90vh;
+    max-width: 85vw;
 
+    div#controlsDialog_content {
+
+        flex-direction: column;
+        scale: 0.9;
+        height: 100%;
+        margin-left: 2vh;
+        margin-right: 2vh;
+        margin-top: auto;
+        margin-bottom: auto;
+        white-space: normal;
+        overflow-y: auto;
+        font-weight: bold;
+        display: flex;
+
+        img {
+            filter: drop-shadow(-1vh 1vh 0vh rgb(150, 150, 150));
+        }
+
+        p.mappingText {
+            flex: 1;
+            text-align: center;
+            font-size: 5vh;
+            margin-left: 7.5%;
+        }
+
+        div#controlsDialog_TypeLetters {
+            display: inline-flex;
+            justify-content: left;
+            align-items: center;
+            width: 100%;
+            height: 33.3%;
+
+            img {
+                width: 15%;
+            }
+
+            img#controlsDialog_TypeLetters_A-key {
+                margin-left: 4.5%;
+            }
+
+            p#controlsDialog_TypeLetters_to-text {
+                font-size: 4vh;
+                margin-left: 3.5%;
+            }
+
+            img#controlsDialog_TypeLetters_Z-key {
+                margin-left: 4%;
+            }
+
+            p.mappingText {
+                margin-left: 1.5%;
+            }
+        }
+
+        div#controlsDialog_SelectLetters {
+            display: inline-flex;
+            justify-content: left;
+            align-items: center;
+            width: 100%;
+            height: 33.3%;
+
+            img {
+                width: 15%;
+            }
+
+            img#controlsDialog_SelectLetters_LeftArrow-key {
+                margin-left: 8%;
+            }
+
+            img#controlsDialog_SelectLetters_RightArrow-key {
+                margin-left: 4%;
+            }
+
+            p {
+                font-size: 4;
+            }
+        }
+
+         div#controlsDialog_Submit {
+            display: inline-flex;
+            justify-content: left;
+            align-items: center;
+            width: 100%;
+            height: 33.3%;
+
+            img {
+                margin-left: 10%;
+                width: 30%;
+            }
+
+            p {
+                
+            }
+        }
+
+    }
+}
+
+dialog#infoDialog {
+    height: 60vh;
+    width: 40vh;
+    max-width: 85vw;
 }
 
 

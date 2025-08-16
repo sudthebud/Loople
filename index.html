@@ -15,7 +15,8 @@
         <!--UI Buttons-->
         <div id="rulesAndInfoButtons" class="textButtonList">
             <button id="howToPlayButton" onclick="document.getElementById('howToPlayDialog').showModal()">How to Play</button>
-            <!-- <button id="infoButton">Info</button> -->
+            <button id="howToPlayButton" onclick="document.getElementById('controlsDialog').showModal()">Controls</button>
+            <button id="infoButton" onclick="document.getElementById('infoDialog').showModal()">Info</button>
         </div>
 
         <!--UI Dialog Boxes-->
@@ -25,7 +26,7 @@
                     <img src="assets/images/instructions_blankLoople.png"></img>
                     <p>In <b>Loople</b>, a set of random words are connected in a loop, 
                     where the last letter of one word is the first letter of another. You 
-                    only have a certain number of tries to guess all the words in the loop!
+                    only have a certain number of turns to guess all the words in the loop!
                     Can you solve the loop, or will you be thrown for one?</p>
                 </div>
                 <div id="howToPlayDialog_key">
@@ -75,6 +76,35 @@
                 </div>
             </div>
             <div class="button circularButton exitButton" onclick="document.getElementById('howToPlayDialog').close()">
+                <div>✖</div>
+            </div>
+        </dialog>
+
+        <dialog id="controlsDialog">
+            <div id="controlsDialog_content">
+                <div id="controlsDialog_TypeLetters">
+                    <img id="controlsDialog_TypeLetters_A-key" src="assets/images/controls_A-key.png">
+                    <p id="controlsDialog_TypeLetters_to-text" >to</p>
+                    <img id="controlsDialog_TypeLetters_Z-key" src="assets/images/controls_Z-key.png">
+                    <p class="mappingText" >Type letters</p>
+                </div>
+                <div id="controlsDialog_SelectLetters">
+                    <img id="controlsDialog_SelectLetters_LeftArrow-key" src="assets/images/controls_leftArrow-key.png">
+                    <img id="controlsDialog_SelectLetters_RightArrow-key" src="assets/images/controls_rightArrow-key.png">
+                    <p class="mappingText">Move between letters</p>
+                </div>
+                <div id="controlsDialog_Submit">
+                    <img src="assets/images/controls_Enter-key.png">
+                    <p class="mappingText">Submit your Loople</p>
+                </div>
+            </div>
+            <div class="button circularButton exitButton" onclick="document.getElementById('controlsDialog').close()">
+                <div>✖</div>
+            </div>
+        </dialog>
+
+        <dialog id="infoDialog">
+            <div class="button circularButton exitButton" onclick="document.getElementById('infoDialog').close()">
                 <div>✖</div>
             </div>
         </dialog>
