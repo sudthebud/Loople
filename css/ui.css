@@ -251,7 +251,6 @@ body {
 
 dialog {
     z-index: 50;
-    /* display: block; */
     position: absolute;
     max-width: 90vw;
     max-height: 90%;
@@ -261,15 +260,80 @@ dialog {
     right: 0;
     bottom: 0;
     margin: auto;
-    overflow-y: auto;
+    /* overflow-y: auto; */
+    overflow: visible;
+    white-space: nowrap;
     border-radius: 2vh;
     color: var(--focused-color);
     text-align: justify;
-    /* background-color: var(--base-color); */
+    background-color: var(--base-color);
+    justify-content: center;
+    align-items: center;
 }
 
 dialog::backdrop {
-    background-color: rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+dialog > .button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--focused-color);
+    transition: filter ease-out 0.5s, background-color ease-out 0.5s, color ease-out 0.5s;
+}
+
+dialog > .button:hover {
+    cursor: pointer;
+}
+
+dialog > .button.circularButton {
+    z-index: 55;
+    width: 5vh;
+    height: 5vh;
+    margin-top: -2.5vh;
+    font-size: 3.5vh;
+    transition: filter ease-out 0.4s, background-color ease-out 0.4s, color ease-out 0.4s, scale ease-out 0.1s;
+
+    div {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: rotateY(0deg);
+        transition: transform ease-out 0.4s;
+    }
+}
+
+dialog > .button.circularButton:hover {
+    scale: 1.05;
+
+    div {
+        transform: rotateY(360deg);
+    }
+}
+
+dialog > .button.circularButton.exitButton {
+    top: -1%;
+    right: 1%;
+    filter: drop-shadow(-0.5vh 0.25vh 0vh #909090);
+
+    div {
+        background-color: white;
+    }
+}
+
+dialog > .button.circularButton.exitButton:hover {
+    filter: drop-shadow(-0.5vh 0.5vh 0vh #ff7979);
+
+    div {
+        background-color: red;
+        color: white;
+    }
 }
 
 /* Informational buttons and dialogs */
@@ -295,8 +359,10 @@ dialog::backdrop {
 }
 
 dialog#howToPlayDialog {
-    width: 90vh;
-    height: 50vh;
+    height: 60vh;
+    width: 95vh;
+    max-width: 85vw;
+
 
     div#howToPlayDialog_content {
 
@@ -304,13 +370,17 @@ dialog#howToPlayDialog {
         height: 100%;
         margin-left: 2vh;
         margin-right: 2vh;
+        margin-top: auto;
+        margin-bottom: auto;
+        white-space: normal;
+        overflow-y: auto;
 
         div#howToPlayDialog_basicInstructions {
             display: inline-flex;
             width: 100%;
             height: fit-content;
             min-height: 50%;
-            margin-bottom: 7.5%;
+            margin-bottom: 6.5%;
 
             p {
                 margin-top: auto;
@@ -361,6 +431,8 @@ dialog#howToPlayDialog {
             }
         }
     }
+
+
 }
 
 

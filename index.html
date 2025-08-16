@@ -14,12 +14,12 @@
         
         <!--UI Buttons-->
         <div id="rulesAndInfoButtons" class="textButtonList">
-            <button id="howToPlayButton">How to Play</button>
-            <button id="infoButton">Info</button>
+            <button id="howToPlayButton" onclick="document.getElementById('howToPlayDialog').showModal()">How to Play</button>
+            <!-- <button id="infoButton">Info</button> -->
         </div>
 
         <!--UI Dialog Boxes-->
-        <dialog id="howToPlayDialog" open>
+        <dialog id="howToPlayDialog">
             <div id="howToPlayDialog_content">
                 <div id="howToPlayDialog_basicInstructions">
                     <img src="assets/images/instructions_blankLoople.png"></img>
@@ -74,7 +74,11 @@
                     </div>
                 </div>
             </div>
+            <div class="button circularButton exitButton" onclick="document.getElementById('howToPlayDialog').close()">
+                <div>✖</div>
+            </div>
         </dialog>
+        
 
         <!--Game Elements-->
         <div id="counterCircle">
