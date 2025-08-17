@@ -8,8 +8,8 @@ Mainly used this project as an opportunity to learn web development and JavaScri
     - Spamming the shortcuts for word history can cause the turn number to appear even if the turn history itself is gone
     - Spamming the mouse to click a letter as the loop is being submitted can cause it to get stuck *(unsure if fixed)*
     - Spamming the arrow keys to move between letters as the loop is being submitted can cause the submission process to mess up *(unsure if fixed)*
-- ~~Visuals~~
-    - ~~Text for UI elements other than the loop do not scale correctly with the screen~~
+- Visuals
+    - Dialog boxes expand or shrink when screen size zooms in or out, respectively
 - Animation
     - If an invalid word is submitted, the currently selected letter will sometimes stop hovering
     - Turn number pill for word history selector has janky animations when opening the menu

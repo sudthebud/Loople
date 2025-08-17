@@ -14,13 +14,72 @@
         
         <!--UI Buttons-->
         <div id="rulesAndInfoButtons" class="textButtonList">
-            <button id="howToPlayButton" onclick="document.getElementById('howToPlayDialog').showModal()">How to Play</button>
-            <button id="howToPlayButton" onclick="document.getElementById('controlsDialog').showModal()">Controls</button>
-            <button id="infoButton" onclick="document.getElementById('infoDialog').showModal()">Info</button>
+            <button id="howToPlayButton" onclick="this.blur()">How to Play</button>
+            <button id="controlsButton" onclick="this.blur()">Controls</button>
+            <button id="infoButton" onclick="this.blur()">Info</button>
         </div>
 
         <!--UI Dialog Boxes-->
         <dialog id="howToPlayDialog">
+            <div class="title">
+                <div class="startOfWord">
+                    <div class="letter">
+                        <img class="endLetterBorder" src="assets/images/circle.svg">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">H</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">O</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">W</div>
+                    </div>
+                </div>
+                <div class="startOfWord">
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">T</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="endLetterBorder" src="assets/images/circle.svg">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">O</div>
+                    </div>
+                </div>
+                <div class="startOfWord">
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">P</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="endLetterBorder" src="assets/images/circle.svg">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">L</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">A</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">Y</div>
+                    </div>
+                </div>
+            </div>
             <div id="howToPlayDialog_content">
                 <div id="howToPlayDialog_basicInstructions">
                     <img src="assets/images/instructions_blankLoople.png"></img>
@@ -75,12 +134,64 @@
                     </div>
                 </div>
             </div>
-            <div class="button circularButton exitButton" onclick="document.getElementById('howToPlayDialog').close()">
+            <div class="button circularButton exitButton">
                 <div>✖</div>
             </div>
         </dialog>
 
         <dialog id="controlsDialog">
+            <div class="title">
+                <div class="startOfWord">
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">C</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">O</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="endLetterBorder" src="assets/images/circle.svg">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">N</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">T</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">R</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">O</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="endLetterBorder" src="assets/images/circle.svg">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">L</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">S</div>
+                    </div>
+                </div>
+            </div>
             <div id="controlsDialog_content">
                 <div id="controlsDialog_TypeLetters">
                     <img id="controlsDialog_TypeLetters_A-key" src="assets/images/controls_A-key.png">
@@ -98,12 +209,40 @@
                     <p class="mappingText">Submit your Loople</p>
                 </div>
             </div>
-            <div class="button circularButton exitButton" onclick="document.getElementById('controlsDialog').close()">
+            <div class="button circularButton exitButton">
                 <div>✖</div>
             </div>
         </dialog>
 
         <dialog id="infoDialog">
+            <div class="title">
+                <div class="startOfWord">
+                    <div class="letter">
+                        <img class="endLetterBorder" src="assets/images/circle.svg">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">I</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">N</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">F</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="letter">
+                        <img class="endLetterBorder" src="assets/images/circle.svg">
+                        <img class="circle unsubmitted" src="assets/images/circle.svg">
+                        <div class="letterText unsubmitted">O</div>
+                    </div>
+                </div>
+            </div>
             <div id="infoDialog_content">
                 <p><b>Loople</b> was originally created for the <b>GMTK Game Jam 2025</b>, 
                 where it achieved a rank of <b>#275 in Creativity out of nearly 10,000 
@@ -141,7 +280,7 @@
                     <img id="repoButton_logo_onHover" src="assets/images/github-mark.svg">
                 </div>
             </div>
-            <div class="button circularButton exitButton" onclick="document.getElementById('infoDialog').close()">
+            <div class="button circularButton exitButton">
                 <div>✖</div>
             </div>
         </dialog>

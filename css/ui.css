@@ -270,10 +270,52 @@ dialog {
     justify-content: center;
     align-items: center;
     filter: drop-shadow(-1vh 1vh 1vh rgb(50, 50, 50));
+    transition: opacity 0.25s ease-out;
+    opacity: 0;
 }
 
 dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.25s ease-out;
+}
+
+dialog.visible  {
+    opacity: 1;
+}
+
+dialog.visible::backdrop {
     background-color: rgba(0, 0, 0, 0.75);
+}
+
+dialog > .title {
+    position: absolute;
+    top: -5%;
+    left: 1%;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+
+    div {
+        position: relative;
+        visibility: visible;
+        margin-right: 1.5%;
+        height: fit-content;
+
+        .letter {
+            scale: 0.5;
+        }
+    }
+
+    div:has(.endLetterBorder) {
+        z-index: -1;
+    }
+
+    div.startOfWord:not(:first-child) {
+        margin-left: 7.5%;
+    }
 }
 
 dialog > .button {

@@ -192,3 +192,39 @@ function createToast(text) {
     existingToast.firstElementChild.firstElementChild.textContent = text
     document.body.appendChild(existingToast)
 }
+
+
+
+
+//Informational buttons and dialogs
+var howToPlayButton = document.getElementById("howToPlayButton")
+var controlsButton = document.getElementById("controlsButton")
+var infoButton = document.getElementById("infoButton")
+
+var howToPlayDialog = document.getElementById("howToPlayDialog")
+var controlsDialog = document.getElementById("controlsDialog")
+var infoDialog = document.getElementById("infoDialog")
+
+function openInformationalDialog(dialog) {
+    dialog.showModal()
+    dialog.classList.toggle("visible", true)
+}
+
+function closeInformationalDialog(dialog) {
+    dialog.classList.toggle("visible", false)
+
+    dialog.addEventListener("transitionend", function dialogClose(event) {
+        if (event.target === dialog) {
+            dialog.close()
+            dialog.removeEventListener("transitionend", dialogClose)
+        }
+    })
+}
+
+howToPlayButton.addEventListener("click", function(){openInformationalDialog(howToPlayDialog)})
+controlsButton.addEventListener("click", function(){openInformationalDialog(controlsDialog)})
+infoButton.addEventListener("click", function(){openInformationalDialog(infoDialog)})
+
+howToPlayDialog.getElementsByClassName("exitButton")[0].addEventListener("click", function(){closeInformationalDialog(howToPlayDialog)})
+controlsDialog.getElementsByClassName("exitButton")[0].addEventListener("click", function(){closeInformationalDialog(controlsDialog)})
+infoDialog.getElementsByClassName("exitButton")[0].addEventListener("click", function(){closeInformationalDialog(infoDialog)})
