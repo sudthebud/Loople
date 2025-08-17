@@ -9,11 +9,13 @@ Mainly used this project as an opportunity to learn web development and JavaScri
     - Spamming the mouse to click a letter as the loop is being submitted can cause it to get stuck *(unsure if fixed)*
     - Spamming the arrow keys to move between letters as the loop is being submitted can cause the submission process to mess up *(unsure if fixed)*
 - Visuals
+    - Loop is too large for vertical screen sizes
     - Dialog boxes expand or shrink when screen size zooms in or out, respectively
 - Animation
     - If an invalid word is submitted, the currently selected letter will sometimes stop hovering
     - Turn number pill for word history selector has janky animations when opening the menu
 - Miscellaneous
+    - CSS does not yet support Mozilla and Webkit based browsers
     - The URL does not work unless the case matches (this is intended behavior by webservers, but would like to find a way to fix this)
 
 ## Credits
