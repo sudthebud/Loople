@@ -1,1 +1,746 @@
-{"ac": ["arc"], "ad": ["and"], "ae": ["age"], "ah": ["ash"], "al": ["all"], "am": ["arm", "aim"], "ao": ["ago"], "ar": ["air"], "at": ["ant", "act", "art"], "ay": ["any"], "bd": ["bed", "bad", "bud"], "be": ["bee"], "bg": ["bag"], "bk": ["bok"], "br": ["bar"], "bt": ["but", "bit", "bet"], "bx": ["box"], "by": ["boy"], "cb": ["cub"], "cd": ["cod"], "cp": ["cup"], "ct": ["cot", "cat", "cut"], "cw": ["cow"], "cy": ["cry"], "db": ["dab"], "dd": ["dad"], "dg": ["dug", "dog", "dig"], "dh": ["duh"], "do": ["duo"], "dp": ["dip"], "dt": ["dot"], "dw": ["dew"], "dy": ["day", "dry"], "ed": ["end"], "ee": ["eye"], "ef": ["elf"], "eg": ["egg"], "ek": ["elk"], "el": ["eel"], "em": ["elm"], "er": ["ear"], "eu": ["emu"], "fe": ["foe"], "fg": ["fog"], "fn": ["fan", "fin"], "fr": ["fur", "far", "for"], "ft": ["fit", "fat"], "fx": ["fax", "fox"], "fy": ["fly"], "gb": ["gab"], "gd": ["god"], "gg": ["gag", "gig"], "gm": ["gum", "gem"], "gn": ["gun"], "gp": ["gap"], "gs": ["gas"], "gt": ["gut", "get"], "gy": ["guy"], "hb": ["hub"], "hd": ["had"], "hg": ["hug"], "ht": ["hat", "hut"], "hw": ["how"], "ie": ["ice"], "ik": ["irk", "ink"], "il": ["ill"], "in": ["ion"], "iy": ["icy", "ivy"], "jb": ["jab", "job"], "jg": ["jog", "jug"], "jm": ["jam"], "jt": ["jet", "jot"], "jw": ["jaw"], "jy": ["joy"], "kg": ["keg"], "ky": ["key"], "ld": ["lid"], "lg": ["lag", "leg"], "lp": ["lip"], "lt": ["let"], "lw": ["low", "law"], "md": ["mud"], "mg": ["mug"], "mm": ["mom"], "mn": ["man"], "mp": ["mop", "map"], "my": ["may", "may"], "ng": ["nag"], "np": ["nap"], "nt": ["net", "nut", "not"], "nw": ["now", "new"], "od": ["old"], "oe": ["one", "ore"], "of": ["off", "oaf"], "ok": ["oak"], "ol": ["oil", "owl"], "on": ["own"], "ot": ["out", "opt", "oat"], "pd": ["pod", "pad"], "pg": ["pug", "pig"], "pn": ["pen", "pan", "pin"], "pp": ["pep"], "pt": ["put", "pot"], "px": ["pox"], "py": ["pry"], "rb": ["rub"], "rd": ["rod", "red"], "rg": ["rug"], "rm": ["rum"], "rn": ["run"], "rt": ["rot", "rut", "rat"], "ry": ["ray"], "sa": ["sea"], "sc": ["sac"], "sd": ["sad"], "se": ["see"], "sm": ["sum"], "sn": ["sun", "son"], "sp": ["sip"], "sr": ["sir"], "st": ["set"], "sx": ["six", "sex", "sax"], "sy": ["shy", "sky", "sly", "say"], "ta": ["tea"], "te": ["tie", "toe", "the"], "tg": ["tag", "tug"], "tn": ["tin", "ten"], "to": ["two", "too"], "tp": ["tap", "top"], "tx": ["tux", "tax"], "ty": ["try"], "ue": ["use"], "wd": ["wad"], "wk": ["wok"], "wo": ["who"], "wr": ["war"], "wt": ["wet"], "ww": ["wow"], "wx": ["wax"], "wy": ["why", "way"], "ym": ["yam"], "yn": ["yen", "yin"], "ys": ["yes"], "yu": ["you"], "zn": ["zen"], "zp": ["zap"], "zt": ["zit"]}
+{
+  "ac": [
+    "arc"
+  ],
+  "ad": [
+    "add",
+    "aid",
+    "and"
+  ],
+  "ae": [
+    "aye",
+    "ate",
+    "are",
+    "ale",
+    "ave",
+    "age",
+    "awe"
+  ],
+  "ah": [
+    "ash"
+  ],
+  "ak": [
+    "ask"
+  ],
+  "al": [
+    "all"
+  ],
+  "am": [
+    "aim",
+    "arm"
+  ],
+  "ao": [
+    "ago"
+  ],
+  "ap": [
+    "app"
+  ],
+  "ar": [
+    "air"
+  ],
+  "as": [
+    "ads"
+  ],
+  "at": [
+    "act",
+    "apt",
+    "art",
+    "ant"
+  ],
+  "ay": [
+    "any"
+  ],
+  "bd": [
+    "bud",
+    "bad",
+    "bid",
+    "bed"
+  ],
+  "be": [
+    "bye",
+    "bee"
+  ],
+  "bg": [
+    "big",
+    "beg",
+    "bag"
+  ],
+  "bk": [
+    "bok"
+  ],
+  "bn": [
+    "bin",
+    "ban"
+  ],
+  "br": [
+    "bar"
+  ],
+  "bs": [
+    "bus"
+  ],
+  "bt": [
+    "bet",
+    "bit",
+    "but",
+    "bat"
+  ],
+  "bw": [
+    "bow"
+  ],
+  "bx": [
+    "box"
+  ],
+  "by": [
+    "buy",
+    "bay",
+    "boy"
+  ],
+  "cb": [
+    "cub",
+    "cab"
+  ],
+  "cd": [
+    "cod"
+  ],
+  "ce": [
+    "cue"
+  ],
+  "cn": [
+    "con",
+    "can"
+  ],
+  "cp": [
+    "cup",
+    "cap",
+    "cop"
+  ],
+  "cr": [
+    "car"
+  ],
+  "ct": [
+    "cut",
+    "cat",
+    "cot"
+  ],
+  "cw": [
+    "cow"
+  ],
+  "cy": [
+    "cry"
+  ],
+  "db": [
+    "dab"
+  ],
+  "dd": [
+    "did",
+    "dad"
+  ],
+  "de": [
+    "dye",
+    "due",
+    "die"
+  ],
+  "dg": [
+    "dug",
+    "dog",
+    "dig"
+  ],
+  "dm": [
+    "dim",
+    "dam"
+  ],
+  "dn": [
+    "don",
+    "dan",
+    "den"
+  ],
+  "do": [
+    "duo"
+  ],
+  "dp": [
+    "dip"
+  ],
+  "dt": [
+    "dot"
+  ],
+  "dw": [
+    "dew"
+  ],
+  "dy": [
+    "day",
+    "dry"
+  ],
+  "ea": [
+    "era"
+  ],
+  "ed": [
+    "end"
+  ],
+  "ee": [
+    "eve",
+    "eye"
+  ],
+  "ef": [
+    "elf"
+  ],
+  "eg": [
+    "egg"
+  ],
+  "ek": [
+    "elk"
+  ],
+  "el": [
+    "eel"
+  ],
+  "em": [
+    "elm"
+  ],
+  "eo": [
+    "ego"
+  ],
+  "er": [
+    "ear"
+  ],
+  "et": [
+    "eat"
+  ],
+  "eu": [
+    "emu"
+  ],
+  "fd": [
+    "fed"
+  ],
+  "fe": [
+    "fee",
+    "foe"
+  ],
+  "fg": [
+    "fog"
+  ],
+  "fn": [
+    "fan",
+    "fin",
+    "fun"
+  ],
+  "fr": [
+    "fur",
+    "for",
+    "far"
+  ],
+  "ft": [
+    "fit",
+    "fat"
+  ],
+  "fw": [
+    "few"
+  ],
+  "fx": [
+    "fax",
+    "fox",
+    "fix"
+  ],
+  "fy": [
+    "fly",
+    "fry"
+  ],
+  "gb": [
+    "gab"
+  ],
+  "gd": [
+    "god"
+  ],
+  "gg": [
+    "gag",
+    "gig"
+  ],
+  "gl": [
+    "gel"
+  ],
+  "gm": [
+    "gem",
+    "gum",
+    "gym"
+  ],
+  "gn": [
+    "gun"
+  ],
+  "gp": [
+    "gap"
+  ],
+  "gs": [
+    "gas"
+  ],
+  "gt": [
+    "get",
+    "gut",
+    "got"
+  ],
+  "gy": [
+    "guy"
+  ],
+  "hb": [
+    "hub"
+  ],
+  "hd": [
+    "hid",
+    "had"
+  ],
+  "hg": [
+    "hug"
+  ],
+  "hm": [
+    "ham",
+    "him",
+    "hum"
+  ],
+  "hn": [
+    "hen"
+  ],
+  "hp": [
+    "hop",
+    "hip"
+  ],
+  "hr": [
+    "her"
+  ],
+  "hs": [
+    "his",
+    "has"
+  ],
+  "ht": [
+    "hot",
+    "hit",
+    "hat",
+    "hut"
+  ],
+  "hw": [
+    "how"
+  ],
+  "hy": [
+    "hey",
+    "hay"
+  ],
+  "ie": [
+    "ice"
+  ],
+  "ik": [
+    "irk",
+    "ink"
+  ],
+  "il": [
+    "ill"
+  ],
+  "in": [
+    "ion",
+    "inn"
+  ],
+  "is": [
+    "its"
+  ],
+  "iy": [
+    "icy",
+    "ivy"
+  ],
+  "jb": [
+    "jab",
+    "job"
+  ],
+  "jg": [
+    "jog",
+    "jug"
+  ],
+  "jm": [
+    "jam"
+  ],
+  "jr": [
+    "jar"
+  ],
+  "jt": [
+    "jot",
+    "jet"
+  ],
+  "jw": [
+    "jaw"
+  ],
+  "jy": [
+    "joy"
+  ],
+  "kd": [
+    "kid"
+  ],
+  "kg": [
+    "keg"
+  ],
+  "kn": [
+    "kin",
+    "ken"
+  ],
+  "kt": [
+    "kit"
+  ],
+  "ky": [
+    "key"
+  ],
+  "lb": [
+    "lab"
+  ],
+  "ld": [
+    "lid",
+    "lad",
+    "led"
+  ],
+  "le": [
+    "lie"
+  ],
+  "lg": [
+    "lag",
+    "leg",
+    "log"
+  ],
+  "lp": [
+    "lip",
+    "lap"
+  ],
+  "lt": [
+    "let",
+    "lot",
+    "lit"
+  ],
+  "lw": [
+    "law",
+    "low"
+  ],
+  "ly": [
+    "lay"
+  ],
+  "mb": [
+    "mob"
+  ],
+  "md": [
+    "mud",
+    "mad",
+    "mid"
+  ],
+  "mg": [
+    "mug"
+  ],
+  "mm": [
+    "mum",
+    "mom"
+  ],
+  "mn": [
+    "min",
+    "man",
+    "men"
+  ],
+  "mp": [
+    "mop",
+    "map"
+  ],
+  "mr": [
+    "mar"
+  ],
+  "mt": [
+    "mat",
+    "met"
+  ],
+  "mx": [
+    "max",
+    "mix"
+  ],
+  "my": [
+    "may"
+  ],
+  "nd": [
+    "nod"
+  ],
+  "ng": [
+    "nag"
+  ],
+  "np": [
+    "nap"
+  ],
+  "nr": [
+    "nor"
+  ],
+  "nt": [
+    "nut",
+    "net",
+    "not"
+  ],
+  "nw": [
+    "now",
+    "new"
+  ],
+  "od": [
+    "old",
+    "odd"
+  ],
+  "oe": [
+    "owe",
+    "one",
+    "ore"
+  ],
+  "of": [
+    "oaf",
+    "off"
+  ],
+  "ok": [
+    "oak"
+  ],
+  "ol": [
+    "oil",
+    "owl"
+  ],
+  "on": [
+    "own"
+  ],
+  "or": [
+    "our"
+  ],
+  "ot": [
+    "oat",
+    "opt",
+    "out"
+  ],
+  "pb": [
+    "pub"
+  ],
+  "pd": [
+    "pad",
+    "pod"
+  ],
+  "pe": [
+    "pie"
+  ],
+  "pg": [
+    "pig",
+    "pug"
+  ],
+  "pn": [
+    "pin",
+    "pen",
+    "pan"
+  ],
+  "po": [
+    "pro"
+  ],
+  "pp": [
+    "pop",
+    "pep"
+  ],
+  "pr": [
+    "per",
+    "par"
+  ],
+  "pt": [
+    "pet",
+    "put",
+    "pit",
+    "pat",
+    "pot"
+  ],
+  "px": [
+    "pox"
+  ],
+  "py": [
+    "pay",
+    "pry"
+  ],
+  "rb": [
+    "rob",
+    "rub"
+  ],
+  "rd": [
+    "rid",
+    "rod",
+    "red"
+  ],
+  "re": [
+    "rue"
+  ],
+  "rg": [
+    "rug"
+  ],
+  "rm": [
+    "rum",
+    "rim",
+    "ram"
+  ],
+  "rn": [
+    "run",
+    "ran"
+  ],
+  "rt": [
+    "rot",
+    "rat",
+    "rut"
+  ],
+  "rv": [
+    "rev"
+  ],
+  "rw": [
+    "row",
+    "raw"
+  ],
+  "ry": [
+    "ray"
+  ],
+  "sa": [
+    "sea"
+  ],
+  "sb": [
+    "sub"
+  ],
+  "sc": [
+    "sac"
+  ],
+  "sd": [
+    "sud",
+    "sad"
+  ],
+  "se": [
+    "see",
+    "she",
+    "sue"
+  ],
+  "sm": [
+    "sum"
+  ],
+  "sn": [
+    "sun",
+    "sin",
+    "son"
+  ],
+  "sp": [
+    "sip"
+  ],
+  "sr": [
+    "sir"
+  ],
+  "st": [
+    "set",
+    "sat",
+    "sit"
+  ],
+  "sw": [
+    "saw"
+  ],
+  "sx": [
+    "sax"
+  ],
+  "sy": [
+    "shy",
+    "say",
+    "sly",
+    "spy",
+    "soy",
+    "sky"
+  ],
+  "ta": [
+    "tea"
+  ],
+  "tb": [
+    "tub",
+    "tab"
+  ],
+  "te": [
+    "the",
+    "tie",
+    "toe"
+  ],
+  "tg": [
+    "tug",
+    "tag"
+  ],
+  "tn": [
+    "tin",
+    "tan",
+    "ten",
+    "ton"
+  ],
+  "to": [
+    "too",
+    "two"
+  ],
+  "tp": [
+    "tap",
+    "top",
+    "tip"
+  ],
+  "tx": [
+    "tux",
+    "tax"
+  ],
+  "ty": [
+    "toy",
+    "try",
+    "thy"
+  ],
+  "ue": [
+    "use"
+  ],
+  "vn": [
+    "van"
+  ],
+  "vt": [
+    "vet"
+  ],
+  "wb": [
+    "web"
+  ],
+  "wd": [
+    "wad"
+  ],
+  "wk": [
+    "wok"
+  ],
+  "wn": [
+    "won",
+    "win"
+  ],
+  "wo": [
+    "who"
+  ],
+  "wr": [
+    "war"
+  ],
+  "ws": [
+    "was"
+  ],
+  "wt": [
+    "wet",
+    "wit"
+  ],
+  "ww": [
+    "wow"
+  ],
+  "wx": [
+    "wax"
+  ],
+  "wy": [
+    "way",
+    "why"
+  ],
+  "ym": [
+    "yam"
+  ],
+  "ys": [
+    "yes"
+  ],
+  "yt": [
+    "yet"
+  ],
+  "yu": [
+    "you"
+  ],
+  "zn": [
+    "zen"
+  ],
+  "zp": [
+    "zap"
+  ],
+  "zt": [
+    "zit"
+  ]
+}

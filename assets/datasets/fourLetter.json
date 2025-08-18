@@ -1,1 +1,1810 @@
-{"aa": ["area", "aqua"], "ad": ["avid", "amid", "aged", "acid"], "ae": ["aide", "acre", "aloe", "able"], "ah": ["arch"], "am": ["atom"], "ao": ["alto", "also"], "ap": ["atop"], "ar": ["afar", "ajar"], "as": ["aids", "axis", "acts"], "aw": ["anew"], "ay": ["ashy", "ahoy", "awry", "army"], "bb": ["blob", "bomb", "bulb"], "bd": ["bird", "band"], "be": ["base", "bite", "bale", "bone", "blue"], "bf": ["beef"], "bg": ["blog", "bang"], "bh": ["both", "bash", "blah", "bush", "bath"], "bk": ["bask", "beak", "bank", "back", "bulk", "buck", "book", "bark"], "bl": ["bill", "bell", "ball", "boil"], "bm": ["brim"], "bn": ["burn", "barn"], "bp": ["blip"], "br": ["beer"], "bs": ["bats", "boss"], "bt": ["boot", "bust", "belt", "bent", "bunt", "bolt", "beat", "boat", "blot"], "bw": ["blow"], "by": ["bony", "baby", "busy", "boxy", "body"], "bz": ["buzz"], "ca": ["cola", "coma"], "cb": ["comb", "crib", "club"], "cd": ["clad", "cold", "card", "cord"], "ce": ["cape", "cope", "care", "cafe", "cave", "cage", "coke", "cube", "cake", "cure", "cane", "code", "come", "case", "cone"], "cf": ["chef"], "cg": ["chug"], "ch": ["cash"], "ck": ["cook", "cork"], "cl": ["cell", "coil", "call", "cool", "coal", "curl"], "cm": ["calm"], "cn": ["chin"], "cp": ["cusp", "crop", "clap", "chip", "clip", "chop"], "ct": ["cart", "cost", "cast", "cult", "colt", "coat"], "cw": ["claw", "chew", "chow"], "cx": ["crux"], "cy": ["clay", "cozy", "city", "copy"], "da": ["data"], "db": ["drab"], "dd": ["dead", "deed"], "de": ["duke", "dike", "date", "doze", "dove", "dupe", "dude", "dice", "dime", "dive", "dome", "dose", "dole"], "df": ["deaf"], "dh": ["dish", "dash"], "dk": ["dork", "dock", "dark", "disk", "dusk", "deck", "desk", "duck"], "dl": ["dill", "deal", "dial", "dull", "doll"], "dm": ["deem", "drum"], "dn": ["down", "dawn", "dean", "darn"], "dp": ["drop", "deep"], "dr": ["dear", "door"], "ds": ["dibs"], "dt": ["dent", "duct", "dart", "dust", "debt"], "dw": ["drew", "draw"], "dy": ["duty", "deny", "duly", "defy"], "ec": ["epic"], "ee": ["edge"], "eh": ["etch", "each"], "el": ["evil"], "em": ["exam"], "en": ["even"], "eo": ["echo"], "er": ["ever"], "es": ["exes", "eats"], "et": ["exit", "east", "emit"], "ey": ["envy", "edgy", "ebay", "easy"], "fd": ["food", "fold", "fled", "fend", "feed"], "fe": ["face", "fume", "five", "free", "fire", "fame", "fade"], "fg": ["flag", "fang"], "fh": ["fish"], "fk": ["folk", "fork"], "fl": ["full", "fall", "feel", "foil", "fool", "fowl"], "fm": ["film", "farm", "from", "form", "foam"], "fp": ["flop", "flap", "flip"], "fr": ["fair", "four", "fear"], "ft": ["foot", "flat", "font", "fact"], "fw": ["flow"], "fy": ["fray"], "ga": ["gala"], "gb": ["grub", "grab"], "gd": ["good", "gold", "glad", "grid"], "ge": ["glue", "game", "give", "gone", "gate", "gore", "gave"], "gf": ["gulf", "golf"], "gg": ["gong"], "gh": ["gush"], "gk": ["geek", "gawk"], "gl": ["girl", "gill", "goal"], "gm": ["gram", "germ"], "gn": ["gown", "goon"], "gp": ["grip", "gulp"], "gr": ["gear"], "gs": ["goes", "guts"], "gt": ["goat", "grit", "gout", "gift", "gnat"], "gu": ["guru"], "gw": ["grew", "glow"], "gy": ["gray", "gory"], "ha": ["hula"], "hd": ["hard", "hand", "head", "hold"], "he": ["hole", "hate", "have", "hope", "here", "home", "hire"], "hf": ["half", "hoof", "huff"], "hg": ["hung"], "hh": ["hush", "hash", "high"], "hk": ["hulk", "hunk", "hook"], "hl": ["hill", "hull"], "hm": ["harm"], "hn": ["horn"], "ho": ["halo"], "hp": ["hump", "heap", "help"], "hr": ["hour", "hair"], "hs": ["hers", "hiss"], "ht": ["halt", "heat", "hunt", "host", "hurt"], "hy": ["hazy"], "ia": ["idea"], "id": ["ipad", "ipod"], "im": ["item"], "in": ["iron", "icon"], "io": ["into"], "iy": ["idly", "icky"], "ja": ["java"], "je": ["june", "june"], "jk": ["jerk"], "jn": ["join", "john"], "jo": ["judo"], "jp": ["jeep", "jump"], "js": ["jaws"], "jt": ["jolt"], "jx": ["jinx"], "jy": ["july", "jury", "july"], "jz": ["jazz"], "kd": ["kind"], "ke": ["kite", "knee"], "kg": ["kung", "king"], "ki": ["kiwi"], "kk": ["kick"], "kn": ["kiln"], "kp": ["kelp", "keep"], "ks": ["kiss"], "kt": ["kept", "kilt", "knot"], "la": ["lava"], "lb": ["limb"], "ld": ["load", "lard", "lend", "lead", "land", "loud"], "le": ["life", "lure", "like", "lame", "lime", "late", "lake", "love", "lace", "line"], "lf": ["leaf"], "lg": ["lung", "long"], "lh": ["lash"], "lk": ["lock", "luck", "lurk", "look", "link", "lark"], "ln": ["loan", "lion"], "lo": ["lego"], "lp": ["lump", "lamp", "lisp"], "lr": ["lair"], "ls": ["lens", "loss"], "lt": ["left", "lift", "list", "lint", "last", "lent"], "lu": ["luau"], "ly": ["lady", "lily", "lazy"], "ma": ["mama"], "md": ["mold", "mood", "mind"], "me": ["mine", "mace", "male", "muse", "mule", "mate", "make", "mute", "move"], "mh": ["math", "much", "myth", "mash"], "mk": ["mark", "milk", "muck"], "ml": ["mull", "mill", "meal"], "mn": ["moon", "mean", "moan"], "ms": ["mess", "mass"], "mt": ["mutt", "melt", "most", "mast", "meat", "mist", "malt"], "mw": ["meow"], "my": ["many"], "nd": ["need", "nerd"], "ne": ["nape", "note", "name", "nice", "nine", "nose", "node"], "nk": ["neck"], "nl": ["nail"], "nn": ["neon"], "nr": ["near"], "ns": ["news"], "nt": ["nest", "next", "neat"], "ny": ["navy"], "oe": ["ooze", "ogle", "once", "oboe"], "oh": ["ouch"], "ok": ["oink"], "ol": ["opal", "oval"], "on": ["omen", "open", "oven"], "oo": ["onto"], "or": ["over"], "os": ["oops"], "ot": ["omit"], "ox": ["onyx"], "oy": ["oozy", "okay", "only"], "pa": ["puma"], "pd": ["plod", "pond"], "pe": ["pace", "pure", "page", "pipe", "pope"], "pg": ["plug", "pang"], "ph": ["posh", "push", "path"], "pk": ["park", "punk", "pork"], "pl": ["pull", "pool"], "pm": ["perm", "palm", "poem"], "pn": ["plan", "pain"], "po": ["pogo", "polo", "peso"], "pp": ["plop", "pump", "pulp"], "pr": ["purr", "pair", "poor"], "ps": ["plus"], "pt": ["past", "putt", "pest", "plot", "post", "pout", "part", "pelt", "poet"], "pw": ["plow"], "py": ["ploy", "play", "pony"], "qt": ["quit"], "rd": ["raid", "rind", "road"], "re": ["rake", "rate", "rude", "robe", "rice", "race", "rule", "rise", "rope", "ruse", "rare", "rage", "ride"], "rf": ["roof"], "rg": ["ring"], "rh": ["rush", "rich", "rash"], "rk": ["rink", "risk", "rock", "rank", "rack"], "rl": ["real", "rail", "roll"], "rm": ["room", "ream"], "rn": ["ruin", "rain"], "rp": ["romp", "ramp"], "rs": ["reps"], "rt": ["rent", "rant", "raft", "runt", "root", "rift", "rest", "rust", "riot"], "ry": ["ruby", "rosy", "rely"], "sa": ["saga"], "sb": ["snub", "slob", "swab", "slab"], "sd": ["sled", "skid", "stud", "send", "seed", "shed", "spud", "said", "sand"], "se": ["size", "same", "shoe", "some", "safe", "sale", "sage", "sake", "side"], "sf": ["self", "surf"], "sg": ["song", "slug", "smog"], "sh": ["sash", "such"], "sk": ["sank", "sulk", "silk", "sock"], "sl": ["soil", "seal", "sail", "sill"], "sm": ["seem", "slam", "sham", "slum", "swim", "scam", "stem"], "sn": ["swan", "scan", "skin", "shun", "sign"], "so": ["silo"], "sp": ["step", "skip", "stop", "ship", "snap", "slip", "soup", "shop", "soap"], "sr": ["spur", "star", "stir"], "ss": ["suds"], "st": ["spit", "shut", "sort", "silt", "skit", "spot", "slot", "salt", "sect", "soft", "seat", "slit", "sift"], "sw": ["stew", "slaw", "skew", "slow", "spew", "show", "snow"], "sy": ["sway", "spry"], "td": ["thud"], "te": ["tame", "true", "time", "tide", "tyke", "take", "tube", "thee", "tile", "tree", "tune"], "tf": ["turf"], "tg": ["twig"], "ti": ["taxi"], "tk": ["task", "tank", "talk", "tusk", "trek"], "tl": ["till", "tail", "tall"], "tm": ["term"], "tn": ["then", "thin", "turn", "town", "twin", "than"], "to": ["taco", "trio"], "tp": ["trap"], "tr": ["tear"], "ts": ["this", "thus", "taps"], "tt": ["tilt", "tent", "tint", "that", "test", "tart"], "tu": ["tutu"], "tw": ["thaw"], "ty": ["tray", "tidy", "tiny"], "ud": ["used"], "un": ["upon"], "uo": ["undo"], "ur": ["user"], "ut": ["unit"], "uy": ["ugly"], "va": ["visa"], "vd": ["void"], "ve": ["vote", "vice"], "vl": ["veal"], "vo": ["veto"], "vt": ["vest", "volt"], "vw": ["view"], "vy": ["very"], "wb": ["womb"], "wd": ["word", "wild", "wand", "wind", "wood"], "we": ["wake", "wipe", "wine", "wife", "wire", "wide", "wave", "wise"], "wf": ["wolf", "woof"], "wg": ["wing"], "wh": ["wash", "with", "wish"], "wi": ["wifi"], "wk": ["weak", "wink", "wick", "week", "work", "walk"], "wl": ["well", "will", "wool", "wall"], "wm": ["warm", "wham", "worm"], "wn": ["when"], "wp": ["whip", "wasp", "wimp"], "wt": ["west", "wilt"], "wy": ["wiry", "wavy"], "xx": ["xbox"], "ya": ["yoga"], "yd": ["yard"], "yh": ["yeah"], "yn": ["yawn", "yarn"], "yo": ["yoyo"], "yp": ["yelp"], "yr": ["year"], "zc": ["zinc"], "ze": ["zone"], "zm": ["zoom"], "zo": ["zero"], "zs": ["zips"]}
+{
+  "aa": [
+    "area",
+    "aqua",
+    "aura"
+  ],
+  "ad": [
+    "acid",
+    "amid",
+    "aged",
+    "avid"
+  ],
+  "ae": [
+    "able",
+    "aloe",
+    "acre",
+    "ache",
+    "aide"
+  ],
+  "ah": [
+    "arch"
+  ],
+  "ai": [
+    "anti"
+  ],
+  "al": [
+    "anal"
+  ],
+  "am": [
+    "atom"
+  ],
+  "an": [
+    "amen",
+    "akin"
+  ],
+  "ao": [
+    "auto",
+    "alto",
+    "also"
+  ],
+  "ap": [
+    "atop"
+  ],
+  "ar": [
+    "ajar",
+    "afar"
+  ],
+  "as": [
+    "acts",
+    "ages",
+    "apps",
+    "alas",
+    "axis",
+    "axes",
+    "adds",
+    "arts",
+    "asks",
+    "aims",
+    "aids",
+    "arms"
+  ],
+  "at": [
+    "aunt"
+  ],
+  "aw": [
+    "anew"
+  ],
+  "ay": [
+    "awry",
+    "away",
+    "ashy",
+    "army",
+    "ahoy",
+    "ally"
+  ],
+  "ba": [
+    "beta"
+  ],
+  "bb": [
+    "blob",
+    "bulb",
+    "bomb"
+  ],
+  "bd": [
+    "band",
+    "bird",
+    "bind",
+    "bond",
+    "bald",
+    "bend",
+    "bold"
+  ],
+  "be": [
+    "bake",
+    "bale",
+    "blue",
+    "bite",
+    "bile",
+    "base",
+    "bare",
+    "bone",
+    "bike",
+    "bore"
+  ],
+  "bf": [
+    "beef"
+  ],
+  "bg": [
+    "bang",
+    "blog"
+  ],
+  "bh": [
+    "bush",
+    "bash",
+    "both",
+    "bath"
+  ],
+  "bk": [
+    "beak",
+    "bank",
+    "bark",
+    "bask",
+    "book",
+    "bulk",
+    "back",
+    "buck"
+  ],
+  "bl": [
+    "bull",
+    "bell",
+    "bowl",
+    "boil",
+    "ball",
+    "bill"
+  ],
+  "bm": [
+    "beam",
+    "boom",
+    "brim"
+  ],
+  "bn": [
+    "bean",
+    "been",
+    "barn",
+    "born",
+    "burn"
+  ],
+  "bp": [
+    "blip"
+  ],
+  "br": [
+    "bear",
+    "beer"
+  ],
+  "bs": [
+    "bias",
+    "bees",
+    "bits",
+    "bars",
+    "bats",
+    "bags",
+    "beds",
+    "boys",
+    "bass",
+    "boss"
+  ],
+  "bt": [
+    "bust",
+    "butt",
+    "bolt",
+    "best",
+    "bent",
+    "boat",
+    "blot",
+    "beat",
+    "bunt",
+    "boot",
+    "belt"
+  ],
+  "bw": [
+    "brow",
+    "blow",
+    "blew"
+  ],
+  "by": [
+    "boxy",
+    "busy",
+    "bony",
+    "baby",
+    "body",
+    "bury"
+  ],
+  "bz": [
+    "buzz"
+  ],
+  "ca": [
+    "coma",
+    "cola"
+  ],
+  "cb": [
+    "curb",
+    "comb",
+    "crib",
+    "club"
+  ],
+  "cd": [
+    "cord",
+    "clad",
+    "cold",
+    "card"
+  ],
+  "ce": [
+    "care",
+    "came",
+    "cube",
+    "cage",
+    "cafe",
+    "case",
+    "cane",
+    "cave",
+    "cute",
+    "come",
+    "cope",
+    "cape",
+    "code",
+    "clue",
+    "coke",
+    "cure",
+    "cone",
+    "core",
+    "cake"
+  ],
+  "cf": [
+    "chef"
+  ],
+  "cg": [
+    "chug"
+  ],
+  "ch": [
+    "cash"
+  ],
+  "ck": [
+    "cork",
+    "cook"
+  ],
+  "cl": [
+    "curl",
+    "coil",
+    "cell",
+    "call",
+    "cool",
+    "coal"
+  ],
+  "cm": [
+    "calm"
+  ],
+  "cn": [
+    "corn",
+    "clan",
+    "chin",
+    "coin"
+  ],
+  "cp": [
+    "camp",
+    "crop",
+    "chip",
+    "clip",
+    "cusp",
+    "coup",
+    "clap",
+    "chap",
+    "chop"
+  ],
+  "cs": [
+    "cues",
+    "cats",
+    "cups",
+    "cuts",
+    "cows",
+    "cops",
+    "cars"
+  ],
+  "ct": [
+    "cast",
+    "coat",
+    "cent",
+    "chat",
+    "cart",
+    "cost",
+    "colt",
+    "cult"
+  ],
+  "cw": [
+    "chew",
+    "chow",
+    "crow",
+    "crew",
+    "claw"
+  ],
+  "cx": [
+    "crux"
+  ],
+  "cy": [
+    "clay",
+    "cozy",
+    "city",
+    "copy"
+  ],
+  "da": [
+    "data"
+  ],
+  "db": [
+    "dumb",
+    "drab"
+  ],
+  "dc": [
+    "disc"
+  ],
+  "dd": [
+    "dead",
+    "deed",
+    "died"
+  ],
+  "de": [
+    "dupe",
+    "dude",
+    "dole",
+    "dome",
+    "doze",
+    "dime",
+    "dove",
+    "done",
+    "dice",
+    "dose",
+    "duke",
+    "dive",
+    "date",
+    "dare",
+    "dame"
+  ],
+  "df": [
+    "deaf"
+  ],
+  "dg": [
+    "drag"
+  ],
+  "dh": [
+    "dish",
+    "dash"
+  ],
+  "dk": [
+    "desk",
+    "duck",
+    "dork",
+    "dark",
+    "deck",
+    "dusk",
+    "disk",
+    "dock"
+  ],
+  "dl": [
+    "deal",
+    "dill",
+    "dial",
+    "dull",
+    "doll",
+    "dual"
+  ],
+  "dm": [
+    "drum",
+    "deem"
+  ],
+  "dn": [
+    "down",
+    "dawn",
+    "dean"
+  ],
+  "dp": [
+    "deep",
+    "drop",
+    "damp"
+  ],
+  "dr": [
+    "door",
+    "deer",
+    "dear"
+  ],
+  "ds": [
+    "does",
+    "dibs",
+    "dies",
+    "dots",
+    "dogs",
+    "days"
+  ],
+  "dt": [
+    "debt",
+    "dart",
+    "duct",
+    "dust",
+    "dirt",
+    "diet",
+    "dent"
+  ],
+  "dw": [
+    "draw",
+    "drew"
+  ],
+  "dy": [
+    "deny",
+    "duty",
+    "duly",
+    "defy"
+  ],
+  "ec": [
+    "epic"
+  ],
+  "ed": [
+    "eyed"
+  ],
+  "ee": [
+    "ease",
+    "else",
+    "edge"
+  ],
+  "eh": [
+    "etch",
+    "each"
+  ],
+  "el": [
+    "earl",
+    "evil"
+  ],
+  "em": [
+    "exam"
+  ],
+  "en": [
+    "even",
+    "earn"
+  ],
+  "eo": [
+    "euro",
+    "echo"
+  ],
+  "er": [
+    "ever"
+  ],
+  "es": [
+    "eats",
+    "ears",
+    "exes",
+    "ends",
+    "eggs",
+    "eyes"
+  ],
+  "et": [
+    "exit",
+    "east",
+    "edit",
+    "emit"
+  ],
+  "ey": [
+    "envy",
+    "easy",
+    "edgy"
+  ],
+  "fd": [
+    "food",
+    "fund",
+    "fond",
+    "fled",
+    "fend",
+    "fold",
+    "find",
+    "feed"
+  ],
+  "fe": [
+    "fire",
+    "fore",
+    "fame",
+    "five",
+    "fake",
+    "fade",
+    "file",
+    "fine",
+    "fume",
+    "fate",
+    "free",
+    "flee",
+    "face",
+    "fare"
+  ],
+  "fg": [
+    "flag",
+    "fang"
+  ],
+  "fh": [
+    "fish"
+  ],
+  "fk": [
+    "folk",
+    "fork"
+  ],
+  "fl": [
+    "fuel",
+    "fool",
+    "full",
+    "foul",
+    "fail",
+    "feel",
+    "foil",
+    "fowl",
+    "fill",
+    "fell",
+    "fall"
+  ],
+  "fm": [
+    "firm",
+    "from",
+    "form",
+    "farm",
+    "film",
+    "foam"
+  ],
+  "fp": [
+    "flip",
+    "flop",
+    "flap"
+  ],
+  "fr": [
+    "fear",
+    "four",
+    "fair"
+  ],
+  "fs": [
+    "fans",
+    "fees",
+    "fits",
+    "figs"
+  ],
+  "ft": [
+    "flat",
+    "font",
+    "foot",
+    "felt",
+    "fact",
+    "fort",
+    "fast",
+    "fist",
+    "feet"
+  ],
+  "fw": [
+    "flew",
+    "flow"
+  ],
+  "fx": [
+    "flux"
+  ],
+  "fy": [
+    "fray",
+    "fury"
+  ],
+  "ga": [
+    "gala"
+  ],
+  "gb": [
+    "grub",
+    "grab"
+  ],
+  "gd": [
+    "gold",
+    "good",
+    "grid",
+    "glad"
+  ],
+  "ge": [
+    "give",
+    "gone",
+    "glue",
+    "gate",
+    "gore",
+    "gave",
+    "game",
+    "gaze",
+    "gene"
+  ],
+  "gf": [
+    "golf",
+    "gulf"
+  ],
+  "gg": [
+    "gong",
+    "gang"
+  ],
+  "gh": [
+    "gush"
+  ],
+  "gk": [
+    "geek",
+    "gawk"
+  ],
+  "gl": [
+    "gill",
+    "goal",
+    "girl"
+  ],
+  "gm": [
+    "germ",
+    "grim",
+    "gram"
+  ],
+  "gn": [
+    "goon",
+    "grin",
+    "gain",
+    "gown"
+  ],
+  "gp": [
+    "grip",
+    "gulp"
+  ],
+  "gr": [
+    "gear"
+  ],
+  "gs": [
+    "guts",
+    "guns",
+    "guys",
+    "gets",
+    "gods",
+    "gaps",
+    "goes"
+  ],
+  "gt": [
+    "gout",
+    "goat",
+    "gnat",
+    "grit",
+    "gift"
+  ],
+  "gu": [
+    "guru"
+  ],
+  "gw": [
+    "grow",
+    "glow",
+    "grew"
+  ],
+  "gy": [
+    "gory",
+    "grey",
+    "gray"
+  ],
+  "ha": [
+    "hula"
+  ],
+  "hd": [
+    "head",
+    "hood",
+    "hard",
+    "hold",
+    "hand",
+    "held",
+    "herd"
+  ],
+  "he": [
+    "hide",
+    "home",
+    "hope",
+    "hate",
+    "hole",
+    "here",
+    "have",
+    "huge",
+    "hire"
+  ],
+  "hf": [
+    "huff",
+    "hoof",
+    "half"
+  ],
+  "hg": [
+    "hung",
+    "hang"
+  ],
+  "hh": [
+    "hush",
+    "hash",
+    "high"
+  ],
+  "hk": [
+    "hook",
+    "hawk",
+    "hulk",
+    "hunk"
+  ],
+  "hl": [
+    "hull",
+    "heal",
+    "hill",
+    "heel",
+    "hall"
+  ],
+  "hm": [
+    "harm"
+  ],
+  "hn": [
+    "horn"
+  ],
+  "ho": [
+    "halo",
+    "hero"
+  ],
+  "hp": [
+    "help",
+    "hump",
+    "heap"
+  ],
+  "hr": [
+    "hair",
+    "hear",
+    "hour",
+    "heir"
+  ],
+  "hs": [
+    "hats",
+    "hers",
+    "hips",
+    "hiss",
+    "hits"
+  ],
+  "ht": [
+    "hurt",
+    "heat",
+    "halt",
+    "hint",
+    "host",
+    "hast",
+    "hunt"
+  ],
+  "hy": [
+    "hazy",
+    "holy"
+  ],
+  "ia": [
+    "idea"
+  ],
+  "ie": [
+    "idle"
+  ],
+  "ih": [
+    "inch"
+  ],
+  "im": [
+    "item"
+  ],
+  "in": [
+    "icon",
+    "iron"
+  ],
+  "io": [
+    "into"
+  ],
+  "is": [
+    "iris",
+    "ions"
+  ],
+  "iy": [
+    "icky",
+    "idly"
+  ],
+  "ja": [
+    "java"
+  ],
+  "je": [
+    "joke",
+    "june",
+    "jade"
+  ],
+  "jk": [
+    "jerk"
+  ],
+  "jl": [
+    "jail"
+  ],
+  "jn": [
+    "join"
+  ],
+  "jo": [
+    "judo"
+  ],
+  "jp": [
+    "jeep",
+    "jump"
+  ],
+  "js": [
+    "jaws",
+    "jobs"
+  ],
+  "jt": [
+    "just",
+    "jolt"
+  ],
+  "jx": [
+    "jinx"
+  ],
+  "jy": [
+    "july",
+    "jury"
+  ],
+  "jz": [
+    "jazz"
+  ],
+  "kd": [
+    "kind"
+  ],
+  "ke": [
+    "knee",
+    "kite"
+  ],
+  "kg": [
+    "king"
+  ],
+  "ki": [
+    "kiwi"
+  ],
+  "kk": [
+    "kick"
+  ],
+  "kn": [
+    "kiln",
+    "keen"
+  ],
+  "kp": [
+    "kelp",
+    "keep"
+  ],
+  "ks": [
+    "kids",
+    "kiss",
+    "keys"
+  ],
+  "kt": [
+    "kept",
+    "knot",
+    "kilt"
+  ],
+  "kw": [
+    "knew",
+    "know"
+  ],
+  "la": [
+    "lava"
+  ],
+  "lb": [
+    "limb",
+    "lamb"
+  ],
+  "ld": [
+    "loud",
+    "lied",
+    "land",
+    "load",
+    "lend",
+    "lord",
+    "lard",
+    "lead",
+    "laid"
+  ],
+  "le": [
+    "line",
+    "like",
+    "late",
+    "lime",
+    "lure",
+    "lame",
+    "lone",
+    "lace",
+    "lose",
+    "live",
+    "lake",
+    "life",
+    "lane",
+    "love",
+    "lobe"
+  ],
+  "lf": [
+    "leaf"
+  ],
+  "lg": [
+    "long",
+    "lung"
+  ],
+  "lh": [
+    "lash"
+  ],
+  "lk": [
+    "luck",
+    "lark",
+    "lurk",
+    "link",
+    "lack",
+    "look",
+    "lock"
+  ],
+  "ln": [
+    "lion",
+    "loan",
+    "lean",
+    "lawn"
+  ],
+  "lp": [
+    "lisp",
+    "loop",
+    "lump",
+    "lamp",
+    "leap"
+  ],
+  "lr": [
+    "lair"
+  ],
+  "ls": [
+    "lies",
+    "lens",
+    "legs",
+    "lots",
+    "logs",
+    "loss",
+    "lips",
+    "lets",
+    "less",
+    "laws"
+  ],
+  "lt": [
+    "lent",
+    "lust",
+    "list",
+    "left",
+    "lift",
+    "lint",
+    "last",
+    "lost"
+  ],
+  "lu": [
+    "luau"
+  ],
+  "ly": [
+    "lady",
+    "lily",
+    "lazy",
+    "levy"
+  ],
+  "ma": [
+    "mama",
+    "meta"
+  ],
+  "md": [
+    "mold",
+    "mild",
+    "maid",
+    "mood",
+    "mind"
+  ],
+  "me": [
+    "make",
+    "more",
+    "mate",
+    "mere",
+    "mode",
+    "mute",
+    "mule",
+    "mice",
+    "mine",
+    "male",
+    "mile",
+    "muse",
+    "made",
+    "mace",
+    "move"
+  ],
+  "mh": [
+    "much",
+    "mash",
+    "math",
+    "mesh",
+    "myth"
+  ],
+  "mi": [
+    "mini"
+  ],
+  "mk": [
+    "muck",
+    "milk",
+    "monk",
+    "mark",
+    "mock",
+    "mask"
+  ],
+  "ml": [
+    "mull",
+    "mail",
+    "mill",
+    "meal",
+    "mall"
+  ],
+  "mn": [
+    "moan",
+    "mean",
+    "moon",
+    "main"
+  ],
+  "ms": [
+    "miss",
+    "moss",
+    "mess",
+    "mass",
+    "maps"
+  ],
+  "mt": [
+    "mist",
+    "meet",
+    "meat",
+    "most",
+    "melt",
+    "mast",
+    "malt",
+    "must",
+    "mutt"
+  ],
+  "mu": [
+    "menu"
+  ],
+  "mw": [
+    "meow"
+  ],
+  "my": [
+    "many"
+  ],
+  "nd": [
+    "nerd",
+    "need"
+  ],
+  "ne": [
+    "nine",
+    "node",
+    "name",
+    "nose",
+    "nice",
+    "note",
+    "nape",
+    "none"
+  ],
+  "nk": [
+    "neck"
+  ],
+  "nl": [
+    "nail"
+  ],
+  "nm": [
+    "norm"
+  ],
+  "nn": [
+    "neon",
+    "noon",
+    "noun"
+  ],
+  "nr": [
+    "near"
+  ],
+  "ns": [
+    "nods",
+    "nuts",
+    "news"
+  ],
+  "nt": [
+    "next",
+    "nest",
+    "neat"
+  ],
+  "ny": [
+    "navy"
+  ],
+  "od": [
+    "owed"
+  ],
+  "oe": [
+    "once",
+    "oboe",
+    "ooze",
+    "ogle"
+  ],
+  "oh": [
+    "oath",
+    "ouch"
+  ],
+  "ok": [
+    "oink"
+  ],
+  "ol": [
+    "oral",
+    "oval",
+    "opal"
+  ],
+  "on": [
+    "omen",
+    "oven",
+    "open"
+  ],
+  "oo": [
+    "onto"
+  ],
+  "or": [
+    "over"
+  ],
+  "os": [
+    "ours",
+    "owns",
+    "ones",
+    "oaks",
+    "odds",
+    "oops",
+    "oils"
+  ],
+  "ot": [
+    "omit"
+  ],
+  "ox": [
+    "onyx"
+  ],
+  "oy": [
+    "oozy",
+    "obey",
+    "okay",
+    "only"
+  ],
+  "pa": [
+    "papa",
+    "para",
+    "plea",
+    "puma"
+  ],
+  "pd": [
+    "plod",
+    "paid",
+    "pond"
+  ],
+  "pe": [
+    "pipe",
+    "page",
+    "pale",
+    "pile",
+    "pace",
+    "pure",
+    "pose",
+    "pore",
+    "pine",
+    "pole"
+  ],
+  "pg": [
+    "plug",
+    "pang"
+  ],
+  "ph": [
+    "push",
+    "path",
+    "posh"
+  ],
+  "pk": [
+    "pink",
+    "pack",
+    "park",
+    "peak",
+    "punk",
+    "pork",
+    "pick"
+  ],
+  "pl": [
+    "pull",
+    "peel",
+    "pool"
+  ],
+  "pm": [
+    "palm",
+    "perm",
+    "poem"
+  ],
+  "pn": [
+    "plan",
+    "pain"
+  ],
+  "po": [
+    "peso",
+    "pogo",
+    "polo"
+  ],
+  "pp": [
+    "pulp",
+    "plop",
+    "pump"
+  ],
+  "pr": [
+    "poor",
+    "pour",
+    "pair",
+    "peer",
+    "purr"
+  ],
+  "ps": [
+    "pigs",
+    "pass",
+    "pays",
+    "pots",
+    "puts",
+    "plus"
+  ],
+  "pt": [
+    "past",
+    "putt",
+    "part",
+    "pest",
+    "post",
+    "pout",
+    "plot",
+    "poet",
+    "pelt",
+    "port"
+  ],
+  "pw": [
+    "plow"
+  ],
+  "py": [
+    "poly",
+    "pity",
+    "pony",
+    "ploy",
+    "pray",
+    "play",
+    "prey"
+  ],
+  "qt": [
+    "quit"
+  ],
+  "rd": [
+    "road",
+    "raid",
+    "reed",
+    "rind",
+    "read"
+  ],
+  "re": [
+    "rise",
+    "ripe",
+    "rule",
+    "ruse",
+    "rose",
+    "rice",
+    "race",
+    "rope",
+    "ride",
+    "rude",
+    "rake",
+    "rode",
+    "robe",
+    "rare",
+    "rage",
+    "role",
+    "rate"
+  ],
+  "rf": [
+    "roof"
+  ],
+  "rg": [
+    "rang",
+    "ring"
+  ],
+  "rh": [
+    "rich",
+    "rush",
+    "rash"
+  ],
+  "rk": [
+    "rock",
+    "rack",
+    "risk",
+    "rank",
+    "rink"
+  ],
+  "rl": [
+    "roll",
+    "rail",
+    "real"
+  ],
+  "rm": [
+    "room",
+    "ream"
+  ],
+  "rn": [
+    "ruin",
+    "rain"
+  ],
+  "rp": [
+    "ramp",
+    "romp"
+  ],
+  "rr": [
+    "rear",
+    "roar"
+  ],
+  "rs": [
+    "rays",
+    "reps",
+    "ribs",
+    "runs",
+    "rats",
+    "rows"
+  ],
+  "rt": [
+    "rent",
+    "rest",
+    "rift",
+    "root",
+    "rust",
+    "raft",
+    "rant",
+    "riot",
+    "runt"
+  ],
+  "ry": [
+    "rely",
+    "rosy",
+    "ruby"
+  ],
+  "sa": [
+    "sofa",
+    "soda",
+    "saga"
+  ],
+  "sb": [
+    "swab",
+    "slob",
+    "snub",
+    "slab"
+  ],
+  "sd": [
+    "sand",
+    "seed",
+    "stud",
+    "said",
+    "shed",
+    "spud",
+    "slid",
+    "send",
+    "skid",
+    "sold",
+    "sled"
+  ],
+  "se": [
+    "size",
+    "sage",
+    "sore",
+    "sake",
+    "sole",
+    "safe",
+    "side",
+    "some",
+    "shoe",
+    "same",
+    "sale",
+    "site",
+    "sure",
+    "save"
+  ],
+  "sf": [
+    "surf",
+    "self"
+  ],
+  "sg": [
+    "slug",
+    "sung",
+    "sing",
+    "song",
+    "smog",
+    "sang"
+  ],
+  "sh": [
+    "such",
+    "sigh",
+    "sash"
+  ],
+  "sk": [
+    "suck",
+    "sick",
+    "seek",
+    "sink",
+    "silk",
+    "sulk",
+    "sank",
+    "sock",
+    "sunk",
+    "sack"
+  ],
+  "sl": [
+    "sell",
+    "sill",
+    "seal",
+    "sail",
+    "soul",
+    "soil"
+  ],
+  "sm": [
+    "stem",
+    "swim",
+    "slim",
+    "seem",
+    "sham",
+    "slam",
+    "scam",
+    "slum"
+  ],
+  "sn": [
+    "skin",
+    "seen",
+    "scan",
+    "shun",
+    "sign",
+    "spin",
+    "spun",
+    "swan",
+    "soon",
+    "span"
+  ],
+  "so": [
+    "silo",
+    "solo"
+  ],
+  "sp": [
+    "slip",
+    "step",
+    "shop",
+    "soup",
+    "ship",
+    "soap",
+    "stop",
+    "skip",
+    "snap"
+  ],
+  "sr": [
+    "stir",
+    "scar",
+    "spur",
+    "sour",
+    "star"
+  ],
+  "ss": [
+    "sums",
+    "suds",
+    "sons",
+    "sins",
+    "says",
+    "seas",
+    "sits",
+    "sees",
+    "sets"
+  ],
+  "st": [
+    "slit",
+    "seat",
+    "shot",
+    "slot",
+    "salt",
+    "spot",
+    "skit",
+    "shut",
+    "sect",
+    "soft",
+    "sift",
+    "sort",
+    "silt",
+    "spit",
+    "sent",
+    "suit"
+  ],
+  "sw": [
+    "slow",
+    "spew",
+    "snow",
+    "show",
+    "slaw",
+    "skew",
+    "stew"
+  ],
+  "sy": [
+    "sway",
+    "spry",
+    "stay"
+  ],
+  "tb": [
+    "tomb"
+  ],
+  "td": [
+    "tend",
+    "told",
+    "thud",
+    "tied"
+  ],
+  "te": [
+    "true",
+    "tile",
+    "tame",
+    "tone",
+    "tide",
+    "tore",
+    "tree",
+    "type",
+    "tube",
+    "tune",
+    "take",
+    "time",
+    "tyke",
+    "tire",
+    "tape",
+    "tale"
+  ],
+  "tf": [
+    "turf"
+  ],
+  "tg": [
+    "tang",
+    "twig"
+  ],
+  "th": [
+    "tech"
+  ],
+  "ti": [
+    "taxi"
+  ],
+  "tk": [
+    "tank",
+    "talk",
+    "task",
+    "trek",
+    "took",
+    "tusk"
+  ],
+  "tl": [
+    "till",
+    "tall",
+    "tail",
+    "tool",
+    "tell",
+    "toll"
+  ],
+  "tm": [
+    "trim",
+    "term",
+    "team",
+    "them"
+  ],
+  "tn": [
+    "thin",
+    "than",
+    "turn",
+    "tion",
+    "town",
+    "torn",
+    "teen",
+    "then",
+    "twin"
+  ],
+  "to": [
+    "taco",
+    "trio"
+  ],
+  "tp": [
+    "trap",
+    "trip"
+  ],
+  "tr": [
+    "tier",
+    "tour",
+    "tear"
+  ],
+  "ts": [
+    "toys",
+    "toss",
+    "tips",
+    "tags",
+    "thus",
+    "tops",
+    "ties",
+    "toes",
+    "tons",
+    "taps",
+    "this"
+  ],
+  "tt": [
+    "tart",
+    "tint",
+    "that",
+    "text",
+    "tilt",
+    "tent",
+    "test"
+  ],
+  "tu": [
+    "thou",
+    "tutu"
+  ],
+  "tw": [
+    "thaw"
+  ],
+  "ty": [
+    "they",
+    "tiny",
+    "tidy",
+    "tray"
+  ],
+  "ud": [
+    "used"
+  ],
+  "ue": [
+    "urge"
+  ],
+  "un": [
+    "upon"
+  ],
+  "uo": [
+    "unto",
+    "undo"
+  ],
+  "ur": [
+    "user"
+  ],
+  "us": [
+    "uses"
+  ],
+  "ut": [
+    "unit"
+  ],
+  "uy": [
+    "ugly"
+  ],
+  "va": [
+    "visa"
+  ],
+  "vb": [
+    "verb"
+  ],
+  "vd": [
+    "void"
+  ],
+  "ve": [
+    "vice",
+    "vote"
+  ],
+  "vl": [
+    "veal",
+    "veil"
+  ],
+  "vn": [
+    "vain",
+    "vein"
+  ],
+  "vo": [
+    "veto"
+  ],
+  "vt": [
+    "vast",
+    "vest",
+    "volt"
+  ],
+  "vw": [
+    "view"
+  ],
+  "vy": [
+    "very",
+    "vary"
+  ],
+  "wb": [
+    "womb"
+  ],
+  "wd": [
+    "wand",
+    "wood",
+    "wind",
+    "wild",
+    "weed",
+    "word",
+    "ward"
+  ],
+  "we": [
+    "wave",
+    "wire",
+    "wine",
+    "woke",
+    "wide",
+    "wife",
+    "wore",
+    "wipe",
+    "were",
+    "wade",
+    "wise",
+    "wage",
+    "wake"
+  ],
+  "wf": [
+    "wolf",
+    "woof"
+  ],
+  "wg": [
+    "wing"
+  ],
+  "wh": [
+    "wash",
+    "with",
+    "wish"
+  ],
+  "wi": [
+    "wifi"
+  ],
+  "wk": [
+    "week",
+    "wink",
+    "weak",
+    "wick",
+    "walk",
+    "work"
+  ],
+  "wl": [
+    "wool",
+    "will",
+    "well",
+    "wall"
+  ],
+  "wm": [
+    "whom",
+    "warm",
+    "worm"
+  ],
+  "wn": [
+    "worn",
+    "when",
+    "warn"
+  ],
+  "wp": [
+    "wasp",
+    "whip",
+    "wrap",
+    "wimp"
+  ],
+  "wr": [
+    "wear"
+  ],
+  "ws": [
+    "ways",
+    "wins",
+    "wars"
+  ],
+  "wt": [
+    "west",
+    "want",
+    "wilt",
+    "what",
+    "wait",
+    "went"
+  ],
+  "wy": [
+    "wavy",
+    "wiry",
+    "wary"
+  ],
+  "ya": [
+    "yoga"
+  ],
+  "yd": [
+    "yard"
+  ],
+  "yh": [
+    "yeah"
+  ],
+  "yn": [
+    "yarn",
+    "yawn"
+  ],
+  "yo": [
+    "yoyo"
+  ],
+  "yp": [
+    "yelp"
+  ],
+  "yr": [
+    "your",
+    "year"
+  ],
+  "zc": [
+    "zinc"
+  ],
+  "ze": [
+    "zone"
+  ],
+  "zm": [
+    "zoom"
+  ],
+  "zo": [
+    "zero"
+  ],
+  "zs": [
+    "zips"
+  ]
+}
