@@ -8,13 +8,13 @@
     "and"
   ],
   "ae": [
-    "aye",
-    "ate",
-    "are",
-    "ale",
-    "ave",
     "age",
-    "awe"
+    "ale",
+    "are",
+    "ate",
+    "ave",
+    "awe",
+    "aye"
   ],
   "ah": [
     "ash"
@@ -43,34 +43,34 @@
   ],
   "at": [
     "act",
+    "ant",
     "apt",
-    "art",
-    "ant"
+    "art"
   ],
   "ay": [
     "any"
   ],
   "bd": [
-    "bud",
     "bad",
+    "bed",
     "bid",
-    "bed"
+    "bud"
   ],
   "be": [
-    "bye",
-    "bee"
+    "bee",
+    "bye"
   ],
   "bg": [
-    "big",
+    "bag",
     "beg",
-    "bag"
+    "big"
   ],
   "bk": [
     "bok"
   ],
   "bn": [
-    "bin",
-    "ban"
+    "ban",
+    "bin"
   ],
   "br": [
     "bar"
@@ -79,10 +79,10 @@
     "bus"
   ],
   "bt": [
+    "bat",
     "bet",
     "bit",
-    "but",
-    "bat"
+    "but"
   ],
   "bw": [
     "bow"
@@ -91,13 +91,13 @@
     "box"
   ],
   "by": [
-    "buy",
     "bay",
-    "boy"
+    "boy",
+    "buy"
   ],
   "cb": [
-    "cub",
-    "cab"
+    "cab",
+    "cub"
   ],
   "cd": [
     "cod"
@@ -106,21 +106,21 @@
     "cue"
   ],
   "cn": [
-    "con",
-    "can"
+    "can",
+    "con"
   ],
   "cp": [
-    "cup",
     "cap",
-    "cop"
+    "cop",
+    "cup"
   ],
   "cr": [
     "car"
   ],
   "ct": [
-    "cut",
     "cat",
-    "cot"
+    "cot",
+    "cut"
   ],
   "cw": [
     "cow"
@@ -132,27 +132,27 @@
     "dab"
   ],
   "dd": [
-    "did",
-    "dad"
+    "dad",
+    "did"
   ],
   "de": [
-    "dye",
+    "die",
     "due",
-    "die"
+    "dye"
   ],
   "dg": [
-    "dug",
+    "dig",
     "dog",
-    "dig"
+    "dug"
   ],
   "dm": [
-    "dim",
-    "dam"
+    "dam",
+    "dim"
   ],
   "dn": [
-    "don",
     "dan",
-    "den"
+    "den",
+    "don"
   ],
   "do": [
     "duo"
@@ -223,21 +223,21 @@
     "fun"
   ],
   "fr": [
-    "fur",
+    "far",
     "for",
-    "far"
+    "fur"
   ],
   "ft": [
-    "fit",
-    "fat"
+    "fat",
+    "fit"
   ],
   "fw": [
     "few"
   ],
   "fx": [
     "fax",
-    "fox",
-    "fix"
+    "fix",
+    "fox"
   ],
   "fy": [
     "fly",
@@ -272,8 +272,8 @@
   ],
   "gt": [
     "get",
-    "gut",
-    "got"
+    "got",
+    "gut"
   ],
   "gy": [
     "guy"
@@ -282,8 +282,8 @@
     "hub"
   ],
   "hd": [
-    "hid",
-    "had"
+    "had",
+    "hid"
   ],
   "hg": [
     "hug"
@@ -297,42 +297,42 @@
     "hen"
   ],
   "hp": [
-    "hop",
-    "hip"
+    "hip",
+    "hop"
   ],
   "hr": [
     "her"
   ],
   "hs": [
-    "his",
-    "has"
+    "has",
+    "his"
   ],
   "ht": [
-    "hot",
-    "hit",
     "hat",
+    "hit",
+    "hot",
     "hut"
   ],
   "hw": [
     "how"
   ],
   "hy": [
-    "hey",
-    "hay"
+    "hay",
+    "hey"
   ],
   "ie": [
     "ice"
   ],
   "ik": [
-    "irk",
-    "ink"
+    "ink",
+    "irk"
   ],
   "il": [
     "ill"
   ],
   "in": [
-    "ion",
-    "inn"
+    "inn",
+    "ion"
   ],
   "is": [
     "its"
@@ -356,8 +356,8 @@
     "jar"
   ],
   "jt": [
-    "jot",
-    "jet"
+    "jet",
+    "jot"
   ],
   "jw": [
     "jaw"
@@ -372,8 +372,8 @@
     "keg"
   ],
   "kn": [
-    "kin",
-    "ken"
+    "ken",
+    "kin"
   ],
   "kt": [
     "kit"
@@ -385,9 +385,9 @@
     "lab"
   ],
   "ld": [
-    "lid",
     "lad",
-    "led"
+    "led",
+    "lid"
   ],
   "le": [
     "lie"
@@ -398,13 +398,13 @@
     "log"
   ],
   "lp": [
-    "lip",
-    "lap"
+    "lap",
+    "lip"
   ],
   "lt": [
     "let",
-    "lot",
-    "lit"
+    "lit",
+    "lot"
   ],
   "lw": [
     "law",
@@ -417,25 +417,25 @@
     "mob"
   ],
   "md": [
-    "mud",
     "mad",
-    "mid"
+    "mid",
+    "mud"
   ],
   "mg": [
     "mug"
   ],
   "mm": [
-    "mum",
-    "mom"
+    "mom",
+    "mum"
   ],
   "mn": [
-    "min",
     "man",
-    "men"
+    "men",
+    "min"
   ],
   "mp": [
-    "mop",
-    "map"
+    "map",
+    "mop"
   ],
   "mr": [
     "mar"
@@ -464,22 +464,22 @@
     "nor"
   ],
   "nt": [
-    "nut",
     "net",
-    "not"
+    "not",
+    "nut"
   ],
   "nw": [
-    "now",
-    "new"
+    "new",
+    "now"
   ],
   "od": [
-    "old",
-    "odd"
+    "odd",
+    "old"
   ],
   "oe": [
-    "owe",
     "one",
-    "ore"
+    "ore",
+    "owe"
   ],
   "of": [
     "oaf",
@@ -518,27 +518,27 @@
     "pug"
   ],
   "pn": [
-    "pin",
+    "pan",
     "pen",
-    "pan"
+    "pin"
   ],
   "po": [
     "pro"
   ],
   "pp": [
-    "pop",
-    "pep"
+    "pep",
+    "pop"
   ],
   "pr": [
-    "per",
-    "par"
+    "par",
+    "per"
   ],
   "pt": [
-    "pet",
-    "put",
-    "pit",
     "pat",
-    "pot"
+    "pet",
+    "pit",
+    "pot",
+    "put"
   ],
   "px": [
     "pox"
@@ -552,9 +552,9 @@
     "rub"
   ],
   "rd": [
+    "red",
     "rid",
-    "rod",
-    "red"
+    "rod"
   ],
   "re": [
     "rue"
@@ -563,25 +563,25 @@
     "rug"
   ],
   "rm": [
-    "rum",
+    "ram",
     "rim",
-    "ram"
+    "rum"
   ],
   "rn": [
-    "run",
-    "ran"
+    "ran",
+    "run"
   ],
   "rt": [
-    "rot",
     "rat",
+    "rot",
     "rut"
   ],
   "rv": [
     "rev"
   ],
   "rw": [
-    "row",
-    "raw"
+    "raw",
+    "row"
   ],
   "ry": [
     "ray"
@@ -596,8 +596,8 @@
     "sac"
   ],
   "sd": [
-    "sud",
-    "sad"
+    "sad",
+    "sud"
   ],
   "se": [
     "see",
@@ -608,9 +608,9 @@
     "sum"
   ],
   "sn": [
-    "sun",
     "sin",
-    "son"
+    "son",
+    "sun"
   ],
   "sp": [
     "sip"
@@ -619,8 +619,8 @@
     "sir"
   ],
   "st": [
-    "set",
     "sat",
+    "set",
     "sit"
   ],
   "sw": [
@@ -630,19 +630,19 @@
     "sax"
   ],
   "sy": [
-    "shy",
     "say",
+    "shy",
+    "sky",
     "sly",
-    "spy",
     "soy",
-    "sky"
+    "spy"
   ],
   "ta": [
     "tea"
   ],
   "tb": [
-    "tub",
-    "tab"
+    "tab",
+    "tub"
   ],
   "te": [
     "the",
@@ -650,13 +650,13 @@
     "toe"
   ],
   "tg": [
-    "tug",
-    "tag"
+    "tag",
+    "tug"
   ],
   "tn": [
-    "tin",
     "tan",
     "ten",
+    "tin",
     "ton"
   ],
   "to": [
@@ -665,17 +665,17 @@
   ],
   "tp": [
     "tap",
-    "top",
-    "tip"
+    "tip",
+    "top"
   ],
   "tx": [
-    "tux",
-    "tax"
+    "tax",
+    "tux"
   ],
   "ty": [
+    "thy",
     "toy",
-    "try",
-    "thy"
+    "try"
   ],
   "ue": [
     "use"
@@ -696,8 +696,8 @@
     "wok"
   ],
   "wn": [
-    "won",
-    "win"
+    "win",
+    "won"
   ],
   "wo": [
     "who"
