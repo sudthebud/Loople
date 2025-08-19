@@ -54,15 +54,14 @@ def DetectOrGenerateWordList(detectOverride = False):
             for filePath in raw_dataset_files:
                 words.update(ReadListFromFile(os.path.join(raw_datasets_path, filePath), listAsSet=True))
 
-        else:
-            full_datasets_path = os.path.join(assets_path, datasets_path)
-            dataset_files = os.listdir(full_datasets_path)
+        full_datasets_path = os.path.join(assets_path, datasets_path)
+        dataset_files = os.listdir(full_datasets_path)
 
-            for filePath in dataset_files:
-                with open(os.path.join(full_datasets_path, filePath), 'r') as file:
-                    json_data = json.load(file)
+        for filePath in dataset_files:
+            with open(os.path.join(full_datasets_path, filePath), 'r') as file:
+                json_data = json.load(file)
 
-                    for key in json_data.keys():
-                        words.update(json_data[key])
+                for key in json_data.keys():
+                    words.update(json_data[key])
 
         WriteListToFile(filePath=os.path.join(raw_datasets_path, f'{raw_words_list_filePath}.txt'), list=sorted(words)) # Gives me the ability to check the entire list of words after
