@@ -23,12 +23,9 @@ otherFilesWordList = set()
 fileDiffWordList = set()
 
 for filePath in raw_dataset_files:
-    with open(os.path.join(consts.raw_datasets_path, filePath), 'r') as file:
-        for line in file:
-            lineAdjusted = (line[:-1] if line.endswith('\n') else line).lower()
-            if (lineAdjusted.isalpha() and len(lineAdjusted) >= 3 and len(lineAdjusted) <= 7):
-                if (filePath == fileName): fileDiffWordList.add(lineAdjusted)
-                else: otherFilesWordList.add(lineAdjusted)
+    fileWordList = consts.ReadListFromFile(os.path.join(consts.raw_datasets_path, filePath), listAsSet=True)
+    if (filePath == fileName): fileDiffWordList.update(fileWordList)
+    else: otherFilesWordList.update(fileWordList)
 
 wordsDiff = list(fileDiffWordList - otherFilesWordList)
 wordsDiff.sort()

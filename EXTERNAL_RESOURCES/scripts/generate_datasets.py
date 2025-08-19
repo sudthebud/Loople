@@ -10,12 +10,7 @@ import consts
 
 # Code
 consts.DetectOrGenerateWordList(detectOverride=True)
-words = []
-with open(os.path.join(consts.raw_datasets_path, f'{consts.raw_words_list_filePath}.txt'), 'r') as file:
-    for line in file:
-        lineAdjusted = (line[:-1] if line.endswith('\n') else line).lower()
-        if (lineAdjusted.isalpha() and len(lineAdjusted) >= 3 and len(lineAdjusted) <= 7):
-            words.append(lineAdjusted)
+words = consts.ReadListFromFile(os.path.join(consts.raw_datasets_path, f'{consts.raw_words_list_filePath}.txt'))
 
 dictBase = {}
 for c in string.ascii_lowercase:
