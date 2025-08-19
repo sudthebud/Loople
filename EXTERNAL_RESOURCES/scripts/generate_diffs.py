@@ -1,8 +1,10 @@
+#############################
+# This script allows me to look at words unique to a raw dataset and review them in case I need to take out some
+#############################
+
 # Imports
 import argparse
 import os
-import string
-import copy
 
 import consts
 
