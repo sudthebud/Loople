@@ -10,7 +10,7 @@ class WordSetup {
 
     static wordLoop = []
 
-    static turns = 15
+    static turns
 
 
     //Function to read JSON files
@@ -51,16 +51,20 @@ class WordSetup {
 
     //Function with algorithm to create word loop array
     static GenerateWordLoop() {
-        var numWords = maxNumWords
-        // var numWords = minNumWords
+        this.turns = currentDifficulty.numTurns
+        var numWords = currentDifficulty.numWords
 
-        var wordDictList = [
+        var wordDictListFull = [
             this.#wordDictThreeLetter,
             this.#wordDictFourLetter,
             this.#wordDictFiveLetter,
             this.#wordDictSixLetter,
             this.#wordDictSevenLetter
         ]
+        var wordDictList = []
+        for (let i = 0; i < currentDifficulty.wordDictListIndices.length; i++) {
+            wordDictList.push(wordDictListFull[currentDifficulty.wordDictListIndices[i]])
+        }
 
         this.wordLoop = []
         while (this.wordLoop.length < numWords) {

@@ -5,11 +5,42 @@ const imagePath = "images"
 // const soundPath = "sounds"
 
 //----------Game consts----------
-const minNumWords = 3
-const maxNumWords = 5
+const minNumWords = 3 //Need to set these despite difficulty
+const maxNumWords = 6 //Need to set these despite difficulty
 
 const minLetters = 3 * minNumWords - 1 * minNumWords
 const maxLetters = 7 * maxNumWords - 1 * maxNumWords
+
+const difficulty_easy = {
+    numTurns: 5,
+    numWords: 3,
+    wordDictListIndices: [0, 1, 2],
+    seeded: false
+}
+const difficulty_medium = {
+    numTurns: 10,
+    numWords: 4,
+    wordDictListIndices: [1, 2, 3],
+    seeded: false
+}
+const difficulty_hard = {
+    numTurns: 15,
+    numWords: 5,
+    wordDictListIndices: [0, 1, 2, 3, 4],
+    seeded: false
+}
+const difficulty_insane = {
+    numTurns: 20,
+    numWords: 6,
+    wordDictListIndices: [2, 3, 4],
+    seeded: false
+}
+const difficulty_daily = {
+    numTurns: 10,
+    numWords: 3,
+    wordDictListIndices: [2],
+    seeded: true
+}
 
 const controls_Time_DelayBeforeReactivation = 10
 
@@ -52,6 +83,7 @@ const ui_toast_text_invalidSubmit_previousSubmission = "Cannot submit the same g
 
 
 //----------Vars----------
+var currentDifficulty
 var randomNumberGenerator
 
 var loop

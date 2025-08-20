@@ -7,6 +7,7 @@ async function SetupGame() {
 function StartGame() {
     loopHistoryReset()
 
+    currentDifficulty = difficulty_medium
     WordSetup.GenerateWordLoop()
     currentTurns = 0
     //console.log(WordSetup.wordLoop)
