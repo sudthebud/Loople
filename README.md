@@ -3,22 +3,35 @@ Web based recreation of *Loople*, a game created for the **GMTK Game Jam 2025** 
 
 Mainly used this project as an opportunity to learn web development and JavaScript.
 
-## Known Issues
-- Controls
-    - Spamming the shortcuts for word history can cause the turn number to appear even if the turn history itself is gone
-    - Spamming the mouse to click a letter as the loop is being submitted can cause it to get stuck *(unsure if fixed)*
-    - Spamming the arrow keys to move between letters as the loop is being submitted can cause the submission process to mess up *(unsure if fixed)*
-- Visuals
-    - Loop is too large for vertical screen sizes
-    - Dialog boxes expand or shrink when screen size zooms in or out, respectively
-- Animation
-    - If an invalid word is submitted, the currently selected letter will sometimes stop hovering
-    - Turn number pill for word history selector has janky animations when opening the menu
-- Miscellaneous
-    - CSS does not yet support Mozilla and Webkit based browsers
-    - The URL does not work unless the case matches (this is intended behavior by webservers, but would like to find a way to fix this)
+## Features
+- Word loop consisting of 5 words (3-7 characters each) where the **end of each word is the beginning of another**
+- Interact with the word loop using **keyboard controls or the mouse**
+- Submit for **colored hints** based on guesses
+- Word loop history to **track and view previous submissions**
+- Playful **visuals and animations**
+- **Dialog boxes** to give info about Loople and its mechanics
 
-## Credits
+## Technical Highlights
+- **Backtracking algorithm** to retrieve words that form word loop
+- **Submission algorithm** with order of submission check
+    - Check if spaces are black
+    - Check if loop is exactly the same as the previous submission
+    - Check if any word does not exist in word bank
+    - Check if any letters are correct
+    - Check if any letters exist in the same word
+    - Check if any letters exist in any other word
+    - Mark the rest as nonexisting
+- **Saved word loop history** for easy access to previous submissions, and position/rotation that match current loop's
+- **Event listener library** to store, track, enable, and disable control events
+- Stylized CSS visuals and animations using **class and selector hierarchy**, many done with _only_ CSS
+- Python scripts to **generate, filter through, and track** word bank of nearly 10k words
+
+## How to Play
+Just click the link to the GitHub Pages website in the _"About"_ section of this repository!
+
+Alternatively, clone the repository and host the website on your local machine.
+
+## Credits and Resources
 - Inspired by *Wordle* by Josh Wardle
 - Datasets
     - Electronic Frontier Foundation
